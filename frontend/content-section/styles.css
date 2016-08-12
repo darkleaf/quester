@@ -1,0 +1,13 @@
+.container {
+    padding: 20px 0;
+}
+
+.highlighted {
+    background: lightgray;
+    background-size: 100px;
+}
+
+.inner {
+    margin: 0 100px;
+    padding: 0 40px; /* TODO: variable */
+}

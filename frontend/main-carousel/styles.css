@@ -1,0 +1,12 @@
+@use lost;
+
+.container {
+    height: 100px;
+    lost-align: center;
+
+    border: solid 1px black;
+}
+
+.inner {
+    border: solid 1px black;
+}
