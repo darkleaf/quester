@@ -1,15 +1,16 @@
 import React, {Component} from "react"
 import styles from './styles.css'
 
-export default class Nav extends Component {
+export default class NavItem extends Component {
   render() {
     return (
       <div className={styles.container}>
-        Quester nav
+        <div>{this.props.name}</div>
       </div>
     )
   }
 }
 
-Nav.propTypes = {
+NavItem.propTypes = {
+  name: React.PropTypes.string.isRequired
 };

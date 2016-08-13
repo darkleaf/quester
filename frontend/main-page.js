@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 
-import Nav from './nav'
+import {Nav, NavSection} from './nav'
+import NavBrand from './nav-brand'
+import NavItem from './nav-item'
 import ContentSection from './content-section'
 import MainCarousel from './main-carousel'
 import MainFilter from './main-filter'
@@ -14,7 +16,17 @@ export default class MainPage extends Component {
   render() {
     return (
       <div>
-        <Nav />
+        <Nav>
+          <NavSection>
+            <NavBrand name="Quester" />
+            <NavItem name="Квесты" />
+          </NavSection>
+
+          <NavSection>
+            <NavItem name="Избранное" />
+            <NavItem name="Выйти" />
+          </NavSection>
+        </Nav>
 	      <MainCarousel>
           <MainFilter />
         </MainCarousel>

@@ -1,3 +1,4 @@
-import Component from "./component"
+import Nav from './nav'
+import NavSection from './nav-section'
 
-export default Component
+export {Nav, NavSection}
