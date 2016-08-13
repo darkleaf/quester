@@ -1,5 +1,8 @@
 .container {
-    height: 60px;
+}
 
-    border: solid 1px black;
+.image {
+    border: solid 1px lightgray;
+    display: block;
+    max-width: 100%;
 }

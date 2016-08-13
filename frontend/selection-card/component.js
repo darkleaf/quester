@@ -5,12 +5,14 @@ export default class SelectionCard extends Component {
   render() {
     return (
       <div className={styles.container}>
-        <div>{this.props.name}</div>
+        <img className={styles.image} src={this.props.imageUrl} />
+        <div className={styles.name}>{this.props.name}</div>
       </div>
     )
   }
 }
 
 SelectionCard.propTypes = {
-  name: React.PropTypes.string.isRequired
+  name: React.PropTypes.string.isRequired,
+  imageUrl: React.PropTypes.string.isRequired
 };

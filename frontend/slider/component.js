@@ -1,15 +1,23 @@
 import React, {Component} from 'react'
 import styles from './styles.css'
 
+function Header({title, seeAllUrl, totalCount}) {
+  return <div className={styles.header}>
+    <div className={styles.title}>{title}</div>
+    <div>
+      <a href={seeAllUrl}>Все ({totalCount})</a>
+    </div>
+  </div>
+}
+
+
 export default class Slider extends Component {
   render() {
     const columns = React.Children.count(this.props.children);
     return (
       <div className={styles.container}>
 
-        <div className={styles.header}>
-          <div>{this.props.title}</div>
-        </div>
+        <Header {...this.props} />
 
         <div className={styles.content}>
           <div className={styles.leftArrow}>&lt;</div>
@@ -30,5 +38,7 @@ export default class Slider extends Component {
 }
 
 Slider.propTypes = {
-  title: React.PropTypes.string.isRequired
+  title: React.PropTypes.string.isRequired,
+  seeAllUrl: React.PropTypes.string.isRequired,
+  totalCount: React.PropTypes.number.isRequired
 };

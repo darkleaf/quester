@@ -10,7 +10,5 @@
 }
 
 .inner {
-    box-sizing: border-box;
-    lost-center: 900px 30px;
-    padding: 0 40px; /* TODO: variable */
+    lost-center: 1290px 50px;  //TODO: padding to var??
 }

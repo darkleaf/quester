@@ -1,5 +1,17 @@
-.container {
-    height: 150px;
+@use postcss-center;
 
-    border: solid 1px black;
+.container {
+    position: relative;
+}
+
+.image {
+    display: block;
+    max-width: 100%;
+}
+
+.name {
+    text-align: center;
+    color: white;
+    bottom: 40px;
+    left: center;
 }

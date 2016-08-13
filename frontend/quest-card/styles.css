@@ -1,5 +1,22 @@
 .container {
-    height: 100px;
+}
 
-    border: solid 1px black;
+.image {
+    display: block;
+    max-width: 100%;
+}
+
+.name {
+}
+
+.info {
+    display: flex;
+}
+
+.info * {
+    margin-right: 15px;
+}
+
+.price {
+    color: red;
 }

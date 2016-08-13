@@ -1,12 +1,24 @@
-@use lost;
+@use postcss-center;
 
 .container {
-    height: 100px;
-    lost-align: center;
+    position: relative;
 
-    border: solid 1px black;
+    color: white; //TODO: remove
+}
+
+.image {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
 }
 
 .inner {
-    border: solid 1px black;
+    top: center;
+    left: center;
+}
+
+.bottom {
+    left: center;
+    bottom: 10px;
 }

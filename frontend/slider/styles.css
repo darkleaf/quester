@@ -1,13 +1,19 @@
 @use lost;
 @use postcss-simple-vars;
 
-$button-width: 40px;
+$button-width: 50px;
 
 .container {
 }
 
 .header {
+    display: flex;
 }
+
+.header .title {
+    margin-right: 15px;
+}
+
 
 .content {
     position: relative;
