@@ -13,7 +13,7 @@ $button-width: 40px;
     position: relative;
 }
 
-.left, .right {
+.left-arrow, .right-arrow {
     position: absolute;
     top: 0;
     height: 100%;
@@ -26,11 +26,11 @@ $button-width: 40px;
     background: darkgray;
 }
 
-.left {
+.left-arrow {
     left: -$button-width;
 }
 
-.right {
+.right-arrow {
     right: -$button-width;
 }
 
@@ -39,7 +39,7 @@ $button-width: 40px;
 }
 
 .item-1 {
-    lost-column: 1;
+    lost-column: 1/1;
 }
 
 .item-2 {
