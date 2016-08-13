@@ -1,3 +1,5 @@
+@use lost;
+
 .container {
     padding: 20px 0;
 }
@@ -8,6 +10,7 @@
 }
 
 .inner {
-    margin: 0 100px;
+    box-sizing: border-box;
+    lost-center: 900px 30px;
     padding: 0 40px; /* TODO: variable */
 }
