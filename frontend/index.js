@@ -6,8 +6,7 @@ import ru from 'react-intl/locale-data/ru';
 addLocaleData([...ru]);
 
 
-import MainPage from "./examples/main-page"
+import Examples from "./examples"
 
 
-ReactDOM.render(<MainPage />, document.getElementById('root')
-);
+ReactDOM.render(<Examples />, document.getElementById('root'));
