@@ -14,8 +14,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/',
-    library: 'UI'
+    publicPath: '/static/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()

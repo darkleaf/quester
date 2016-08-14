@@ -41,6 +41,11 @@ export default class MainPage extends Component {
           <MainCarousel
             title="<b>Москва 2048,</b> Клаустрофобия"
             currentImageUrl="https://placeimg.com/1900/500/arch"
+            indicators={[
+              {onClick: () => null},
+              {onClick: () => null, active: true},
+              {onClick: () => null},
+            ]}
           >
             <MainFilter />
           </MainCarousel>
