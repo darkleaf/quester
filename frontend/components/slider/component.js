@@ -1,11 +1,14 @@
 import React, {Component} from 'react'
+import {FormattedMessage} from 'react-intl'
 import styles from './styles.css'
 
 function Header({title, seeAllUrl, totalCount}) {
   return <div className={styles.header}>
     <div className={styles.title}>{title}</div>
     <div>
-      <a href={seeAllUrl}>Все ({totalCount})</a>
+      <a href={seeAllUrl}>
+        <FormattedMessage id="Slider.Header.totalCount" values={{totalCount}} />
+      </a>
     </div>
   </div>
 }

@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import {FormattedMessage} from 'react-intl'
 import styles from './styles.css'
 
 export default class CompanyCard extends Component {
@@ -7,7 +8,12 @@ export default class CompanyCard extends Component {
       <div className={styles.container}>
         <img className={styles.image} src={this.props.imageUrl} />
         <div className={styles.name}>{this.props.name}</div>
-        <div className={styles.questCount}>{this.props.questCount}</div>
+        <div className={styles.questCount}>
+          <FormattedMessage
+            id="CompanyCard.questCount"
+            values={{questCount: this.props.questCount}}
+          />
+        </div>
       </div>
     )
   }
