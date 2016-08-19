@@ -1,5 +1,5 @@
-import React, {Component} from "react"
-import styles from './nav.css'
+import React, { Component } from 'react';
+import styles from './nav.css';
 
 export default class Nav extends Component {
   render() {
@@ -7,7 +7,7 @@ export default class Nav extends Component {
       <div className={styles.container}>
         {this.props.children}
       </div>
-    )
+    );
   }
 }
 

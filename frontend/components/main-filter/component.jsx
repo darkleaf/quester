@@ -1,5 +1,5 @@
-import React, {Component} from "react"
-import {FormattedMessage} from 'react-intl'
+import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 export default class MainFilter extends Component {
   render() {
@@ -8,11 +8,11 @@ export default class MainFilter extends Component {
         <div>
           <FormattedMessage id="MainFilter.title" />
         </div>
-        {/*TODO pass as children*/}
+        {/* TODO pass as children*/}
         <div>Категрия Участники Дата Цена Найти</div>
 
       </div>
-    )
+    );
   }
 }
 

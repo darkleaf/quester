@@ -1,16 +1,16 @@
-import React, {Component} from 'react'
-import {FormattedMessage} from 'react-intl'
-import styles from './styles.css'
+import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
+import styles from './styles.css';
 
-function Header({title, seeAllUrl, totalCount}) {
-  return <div className={styles.header}>
+function Header({ title, seeAllUrl, totalCount }) {
+  return (<div className={styles.header}>
     <div className={styles.title}>{title}</div>
     <div>
       <a href={seeAllUrl}>
-        <FormattedMessage id="Slider.Header.totalCount" values={{totalCount}} />
+        <FormattedMessage id="Slider.Header.totalCount" values={{ totalCount }} />
       </a>
     </div>
-  </div>
+  </div>);
 }
 
 
@@ -27,21 +27,21 @@ export default class Slider extends Component {
 
           <div className={styles.list}>
             {React.Children.map(this.props.children, (child) => {
-              return <div className={styles[`item-${columns}`]}>
+              return (<div className={styles[`item-${columns}`]}>
                 {child}
-              </div>
+              </div>);
             })}
           </div>
 
           <div className={styles.rightArrow}>&gt;</div>
         </div>
       </div>
-    )
+    );
   }
 }
 
 Slider.propTypes = {
   title: React.PropTypes.string.isRequired,
   seeAllUrl: React.PropTypes.string.isRequired,
-  totalCount: React.PropTypes.number.isRequired
+  totalCount: React.PropTypes.number.isRequired,
 };

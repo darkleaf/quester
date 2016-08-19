@@ -1,5 +1,5 @@
-import React, {Component} from "react"
-import styles from './styles.css'
+import React, { Component } from 'react';
+import styles from './styles.css';
 
 export default class NavBrand extends Component {
   render() {
@@ -7,10 +7,10 @@ export default class NavBrand extends Component {
       <div className={styles.container}>
         <div>{this.props.name}</div>
       </div>
-    )
+    );
   }
 }
 
 NavBrand.propTypes = {
-  name: React.PropTypes.string.isRequired
+  name: React.PropTypes.string.isRequired,
 };

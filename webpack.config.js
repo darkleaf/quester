@@ -1,38 +1,41 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
-var autoprefixer = require('autoprefixer');
-var use = require('postcss-use');
+const autoprefixer = require('autoprefixer');
+const use = require('postcss-use');
 
 module.exports = {
   devtool: 'eval',
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    './frontend/index'
+    './frontend/index',
   ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/static/',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+  },
   module: {
     loaders: [{
-      test: /\.js$/,
+      test: /\.jsx?$/,
       loaders: ['react-hot', 'babel'],
-      include: path.join(__dirname, 'frontend')
+      include: path.join(__dirname, 'frontend'),
     }, {
-      test:   /\.css$/,
+      test: /\.css$/,
       loaders: [
         'style-loader',
         'css?modules&camelCase&localIdentName=[path][name]---[local]---[hash:base64:5]',
-        'postcss']
-    }]
+        'postcss'],
+    }],
   },
-  postcss: function () {
-    return [use({modules: '*' }), autoprefixer];
-  }
+  postcss() {
+    return [use({ modules: '*' }), autoprefixer];
+  },
 };
