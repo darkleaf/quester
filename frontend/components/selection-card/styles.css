@@ -1,17 +1,17 @@
 @use postcss-center;
 
 .container {
-    position: relative;
+  position: relative;
 }
 
 .image {
-    display: block;
-    max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
 
 .name {
-    text-align: center;
-    color: white;
-    top: center;
-    left: center;
+  text-align: center;
+  color: white;
+  top: center;
+  left: center;
 }

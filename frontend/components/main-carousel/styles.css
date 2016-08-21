@@ -3,49 +3,48 @@
 @use postcss-initial;
 
 .container {
-    position: relative;
-
-    color: white;
+  position: relative;
+  color: white;
 }
 
 .image {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .inner {
-    top: center;
-    left: center;
+  top: center;
+  left: center;
 }
 
 .bottom {
-    left: center;
-    bottom: 10px;
+  left: center;
+  bottom: 10px;
 }
 
 .title {
-    text-align: center;
+  text-align: center;
 }
 
 .indicators {
-    all: initial;
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
+  all: initial;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
 }
 
 .indicator {
-    all: initial;
-    margin: 0 5px;
-    border: solid 1px white;
-    border-radius: 10px;
-    height: @border-radius;
-    width: @border-radius;
-    cursor: pointer;
+  all: initial;
+  margin: 0 5px;
+  border: solid 1px white;
+  border-radius: 10px;
+  height: @border-radius;
+  width: @border-radius;
+  cursor: pointer;
 }
 
 .activeIndicator {
-    background-color: white;
+  background-color: white;
 }
