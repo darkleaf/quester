@@ -26,11 +26,9 @@ export default class Slider extends Component {
           <div className={styles.leftArrow}>&lt;</div>
 
           <div className={styles.list}>
-            {React.Children.map(this.props.children, (child) => {
-              return (<div className={styles[`item-${columns}`]}>
-                {child}
-              </div>);
-            })}
+            {React.Children.map(this.props.children, (child) =>
+              <div className={styles[`item-${columns}`]}>{child}</div>
+            )}
           </div>
 
           <div className={styles.rightArrow}>&gt;</div>
@@ -40,8 +38,12 @@ export default class Slider extends Component {
   }
 }
 
-Slider.propTypes = {
+Header.propTypes = {
   title: React.PropTypes.string.isRequired,
   seeAllUrl: React.PropTypes.string.isRequired,
   totalCount: React.PropTypes.number.isRequired,
+};
+
+Slider.propTypes = {
+  children: React.PropTypes.array.isRequired,
 };

@@ -12,6 +12,7 @@ export default class AppContainer extends Component {
 }
 
 AppContainer.propTypes = {
+  children: React.PropTypes.array.isRequired,
 };
 
 AppContainer.defaultProps = {

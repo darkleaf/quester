@@ -54,6 +54,20 @@ export default class QuestCard extends Component {
   }
 }
 
+Price.propTypes = {
+  min: React.PropTypes.number.isRequired,
+  max: React.PropTypes.number.isRequired,
+};
+
+Participants.propTypes = {
+  min: React.PropTypes.number.isRequired,
+  max: React.PropTypes.number.isRequired,
+};
+
+Rating.propTypes = {
+  value: React.PropTypes.number.isRequired,
+};
+
 QuestCard.propTypes = {
   name: React.PropTypes.string.isRequired,
   imageUrl: React.PropTypes.string.isRequired,

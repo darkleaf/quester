@@ -21,6 +21,7 @@ export default class ContentSection extends Component {
 
 ContentSection.propTypes = {
   highlighted: React.PropTypes.bool,
+  children: React.PropTypes.element.isRequired,
 };
 
 ContentSection.defaultProps = {
