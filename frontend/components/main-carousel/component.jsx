@@ -21,7 +21,7 @@ export default class MainCarousel extends Component {
 
           <ul className={styles.indicators}>
             {this.props.indicators.map(indicator => {
-              const handler = indicator.onClick.bind(indicator);
+              const handler = indicator.onClick;
               const classes = classNames(
                 styles.indicator,
                 {
