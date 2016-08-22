@@ -1,14 +1,14 @@
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const config = require('./webpack.config');
 
-var port = process.env.PORT || 3000;
-var host = process.env.PORT ? '0.0.0.0' : 'localhost';
+const port = process.env.PORT || 3000;
+const host = process.env.PORT ? '0.0.0.0' : 'localhost';
 
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   hot: true,
-  historyApiFallback: true
+  historyApiFallback: true,
 }).listen(port, host, function (err, result) {
   if (err) {
     return console.log(err);

@@ -1,8 +1,9 @@
 .container {
+  /* todo: some style */
 }
 
 .image {
-    border: solid 1px lightgray;
-    display: block;
-    max-width: 100%;
+  border: solid 1px lightgray;
+  display: block;
+  max-width: 100%;
 }
