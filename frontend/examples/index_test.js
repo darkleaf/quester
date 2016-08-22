@@ -1,11 +1,13 @@
+import React from 'react';
 import { describe, it } from 'mocha';
 import assert from 'assert';
+import Examples from './index';
 
-describe('some test', () => {
-  it('should work', () => {
-    assert.equal(1, 1);
-  });
-  it('shouldn\'t work', () => {
-    assert.equal(1, 2);
+import ReactDOMServer from 'react-dom/server';
+
+describe('<Examples>', () => {
+  it('shouldn\'t be empty', () => {
+    var html = ReactDOMServer.renderToStaticMarkup(<Examples/>);
+    assert(html.length > 0);
   });
 });

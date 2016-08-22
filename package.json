@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "devtest": "webpack-dev-server --config webpack.config.test.js",
+    "pretest": "webpack --config webpack.config.test.js",
+    "test": "mocha dist/tests.js"
     "build": "webpack"
   },
   "author": "",

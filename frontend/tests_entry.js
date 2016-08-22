@@ -1,2 +1,2 @@
-const context = require.context('mocha!./examples', true, /_test\.js$/);
+const context = require.context('mocha!./', true, /_test\.js$/);
 context.keys().forEach(context);
