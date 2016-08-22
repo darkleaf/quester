@@ -1,12 +1,10 @@
 import React from 'react';
-import { describe, it } from 'mocha';
+import ReactDOMServer from 'react-dom/server';
 import assert from 'assert';
 import Examples from './index';
 
-import ReactDOMServer from 'react-dom/server';
-
-describe('<Examples>', () => {
-  it('shouldn\'t be empty', () => {
+describe("Examples component", () => {
+  it("should be present", () => {
     var html = ReactDOMServer.renderToStaticMarkup(<Examples/>);
     assert(html.length > 0);
   });

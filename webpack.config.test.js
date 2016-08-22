@@ -9,7 +9,8 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loader: 'babel'
+      loader: 'babel',
+      include: path.join(__dirname, 'frontend')
     }, {
       test:   /\.css$/,
       loader: 'null-loader'
