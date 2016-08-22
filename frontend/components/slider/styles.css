@@ -25,9 +25,11 @@ $button-width: 50px;
   top: 0;
   height: 100%;
   width: $button-width;
+  
   display: flex;
   justify-content: center; /* align horizontal */
   align-items: center; /* align vertical */
+  
   background: darkgray;
 }
 
