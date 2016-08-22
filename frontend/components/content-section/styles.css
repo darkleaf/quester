@@ -1,14 +1,14 @@
 @use lost;
 
 .container {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 .highlighted {
-    background: lightgray;
-    background-size: 100px;
+  background: lightgray;
+  background-size: 100px;
 }
 
 .inner {
-    lost-center: 1290px 50px;  //TODO: padding to var??
+  lost-center: 1290px 50px; /* todo: padding to var?? */
 }
