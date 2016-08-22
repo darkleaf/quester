@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "pretest": "webpack --config webpack.config.test.js",
-    "test": "mocha dist/tests.js"
+    "test": "mocha dist/tests.js",
     "build": "webpack"
   },
   "author": "",
