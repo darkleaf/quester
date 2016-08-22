@@ -4,6 +4,8 @@ parser: babel-eslint
 
 rules:
     react/prefer-stateless-function: 0
+    arrow-body-style:
+      - off
 
 env:
   node: true

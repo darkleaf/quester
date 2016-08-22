@@ -6,8 +6,10 @@ function Price({ min, max }) {
   return (
     <div className={styles.price}>
       <FormattedNumber
-        value={min} style="currency"
-        currency="rub" currencyDisplay="symbol"
+        value={min}
+        style="currency"
+        currency="rub"
+        currencyDisplay="symbol"
         maximumFractionDigits={0}
       />
       &nbsp;&mdash;&nbsp;
@@ -22,6 +24,11 @@ function Price({ min, max }) {
   );
 }
 
+Price.propTypes = {
+  min: React.PropTypes.number.isRequired,
+  max: React.PropTypes.number.isRequired,
+};
+
 function Participants({ min, max }) {
   return (
     <div className={styles.participants}>
@@ -30,6 +37,11 @@ function Participants({ min, max }) {
   );
 }
 
+Participants.propTypes = {
+  min: React.PropTypes.number.isRequired,
+  max: React.PropTypes.number.isRequired,
+};
+
 function Rating({ value }) {
   return (
     <div className={styles.rating}>
@@ -37,6 +49,10 @@ function Rating({ value }) {
     </div>
   );
 }
+
+Rating.propTypes = {
+  value: React.PropTypes.number.isRequired,
+};
 
 export default class QuestCard extends Component {
   render() {
@@ -53,20 +69,6 @@ export default class QuestCard extends Component {
     );
   }
 }
-
-Price.propTypes = {
-  min: React.PropTypes.number.isRequired,
-  max: React.PropTypes.number.isRequired,
-};
-
-Participants.propTypes = {
-  min: React.PropTypes.number.isRequired,
-  max: React.PropTypes.number.isRequired,
-};
-
-Rating.propTypes = {
-  value: React.PropTypes.number.isRequired,
-};
 
 QuestCard.propTypes = {
   name: React.PropTypes.string.isRequired,
