@@ -8,7 +8,7 @@ export default class MainFilter extends Component {
         <div>
           <FormattedMessage id="MainFilter.title" />
         </div>
-        {/* TODO pass as children*/}
+        {/* TODO pass as children */}
         <div>Категрия Участники Дата Цена Найти</div>
 
       </div>
