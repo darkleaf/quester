@@ -6,3 +6,6 @@ script:
   - npm run build #TODO: убрать, когда сделаем тестирование в DOM
   - npm run lint
   - npm run stylelint
+cache:
+  directories:
+    - node_modules
