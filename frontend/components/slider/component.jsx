@@ -23,6 +23,11 @@ Header.propTypes = {
 };
 
 export default class Slider extends Component {
+  constructor(props) {
+    super(props);
+    this.renderChild = this.renderChild.bind(this);
+  }
+
   renderChild(child) {
     const columns = React.Children.count(this.props.children);
     return <div className={styles[`item-${columns}`]}>{child}</div>;
