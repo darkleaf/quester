@@ -1,17 +1,17 @@
-import React, {Component} from 'react'
-import {IntlProvider} from 'react-intl';
-import messages from '../messages'
+import React, { Component } from 'react';
+import { IntlProvider } from 'react-intl';
+import messages from '../messages';
 
-import MainPage from './main-page'
+import MainPage from './main-page';
 
 function Divider() {
   const style = {
     padding: '25px 0',
     color: 'white',
     textAlign: 'center',
-    background: 'black'
+    background: 'black',
   };
-  return <div style={style}>New page</div>
+  return <div style={style}>New page</div>;
 }
 
 
@@ -24,6 +24,6 @@ export default class Examples extends Component {
           <Divider />
         </div>
       </IntlProvider>
-    )
+    );
   }
 }

@@ -1,38 +1,64 @@
-import React, {Component} from "react"
-import {FormattedNumber} from 'react-intl'
-import styles from './styles.css'
+import React, { Component } from 'react';
+import { FormattedNumber } from 'react-intl';
+import styles from './styles.css';
 
-function Price({min, max}) {
+function Price({ min, max }) {
   return (
     <div className={styles.price}>
-      <FormattedNumber value={min} style="currency" currency="rub" currencyDisplay="symbol" maximumFractionDigits={0} />
+      <FormattedNumber
+        value={min}
+        style="currency"
+        currency="rub"
+        currencyDisplay="symbol"
+        maximumFractionDigits={0}
+      />
       &nbsp;&mdash;&nbsp;
-      <FormattedNumber value={max} style="currency" currency="rub" currencyDisplay="symbol" maximumFractionDigits={0} />
+      <FormattedNumber
+        value={max}
+        style="currency"
+        currency="rub"
+        currencyDisplay="symbol"
+        maximumFractionDigits={0}
+      />
     </div>
-  )
+  );
 }
 
-function Participants({min, max}) {
+Price.propTypes = {
+  min: React.PropTypes.number.isRequired,
+  max: React.PropTypes.number.isRequired,
+};
+
+function Participants({ min, max }) {
   return (
     <div className={styles.participants}>
       {min}&mdash;{max}
     </div>
-  )
+  );
 }
 
-function Rating({value}) {
+Participants.propTypes = {
+  min: React.PropTypes.number.isRequired,
+  max: React.PropTypes.number.isRequired,
+};
+
+function Rating({ value }) {
   return (
     <div className={styles.rating}>
       <FormattedNumber value={value} minimumFractionDigits={0} maximumFractionDigits={1} />
     </div>
-  )
+  );
 }
+
+Rating.propTypes = {
+  value: React.PropTypes.number.isRequired,
+};
 
 export default class QuestCard extends Component {
   render() {
     return (
       <div className={styles.container}>
-        <img className={styles.image} src={this.props.imageUrl} />
+        <img className={styles.image} src={this.props.imageUrl} role="presentation" />
         <div className={styles.name}>{this.props.name}</div>
         <div className={styles.info}>
           <Price min={this.props.priceMin} max={this.props.priceMax} />
@@ -40,7 +66,7 @@ export default class QuestCard extends Component {
           <Rating value={this.props.rating} />
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -54,5 +80,5 @@ QuestCard.propTypes = {
   participantsMin: React.PropTypes.number.isRequired,
   participantsMax: React.PropTypes.number.isRequired,
 
-  rating: React.PropTypes.number.isRequired
+  rating: React.PropTypes.number.isRequired,
 };

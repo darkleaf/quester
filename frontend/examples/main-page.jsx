@@ -1,18 +1,18 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react';
 
-import AppContainer from '../components/app-container'
-import {Nav, NavSection} from '../components/nav'
-import NavBrand from '../components/nav-brand'
-import NavItem from '../components/nav-item'
-import NavSearch from '../components/nav-search'
-import ContentSection from '../components/content-section'
-import MainCarousel from '../components/main-carousel'
-import MainFilter from '../components/main-filter'
-import Slider from '../components/slider'
-import QuestCard from '../components/quest-card'
-import SelectionCard from '../components/selection-card'
-import ReviewCard from '../components/review-card'
-import CompanyCard from '../components/company-card'
+import AppContainer from '../components/app-container';
+import { Nav, NavSection } from '../components/nav';
+import NavBrand from '../components/nav-brand';
+import NavItem from '../components/nav-item';
+import NavSearch from '../components/nav-search';
+import ContentSection from '../components/content-section';
+import MainCarousel from '../components/main-carousel';
+import MainFilter from '../components/main-filter';
+import Slider from '../components/slider';
+import QuestCard from '../components/quest-card';
+import SelectionCard from '../components/selection-card';
+import ReviewCard from '../components/review-card';
+import CompanyCard from '../components/company-card';
 
 export default class MainPage extends Component {
   render() {
@@ -38,9 +38,9 @@ export default class MainPage extends Component {
           title="<b>Москва 2048,</b> Клаустрофобия"
           currentImageUrl="https://placeimg.com/1900/500/arch"
           indicators={[
-            {onClick: () => null},
-            {onClick: () => null, active: true},
-            {onClick: () => null}
+            { onClick: () => null },
+            { onClick: () => null, active: true },
+            { onClick: () => null },
           ]}
         >
           <MainFilter />
@@ -220,6 +220,6 @@ export default class MainPage extends Component {
           </Slider>
         </ContentSection>
       </AppContainer>
-    )
+    );
   }
 }

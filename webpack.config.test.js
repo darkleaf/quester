@@ -1,20 +1,23 @@
-var path = require('path');
+const path = require('path');
 
 module.exports = {
   entry: './frontend/tests_entry.js',
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'tests.js'
+    filename: 'tests.js',
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
   },
   module: {
     loaders: [{
-      test: /\.js$/,
+      test: /\.jsx?$/,
       loader: 'babel',
-      include: path.join(__dirname, 'frontend')
+      include: path.join(__dirname, 'frontend'),
     }, {
-      test:   /\.css$/,
-      loader: 'null-loader'
-    }]
+      test: /\.css$/,
+      loader: 'null-loader',
+    }],
   },
-  target: 'node'
+  target: 'node',
 };

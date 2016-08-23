@@ -7,5 +7,5 @@ export default {
     many {квестов}
     other {квеста}
   }`,
-  'Slider.Header.totalCount': 'Все ({totalCount})'
-}
+  'Slider.Header.totalCount': 'Все ({totalCount})',
+};
