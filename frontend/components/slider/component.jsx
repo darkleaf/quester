@@ -15,7 +15,6 @@ function Header({ title, seeAllUrl, totalCount }) {
   );
 }
 
-
 Header.propTypes = {
   title: React.PropTypes.string.isRequired,
   seeAllUrl: React.PropTypes.string.isRequired,
