@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "webpack --config webpack.config.test.js && cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha dist/tests.js",
+    "test": "cross-env NODE_ENV=test webpack --config webpack.config.test.js && nyc --reporter=lcov --reporter=text mocha dist/tests.js",
     "build": "webpack",
     "lint": "eslint --ext=jsx --ext=js frontend",
     "lint-fix": "eslint --fix --ext=jsx --ext=js frontend",

@@ -2,11 +2,9 @@
   "presets": ["es2015", "react"],
   "env": {
     "test": {
-      "plugins": ["istanbul", {
-        "exclude": [
-          "**/*_test.jsx"
+      "plugins": [
+          ["istanbul", {"exclude": ["**/*_test.jsx"]}]
         ]
-      }]
     }
   }
 }
