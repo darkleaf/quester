@@ -1,0 +1,85 @@
+<AppContainer>
+  <Nav existing>
+    <NavSection existing>
+      <NavBrand existing/>
+      <NavItem existing/>
+      <NavItem existing/>
+      <NavItem existing/>
+      <NavItem existing/>
+      <NavSearch existing/>
+    </NavSection>
+
+    <NavSection existing>
+      <NavItem existing/>
+      <NavItem existing/>
+      <NavItem existing/>
+    </NavSection>
+  </Nav>
+
+  <MainCarousel existing>
+  </MainCarousel>
+
+  <ContentSection existing>
+    <ContentSectionMain>
+      <QuestHeader>
+        <Title/>
+        <Rating/>
+        <CommentCount/>
+      </QuestHeader>
+
+      <QuestIcons>
+        <PlayerIcon/>
+        <TimeIcon/>
+        <SourceIcon/>
+        <DifficultyIcon/>
+        <PriceIcon/>
+        <AgeIcon/>
+      </QuestIcons>
+
+      <QuestShortDescription/>
+
+      <QuestSchedule>
+        <DaySchedule/>
+        <DaySchedule/>
+        <DaySchedule/>
+        <DaySchedule/>
+        <DaySchedule/>
+      </QuestSchedule>
+
+      <QuestLocation>
+        <LocationTitle/>
+        <LocationMap/>
+        <LocationContacts/>
+      </QuestLocation>
+
+      <Comments>
+        <CommentsRate/>
+        <Comment>
+          <CommentRate/>
+        </Comment>
+        <Comment>
+          <CommentRate/>
+        </Comment>
+        <Comment>
+          <CommentRate/>
+        </Comment>
+      </Comments>
+
+    </ContentSectionMain>
+
+    <ContentSectionSidebar>
+      <Reservation/>
+    </ContentSectionSidebar>
+
+  </ContentSection>
+
+  <ContentSection>
+    <Slider existing>
+      <QuestCard existing/>
+      <QuestCard existing/>
+      <QuestCard existing/>
+      <QuestCard existing/>
+    </Slider>
+
+  </ContentSection>
+</AppContainer>
