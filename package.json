@@ -5,11 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "webpack --config webpack.config.test.js && mocha dist/tests.js",
+    "test": "cross-env NODE_ENV=test webpack --config webpack.config.test.js && nyc --reporter=lcov --reporter=text-summary mocha dist/tests.js",
     "build": "webpack",
     "lint": "eslint --ext=jsx --ext=js frontend",
     "lint-fix": "eslint --fix --ext=jsx --ext=js frontend",
-    "stylelint": "stylelint frontend/**/*.css"
+    "stylelint": "stylelint frontend/**/*.css",
+    "push-coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false
   },
   "author": "",
   "license": "ISC",
@@ -18,9 +23,12 @@
     "babel-core": "^6.13.2",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.4",
+    "babel-plugin-istanbul": "2.0.0",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
     "classnames": "^2.2.5",
+    "coveralls": "^2.11.12",
+    "cross-env": "2.0.0",
     "css-loader": "^0.23.1",
     "eslint": "^3.3.1",
     "eslint-config-airbnb": "^10.0.1",
@@ -30,6 +38,7 @@
     "lost": "^7.0.4",
     "mocha": "^3.0.0",
     "null-loader": "^0.1.1",
+    "nyc": "8.1.0",
     "postcss-center": "^1.0.0",
     "postcss-initial": "^1.5.2",
     "postcss-loader": "^0.9.1",
@@ -42,7 +51,7 @@
     "react-intl": "^2.1.3",
     "style-loader": "^0.13.1",
     "stylelint": "^7.1.0",
-    "stylelint-config-standard": "^12.0.0", 
+    "stylelint-config-standard": "^12.0.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   }
