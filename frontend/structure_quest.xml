@@ -1,85 +1,94 @@
-<AppContainer>
+<AppContainer existing>
   <Nav existing>
     <NavSection existing>
-      <NavBrand existing/>
-      <NavItem existing/>
-      <NavItem existing/>
-      <NavItem existing/>
-      <NavItem existing/>
-      <NavSearch existing/>
+      <NavBrand existing />
+      <NavItem existing />
+      <NavItem existing />
+      <NavItem existing />
+      <NavItem existing />
+      <NavSearch existing />
     </NavSection>
 
     <NavSection existing>
-      <NavItem existing/>
-      <NavItem existing/>
-      <NavItem existing/>
+      <NavItem existing />
+      <NavItem existing />
+      <NavItem existing />
     </NavSection>
   </Nav>
 
-  <MainCarousel existing>
-  </MainCarousel>
-
-  <ContentSection existing>
-    <ContentSectionMain>
-      <QuestHeader>
-        <Title/>
-        <Rating/>
-        <CommentCount/>
+  <ContentSectionMain need more info, tmp>
+    <QuestCarousel />  
+    <QuestHeader />
+    <!--
+      <QuestHeader title="Title" rating="1" comentCount="1" >
+        <div>{this.props.title}</div>
+        <Rating value={this.props.rating} existing, extract from 'quest-card' />
+        <CommentCount value={this.props.comentCount} />
       </QuestHeader>
+    -->
 
-      <QuestIcons>
-        <PlayerIcon/>
-        <TimeIcon/>
-        <SourceIcon/>
-        <DifficultyIcon/>
-        <PriceIcon/>
-        <AgeIcon/>
-      </QuestIcons>
+    <QuestBadges>
+      <Badge />
+      <Badge />
+      <Badge />
+      <Badge />
+      <Badge />
+      <Badge />
+      <!-- 
+        <Bage>
+          <Image src={this.props.image}/>
+          <div>{this.props.name}</div>
+        </Bage>
+      -->
+    </QuestBadges>
 
-      <QuestShortDescription/>
+    <QuestShortDescription />
+    
+    <Delimiter />
+    <!-- Horisontal line -->
 
-      <QuestSchedule>
-        <DaySchedule/>
-        <DaySchedule/>
-        <DaySchedule/>
-        <DaySchedule/>
-        <DaySchedule/>
-      </QuestSchedule>
+    <QuestSchedule need more info, tmp: use placeholder image />
 
-      <QuestLocation>
-        <LocationTitle/>
-        <LocationMap/>
-        <LocationContacts/>
-      </QuestLocation>
+    <QuestLocation>
+      <LocationMap />
+      <LocationContacts />
+    </QuestLocation>
+    
+    <Delimiter />
+    <!-- Horisontal line -->
 
+    <Comments>
+      <Comment />
+      <Comment />
+      <Comment />
+      <Comment />
+    </Comments>
+    <!--
       <Comments>
+        <div>Отзывы</div><button>Оставить отзыв</button>
+        <div>Рейтинг на основании отзывов</div><CommentsRate/>
+        <div>{this.props.children}</div> //Comment
+        <button>Показать еще</button>
+      </Commens>
+      
+      <Comment>
+        <Image src={this.props.userImage}/>
+        <div>{this.props.userName}</div>
+        <div>{this.props.commentDate}</div>
+        <div>{this.props.commentText}</div>
         <CommentsRate/>
-        <Comment>
-          <CommentRate/>
-        </Comment>
-        <Comment>
-          <CommentRate/>
-        </Comment>
-        <Comment>
-          <CommentRate/>
-        </Comment>
-      </Comments>
-
-    </ContentSectionMain>
-
-    <ContentSectionSidebar>
-      <Reservation/>
-    </ContentSectionSidebar>
-
-  </ContentSection>
-
-  <ContentSection>
-    <Slider existing>
-      <QuestCard existing/>
-      <QuestCard existing/>
-      <QuestCard existing/>
-      <QuestCard existing/>
-    </Slider>
-
-  </ContentSection>
+      </Comment>
+    -->
+    
+    <Delimiter />
+    <!-- Horisontal line -->
+    
+    <Similar>
+      <QuestCard existing />
+      <QuestCard existing />
+      <QuestCard existing />
+      <QuestCard existing />
+    </Similar>
+      
+  </ContentSectionMain>  
 </AppContainer>
