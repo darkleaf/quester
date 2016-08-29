@@ -36,7 +36,6 @@
       <Badge />
       <!-- 
         <Bage>
-          <Image src={this.props.image}/>
           <div>{this.props.name}</div>
         </Bage>
       -->

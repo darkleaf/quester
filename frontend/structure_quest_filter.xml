@@ -1,4 +1,4 @@
-<AppContainer>
+<AppContainer existing>
   <Nav existing>
     <NavSection existing>
       <NavBrand existing/>
@@ -16,7 +16,7 @@
     </NavSection>
   </Nav>
 
-  <ContentSectionFluid>
+  <ContentSectionFluid tmp>
     <ScheduleFull>
       <ScheduleFilter>
         <FilterItem/>
@@ -29,34 +29,23 @@
       <ScheduleCalendar/>
 
       <QuestsList>
-
-        <QuestCardShedule>
-          <QuestCard existing/>
-          <DaySchedule/>
-        </QuestCardShedule>
-
-        <QuestCardShedule>
-          <QuestCard existing/>
-          <DaySchedule/>
-        </QuestCardShedule>
-
-        <QuestCardShedule>
-          <QuestCard existing/>
-          <DaySchedule/>
-        </QuestCardShedule>
-
-        <QuestCardShedule>
-          <QuestCard existing/>
-          <DaySchedule/>
-        </QuestCardShedule>
-
-        <QuestCardShedule>
-          <QuestCard existing/>
-          <DaySchedule/>
-        </QuestCardShedule>
-
+        <QuestCard existing/>
+        <QuestCard existing/>
+        <QuestCard existing/>
+        <QuestCard existing/>
+        <QuestCard existing/>
+        <QuestCard existing/>
       </QuestsList>
+      <QuestsShedule>
+        <DaySchedule/>
+        <DaySchedule/>
+        <DaySchedule/>
+        <DaySchedule/>
+        <DaySchedule/>
+        <DaySchedule/>
+      </QuestsShedule>
     </ScheduleFull>
+
     <SidebarMap/>
   </ContentSectionFluid>
 </AppContainer>
