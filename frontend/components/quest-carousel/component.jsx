@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ClassNames from 'classnames';
 import styles from './styles.css';
 
 export default class QuestCarousel extends Component {
@@ -8,6 +7,6 @@ export default class QuestCarousel extends Component {
       <div className={styles.container}>
         Quest Carousel
       </div>
-    )
+    );
   }
 }

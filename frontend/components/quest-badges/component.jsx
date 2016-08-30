@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ClassNames from 'classnames';
 import styles from './styles.css';
 
 export default class QuestBadges extends Component {
@@ -8,6 +7,6 @@ export default class QuestBadges extends Component {
       <div className={styles.badges}>
         {this.props.children}
       </div>
-    )
+    );
   }
 }
