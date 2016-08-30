@@ -10,3 +10,7 @@ export default class QuestBadges extends Component {
     );
   }
 }
+
+QuestBadges.propTypes = {
+  children: React.PropTypes.array.isRequired,
+};

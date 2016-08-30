@@ -24,7 +24,6 @@ export default class Examples extends Component {
           <MainPage />
           <Divider />
           <QuestPage />
-          
         </div>
       </IntlProvider>
     );

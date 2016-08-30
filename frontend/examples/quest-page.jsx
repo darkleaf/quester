@@ -18,25 +18,20 @@ export default class QuestPage extends Component {
     return (
       <AppContainer>
         <Nav>
-          
           <NavSection>
             <NavBrand name="Quester" />
             <NavItem name="Квесты" />
             <NavItem name="Подборки" />
             <NavItem name="Обзоры" />
             <NavItem name="Компании" />
-            
             <NavSearch />
           </NavSection>
-  
           <NavSection>
             <NavItem name="Москва" />
             <NavItem name="Избранное" />
             <NavItem name="Выйти" />
           </NavSection>
-          
         </Nav>
-        
         <ContentSectionMain>
           <QuestCarousel />
           <QuestHeader />
@@ -49,9 +44,7 @@ export default class QuestPage extends Component {
             <Badge/>
           </QuestBadges>
           <QuestShortDescription/>
-
         </ContentSectionMain>
-        
       </AppContainer>
     )
   }

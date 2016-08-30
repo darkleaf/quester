@@ -11,3 +11,7 @@ export default class ContentSectionMain extends Component {
     );
   }
 }
+
+ContentSectionMain.propTypes = {
+  children: React.PropTypes.array.isRequired,
+};
