@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import ClassNames from 'classnames';
+import classNames from 'classnames';
 import styles from './styles.css';
 
-export default class QuestCarousel extends Component {
+
+export default class ContentSectionMain extends Component {
   render() {
     return (
       <div className={styles.container}>
-        main carousel
+        {this.props.children}
       </div>
-    )
+    );
   }
 }

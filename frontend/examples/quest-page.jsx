@@ -6,6 +6,11 @@ import NavBrand from '../components/nav-brand';
 import NavItem from '../components/nav-item';
 import NavSearch from '../components/nav-search';
 import QuestCarousel from '../components/quest-carousel';
+import ContentSectionMain from '../components/content-section-main';
+import QuestHeader from '../components/quest-header';
+import QuestBadges from '../components/quest-badges';
+import Badges from '../components/badges';
+import QuestShortDescription from '../components/quest-short-description';
 
 
 export default class QuestPage extends Component {
@@ -32,10 +37,20 @@ export default class QuestPage extends Component {
           
         </Nav>
         
-        {/*<ContentSectionMain>*/}
+        <ContentSectionMain>
           <QuestCarousel />
+          <QuestHeader />
+          <QuestBadges>
+            <Badges/>
+            <Badges/>
+            <Badges/>
+            <Badges/>
+            <Badges/>
+            <Badges/>
+          </QuestBadges>
+          <QuestShortDescription/>
 
-        {/*</ContentSectionMain>*/}
+        </ContentSectionMain>
         
       </AppContainer>
     )

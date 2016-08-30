@@ -1,0 +1,7 @@
+.badges {
+  border: 1px solid black;
+  width: 940px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
