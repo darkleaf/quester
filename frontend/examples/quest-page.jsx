@@ -9,7 +9,7 @@ import QuestCarousel from '../components/quest-carousel';
 import ContentSectionMain from '../components/content-section-main';
 import QuestHeader from '../components/quest-header';
 import QuestBadges from '../components/quest-badges';
-import Badges from '../components/badges';
+import Badge from '../components/badge';
 import QuestShortDescription from '../components/quest-short-description';
 
 
@@ -39,7 +39,7 @@ export default class QuestPage extends Component {
         
         <ContentSectionMain>
           <QuestCarousel />
-          <QuestHeader /
+          <QuestHeader />
           <QuestBadges>
             <Badge/>
             <Badge/>

@@ -6,7 +6,7 @@ export default class QuestCarousel extends Component {
   render() {
     return (
       <div className={styles.container}>
-        main carousel
+        Quest Carousel
       </div>
     )
   }
