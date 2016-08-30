@@ -36,16 +36,16 @@ export default class QuestPage extends Component {
           <QuestCarousel />
           <QuestHeader />
           <QuestBadges>
-            <Badge/>
-            <Badge/>
-            <Badge/>
-            <Badge/>
-            <Badge/>
-            <Badge/>
+            <Badge />
+            <Badge />
+            <Badge />
+            <Badge />
+            <Badge />
+            <Badge />
           </QuestBadges>
-          <QuestShortDescription/>
+          <QuestShortDescription />
         </ContentSectionMain>
       </AppContainer>
-    )
+    );
   }
 }
