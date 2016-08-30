@@ -1,0 +1,62 @@
+<AppContainer>
+  <Nav existing>
+    <NavSection existing>
+      <NavBrand existing/>
+      <NavItem existing/>
+      <NavItem existing/>
+      <NavItem existing/>
+      <NavItem existing/>
+      <NavSearch existing/>
+    </NavSection>
+
+    <NavSection existing>
+      <NavItem existing/>
+      <NavItem existing/>
+      <NavItem existing/>
+    </NavSection>
+  </Nav>
+
+  <ContentSectionFluid>
+    <ScheduleFull>
+      <ScheduleFilter>
+        <FilterItem/>
+        <FilterItem/>
+        <FilterItem/>
+        <FilterItem/>
+        <FilterView/>
+        <Sort/>
+      </ScheduleFilter>
+      <ScheduleCalendar/>
+
+      <QuestsList>
+
+        <QuestCardShedule>
+          <QuestCard existing/>
+          <DaySchedule/>
+        </QuestCardShedule>
+
+        <QuestCardShedule>
+          <QuestCard existing/>
+          <DaySchedule/>
+        </QuestCardShedule>
+
+        <QuestCardShedule>
+          <QuestCard existing/>
+          <DaySchedule/>
+        </QuestCardShedule>
+
+        <QuestCardShedule>
+          <QuestCard existing/>
+          <DaySchedule/>
+        </QuestCardShedule>
+
+        <QuestCardShedule>
+          <QuestCard existing/>
+          <DaySchedule/>
+        </QuestCardShedule>
+
+      </QuestsList>
+    </ScheduleFull>
+    <SidebarMap/>
+  </ContentSectionFluid>
+</AppContainer>
