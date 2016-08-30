@@ -39,14 +39,14 @@ export default class QuestPage extends Component {
         
         <ContentSectionMain>
           <QuestCarousel />
-          <QuestHeader />
+          <QuestHeader /
           <QuestBadges>
-            <Badges/>
-            <Badges/>
-            <Badges/>
-            <Badges/>
-            <Badges/>
-            <Badges/>
+            <Badge/>
+            <Badge/>
+            <Badge/>
+            <Badge/>
+            <Badge/>
+            <Badge/>
           </QuestBadges>
           <QuestShortDescription/>
 
