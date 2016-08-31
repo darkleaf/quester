@@ -11,6 +11,15 @@ import QuestHeader from '../components/quest-header';
 import QuestBadges from '../components/quest-badges';
 import Badge from '../components/badge';
 import QuestShortDescription from '../components/quest-short-description';
+import Delimiter from '../components/delimiter';
+import QuestSchedule from '../components/quest-schedule';
+import QuestLocation from '../components/quest-location';
+import LocationMap from '../components/location-map';
+import LocationContacts from '../components/location-contacts';
+import Comments from '../components/comments';
+import Comment from '../components/comment';
+import Similar from '../components/similar';
+import QuestCard from '../components/quest-card';
 
 
 export default class QuestPage extends Component {
@@ -44,6 +53,58 @@ export default class QuestPage extends Component {
             <Badge />
           </QuestBadges>
           <QuestShortDescription />
+          <Delimiter />
+          <QuestSchedule />
+          <QuestLocation>
+            <LocationMap />
+            <LocationContacts />
+          </QuestLocation>
+          <Delimiter />
+          <Comments>
+            <Comment />
+            <Comment />
+            <Comment />
+            <Comment />
+          </Comments>
+          <Delimiter />
+          <Similar>
+            <QuestCard
+              name="Insania 2.0"
+              imageUrl="https://placeimg.com/300/210/arch"
+              priceMin={4500}
+              priceMax={9500}
+              participantsMin={2}
+              participantsMax={5}
+              rating={9.3}
+            />
+            <QuestCard
+              name="Фантомас против всех"
+              imageUrl="https://placeimg.com/300/210/arch"
+              priceMin={4500}
+              priceMax={9500}
+              participantsMin={2}
+              participantsMax={5}
+              rating={9.3}
+            />
+            <QuestCard
+              name="Психоатрическая больница"
+              imageUrl="https://placeimg.com/300/210/arch"
+              priceMin={4500}
+              priceMax={9500}
+              participantsMin={2}
+              participantsMax={5}
+              rating={9}
+            />
+            <QuestCard
+              name="Коллекционер"
+              imageUrl="https://placeimg.com/300/210/arch"
+              priceMin={4500}
+              priceMax={9500}
+              participantsMin={2}
+              participantsMax={5}
+              rating={9.3}
+            />
+          </Similar>
         </ContentSectionMain>
       </AppContainer>
     );

@@ -1,0 +1,8 @@
+.location {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 940px;
+  height: 250px;
+  border: 1px solid;
+}
