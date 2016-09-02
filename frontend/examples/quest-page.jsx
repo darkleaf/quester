@@ -6,21 +6,33 @@ import NavBrand from '../components/nav-brand';
 import NavItem from '../components/nav-item';
 import NavSearch from '../components/nav-search';
 import QuestCarousel from '../components/quest-carousel';
-import ContentSectionMain from '../components/content-section-main';
 import QuestHeader from '../components/quest-header';
 import QuestBadges from '../components/quest-badges';
 import Badge from '../components/badge';
-import QuestShortDescription from '../components/quest-short-description';
 import Delimiter from '../components/delimiter';
 import QuestSchedule from '../components/quest-schedule';
-import QuestLocation from '../components/quest-location';
-import LocationMap from '../components/location-map';
-import LocationContacts from '../components/location-contacts';
+import CompanyContacts from '../components/company-contacts';
 import Comments from '../components/comments';
 import Comment from '../components/comment';
 import Similar from '../components/similar';
 import QuestCard from '../components/quest-card';
 
+const divStyle = {
+  padding: '20px 0',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+};
+const QuestShortDescription = () =>
+  <div style={{ border: '1px solid black', marginTop: '5px', width: '940px' }}>
+    QuestShortDescription
+  </div>;
+const ContentSectionMain = (props) =>
+  <div style={divStyle}>{props.children}</div>;
+ContentSectionMain.propTypes = {
+  children: React.PropTypes.array.isRequired,
+};
 
 export default class QuestPage extends Component {
   render() {
@@ -55,10 +67,7 @@ export default class QuestPage extends Component {
           <QuestShortDescription />
           <Delimiter />
           <QuestSchedule />
-          <QuestLocation>
-            <LocationMap />
-            <LocationContacts />
-          </QuestLocation>
+          <CompanyContacts />
           <Delimiter />
           <Comments>
             <Comment />
