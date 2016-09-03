@@ -11,6 +11,6 @@ export default class QuestsSets extends Component {
   }
 }
 
-Similar.propTypes = {
+QuestsSets.propTypes = {
   children: React.PropTypes.array.isRequired,
 };
