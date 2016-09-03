@@ -17,15 +17,15 @@ import Comment from '../components/comment';
 import QuestsSets from '../components/quests-sets';
 import QuestCard from '../components/quest-card';
 
-const divStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'stretch',
-  padding: '5px',
-};
 
 function ContentSectionMain(props) {
+  const divStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'stretch',
+    padding: '5px',
+  };
   return (
     <div style={divStyle}>
       {props.children}
