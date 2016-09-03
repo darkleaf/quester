@@ -14,7 +14,7 @@ import QuestSchedule from '../components/quest-schedule';
 import CompanyContacts from '../components/company-contacts';
 import Comments from '../components/comments';
 import Comment from '../components/comment';
-import Similar from '../components/similar';
+import QuestsSets from '../components/quests-sets';
 import QuestCard from '../components/quest-card';
 
 const divStyle = {
@@ -84,7 +84,7 @@ export default class QuestPage extends Component {
             <Comment />
           </Comments>
           <Delimiter />
-          <Similar>
+          <QuestsSets>
             <QuestCard
               name="Insania 2.0"
               imageUrl="https://placeimg.com/300/210/arch"
@@ -121,7 +121,7 @@ export default class QuestPage extends Component {
               participantsMax={5}
               rating={9.3}
             />
-          </Similar>
+          </QuestsSets>
         </ContentSectionMain>
       </AppContainer>
     );

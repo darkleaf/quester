@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './styles.css';
 
-export default class Similar extends Component {
+export default class QuestsSets extends Component {
   render() {
     return (
       <div className={styles.container}>
