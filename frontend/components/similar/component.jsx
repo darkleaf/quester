@@ -4,7 +4,7 @@ import styles from './styles.css';
 export default class Similar extends Component {
   render() {
     return (
-      <div className={styles.similar}>
+      <div className={styles.container}>
         {this.props.children}
       </div>
     );

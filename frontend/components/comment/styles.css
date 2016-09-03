@@ -1,5 +1,4 @@
-.comment {
-  display: flex;
-  flex-grow: 1;
+.container {
   border: 1px solid;
+  height: 50px;
 }

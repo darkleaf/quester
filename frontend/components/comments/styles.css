@@ -1,6 +1,6 @@
-.comments {
+.container {
+  display: flex;
   flex-direction: column;
-  position: relative;
-  width: 940px;
   border: 1px solid;
+  margin: 5px;
 }

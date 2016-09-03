@@ -18,22 +18,30 @@ import Similar from '../components/similar';
 import QuestCard from '../components/quest-card';
 
 const divStyle = {
-  padding: '20px 0',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  alignItems: 'center',
+  alignItems: 'stretch',
+  padding: '5px',
 };
-const QuestShortDescription = () =>
-  <div style={{ border: '1px solid black', marginTop: '5px', width: '940px' }}>
-    QuestShortDescription
-  </div>;
-const ContentSectionMain = (props) =>
-  <div style={divStyle}>{props.children}</div>;
+
+function ContentSectionMain(props) {
+  return (
+    <div style={divStyle}>
+      {props.children}
+    </div>
+  );
+}
 ContentSectionMain.propTypes = {
   children: React.PropTypes.array.isRequired,
 };
-
+function QuestShortDescription() {
+  return (
+    <div style={{ border: '1px solid black', margin: '5px' }}>
+      QuestShortDescription
+    </div>
+  );
+}
 export default class QuestPage extends Component {
   render() {
     return (

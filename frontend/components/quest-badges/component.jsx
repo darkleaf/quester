@@ -4,7 +4,7 @@ import styles from './styles.css';
 export default class QuestBadges extends Component {
   render() {
     return (
-      <div className={styles.badges}>
+      <div className={styles.container}>
         {this.props.children}
       </div>
     );

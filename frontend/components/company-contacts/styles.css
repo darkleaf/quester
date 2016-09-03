@@ -1,8 +1,5 @@
-.contacts {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 940px;
-  height: 250px;
+.container {
   border: 1px solid;
+  height: 250px;
+  margin: 5px;
 }

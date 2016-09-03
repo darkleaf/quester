@@ -4,7 +4,7 @@ import styles from './styles.css';
 export default class Badge extends Component {
   render() {
     return (
-      <div className={styles.badge}>
+      <div className={styles.container}>
         Badge
       </div>
     );

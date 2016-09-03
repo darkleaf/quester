@@ -4,7 +4,7 @@ import styles from './styles.css';
 export default class Comment extends Component {
   render() {
     return (
-      <div className={styles.comment}>
+      <div className={styles.container}>
         Comment
       </div>
     );

@@ -1,7 +1,5 @@
-.header {
+.container {
   border: 1px solid black;
-  margin: 5px;
   height: 50px;
-  width: 940px;
-  position: relative;
+  margin: 5px;
 }

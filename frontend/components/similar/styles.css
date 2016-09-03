@@ -1,7 +1,7 @@
-.similar {
+.container {
   display: flex;
   flex-direction: row;
-  position: relative;
-  width: 940px;
+  justify-content: space-between;
   border: 1px solid;
+  margin: 5px;
 }

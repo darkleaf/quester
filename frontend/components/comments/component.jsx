@@ -4,7 +4,7 @@ import styles from './styles.css';
 export default class Comments extends Component {
   render() {
     return (
-      <div className={styles.comments}>
+      <div className={styles.container}>
         Comments
         {this.props.children}
       </div>
