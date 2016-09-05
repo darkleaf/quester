@@ -1,10 +1,10 @@
 @use lost;
 
-.item-grid-list {
+.item-grid-items {
   lost-utility: clearfix;
 }
 
-.item-grid-item {
+.item-grid-items > * {
   lost-column: 1/4;
 }
 
