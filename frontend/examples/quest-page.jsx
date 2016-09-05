@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import styles from './quest-page.css'; /* TODO: удалить, когда разберемся с временными компонентами*/
+// eslint-disable-next-line
+import styles from './quest-page.css';/* TODO: удалить, когда разберемся с временными компонентами */
 
 import AppContainer from '../components/app-container';
 import { Nav, NavSection } from '../components/nav';
