@@ -25,7 +25,9 @@ function ContentSectionMain(props) {
     margin: '10px',
   };
   function addInnerStyle(child) {
-    return <div style={ inner }>{ child }</div>
+    return (
+      <div style={inner}>{child}</div>
+    );
   }
   return (
     <div style={divStyle}>
