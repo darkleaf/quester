@@ -34,14 +34,13 @@ function QuestShortDescription() {
   );
 }
 function ItemGrid(props) {
-  const renderChild = (child) => {
-    const columns = React.Children.count(props.children);
-    return <div className={styles[`item-grid-item-${columns}`]}>{child}</div>;
-  };
+  const renderChild = (child) => <div className={styles['item-grid-item']}>{child}</div>;
   return (
     <div>
       <div style={{ paddingBottom: '5px' }}>{props.title}</div>
-      <div>{React.Children.map(props.children, renderChild)}</div>
+      <div className={styles['item-grid-list']}>
+        {React.Children.map(props.children, renderChild)}
+      </div>
     </div>
   );
 }

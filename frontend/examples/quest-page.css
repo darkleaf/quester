@@ -5,8 +5,8 @@
   lost-utility: clearfix;
 }
 
-@for $col from 1 to 6 {
-  .item-grid-item-$col { lost-column: 1/$(col); }
+.item-grid-item {
+  lost-column: 1/4;
 }
 
 .badges-list {
