@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './styles.css';
 
-export default class QuestBadges extends Component {
+export default class BadgesList extends Component {
   render() {
     return (
       <div className={styles.container}>
@@ -11,6 +11,6 @@ export default class QuestBadges extends Component {
   }
 }
 
-QuestBadges.propTypes = {
+BadgesList.propTypes = {
   children: React.PropTypes.array.isRequired,
 };

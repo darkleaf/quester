@@ -8,7 +8,7 @@ import NavItem from '../components/nav-item';
 import NavSearch from '../components/nav-search';
 import QuestCarousel from '../components/quest-carousel';
 import QuestHeader from '../components/quest-header';
-import QuestBadges from '../components/quest-badges';
+import BadgesList from '../components/badges-list';
 import Badge from '../components/badge';
 import HorizontalRule from '../components/horizontal-rule';
 import QuestSchedule from '../components/quest-schedule';
@@ -81,14 +81,14 @@ export default class QuestPage extends Component {
         <ContentSectionMain>
           <QuestCarousel />
           <QuestHeader />
-          <QuestBadges>
+          <BadgesList>
             <Badge />
             <Badge />
             <Badge />
             <Badge />
             <Badge />
             <Badge />
-          </QuestBadges>
+          </BadgesList>
           <QuestShortDescription />
           <HorizontalRule />
           <QuestSchedule />
