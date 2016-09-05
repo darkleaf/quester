@@ -36,7 +36,7 @@ ContentSectionMain.propTypes = {
 };
 function QuestShortDescription() {
   return (
-    <div style={{ border: '1px solid black', margin: '5px' }}>
+    <div style={{ border: '1px solid black' }}>
       QuestShortDescription
     </div>
   );
