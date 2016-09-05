@@ -19,15 +19,17 @@ import QuestCard from '../components/quest-card';
 
 function ContentSectionMain(props) {
   const divStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'stretch',
     padding: '5px',
   };
+  const inner = {
+    margin: '10px',
+  };
+  function addInnerStyle(child) {
+    return <div style={ inner }>{ child }</div>
+  }
   return (
     <div style={divStyle}>
-      {props.children}
+      {React.Children.map(props.children, addInnerStyle)}
     </div>
   );
 }
