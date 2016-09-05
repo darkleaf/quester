@@ -3,6 +3,7 @@ const webpack = require('webpack');
 
 const autoprefixer = require('autoprefixer');
 const use = require('postcss-use');
+const forLoop = require('postcss-for');
 
 module.exports = {
   devtool: 'eval',
@@ -36,6 +37,6 @@ module.exports = {
     }],
   },
   postcss() {
-    return [use({ modules: '*' }), autoprefixer];
+    return [use({ modules: '*' }), autoprefixer, forLoop];
   },
 };

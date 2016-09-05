@@ -1,0 +1,10 @@
+@use lost;
+@use postcss-for;
+
+.item-grid-list {
+  lost-utility: clearfix;
+}
+
+@for $col from 1 to 6 {
+  .item-grid-item-$col { lost-column: 1/$(col); }
+}

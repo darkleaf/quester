@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './styles.css';
 
 import AppContainer from '../components/app-container';
 import { Nav, NavSection } from '../components/nav';
@@ -9,14 +10,12 @@ import QuestCarousel from '../components/quest-carousel';
 import QuestHeader from '../components/quest-header';
 import QuestBadges from '../components/quest-badges';
 import Badge from '../components/badge';
-import Delimiter from '../components/delimiter';
+import HorizontalRule from '../components/horizontal-rule';
 import QuestSchedule from '../components/quest-schedule';
 import CompanyContacts from '../components/company-contacts';
 import Comments from '../components/comments';
 import Comment from '../components/comment';
-import QuestsSets from '../components/quests-sets';
 import QuestCard from '../components/quest-card';
-
 
 function ContentSectionMain(props) {
   const divStyle = {
@@ -42,6 +41,20 @@ function QuestShortDescription() {
     </div>
   );
 }
+function ItemGrid(props) {
+  function renderChild(child) {
+    const columns = React.Children.count(props.children);
+    return <div className={styles[`item-grid-item-${columns}`]}>{child}</div>;
+  }
+  return (
+    <div>
+      {React.Children.map(props.children, renderChild)}
+    </div>
+  );
+}
+ItemGrid.propTypes = {
+  children: React.PropTypes.array.isRequired,
+};
 export default class QuestPage extends Component {
   render() {
     return (
@@ -73,18 +86,18 @@ export default class QuestPage extends Component {
             <Badge />
           </QuestBadges>
           <QuestShortDescription />
-          <Delimiter />
+          <HorizontalRule />
           <QuestSchedule />
           <CompanyContacts />
-          <Delimiter />
+          <HorizontalRule />
           <Comments>
             <Comment />
             <Comment />
             <Comment />
             <Comment />
           </Comments>
-          <Delimiter />
-          <QuestsSets>
+          <HorizontalRule />
+          <ItemGrid>
             <QuestCard
               name="Insania 2.0"
               imageUrl="https://placeimg.com/300/210/arch"
@@ -121,7 +134,25 @@ export default class QuestPage extends Component {
               participantsMax={5}
               rating={9.3}
             />
-          </QuestsSets>
+            <QuestCard
+              name="Коллекционер"
+              imageUrl="https://placeimg.com/300/210/arch"
+              priceMin={4500}
+              priceMax={9500}
+              participantsMin={2}
+              participantsMax={5}
+              rating={9.3}
+            />
+            <QuestCard
+              name="Коллекционер"
+              imageUrl="https://placeimg.com/300/210/arch"
+              priceMin={4500}
+              priceMax={9500}
+              participantsMin={2}
+              participantsMax={5}
+              rating={9.3}
+            />
+          </ItemGrid>
         </ContentSectionMain>
       </AppContainer>
     );
