@@ -8,3 +8,9 @@
 @for $col from 1 to 6 {
   .item-grid-item-$col { lost-column: 1/$(col); }
 }
+
+.badges-list {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}

@@ -4,7 +4,7 @@ import styles from './styles.css';
 export default class HorizontalRule extends Component {
   render() {
     return (
-      <hr className={styles.horizontalRule} />
+      <hr className={styles.horizontalLine} />
     );
   }
 }

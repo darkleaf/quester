@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './styles.css';
+import styles from './quest-page.css'; /*TODO: удалить, когда разберемся с временными компонентами*/
 
 import AppContainer from '../components/app-container';
 import { Nav, NavSection } from '../components/nav';
@@ -7,8 +7,6 @@ import NavBrand from '../components/nav-brand';
 import NavItem from '../components/nav-item';
 import NavSearch from '../components/nav-search';
 import QuestCarousel from '../components/quest-carousel';
-import QuestHeader from '../components/quest-header';
-import BadgesList from '../components/badges-list';
 import Badge from '../components/badge';
 import HorizontalRule from '../components/horizontal-rule';
 import QuestSchedule from '../components/quest-schedule';
@@ -18,20 +16,9 @@ import Comment from '../components/comment';
 import QuestCard from '../components/quest-card';
 
 function ContentSectionMain(props) {
-  const divStyle = {
-    padding: '5px',
-  };
-  const inner = {
-    margin: '10px',
-  };
-  function addInnerStyle(child) {
-    return (
-      <div style={inner}>{child}</div>
-    );
-  }
   return (
-    <div style={divStyle}>
-      {React.Children.map(props.children, addInnerStyle)}
+    <div style={{ padding: '5px' }}>
+      {React.Children.map(props.children, (child) => <div style={{ margin: '10px' }}>{child}</div>)}
     </div>
   );
 }
@@ -46,17 +33,34 @@ function QuestShortDescription() {
   );
 }
 function ItemGrid(props) {
-  function renderChild(child) {
+  const renderChild = (child) => {
     const columns = React.Children.count(props.children);
     return <div className={styles[`item-grid-item-${columns}`]}>{child}</div>;
-  }
+  };
   return (
     <div>
-      {React.Children.map(props.children, renderChild)}
+      <div style={{ paddingBottom: '5px' }}>{props.title}</div>
+      <div>{React.Children.map(props.children, renderChild)}</div>
     </div>
   );
 }
 ItemGrid.propTypes = {
+  children: React.PropTypes.array.isRequired,
+  title: React.PropTypes.string.isRequired,
+};
+function QuestHeader() {
+  return (
+    <div style={{ border: '1px solid black' }}>Quest Header</div>
+  );
+}
+function BadgesList(props) {
+  return (
+    <div className={styles.badgesList}>
+      {props.children}
+    </div>
+  );
+}
+BadgesList.propTypes = {
   children: React.PropTypes.array.isRequired,
 };
 export default class QuestPage extends Component {
@@ -101,7 +105,7 @@ export default class QuestPage extends Component {
             <Comment />
           </Comments>
           <HorizontalRule />
-          <ItemGrid>
+          <ItemGrid title="Похожие квесты">
             <QuestCard
               name="Insania 2.0"
               imageUrl="https://placeimg.com/300/210/arch"
