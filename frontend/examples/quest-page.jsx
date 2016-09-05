@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-/* TODO: удалить, когда разберемся с временными компонентами */
+/* TODO: удалить стили, когда разберемся с временными компонентами */
 import styles from './quest-page.css';
 
 import AppContainer from '../components/app-container';
