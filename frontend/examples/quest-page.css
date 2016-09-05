@@ -1,5 +1,4 @@
 @use lost;
-@use postcss-for;
 
 .item-grid-list {
   lost-utility: clearfix;
