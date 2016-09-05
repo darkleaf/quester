@@ -3,6 +3,7 @@ import { IntlProvider } from 'react-intl';
 import messages from '../messages';
 
 import MainPage from './main-page';
+import QuestPage from './quest-page';
 
 function Divider() {
   const style = {
@@ -22,6 +23,7 @@ export default class Examples extends Component {
         <div>
           <MainPage />
           <Divider />
+          <QuestPage />
         </div>
       </IntlProvider>
     );

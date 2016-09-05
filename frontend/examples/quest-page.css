@@ -1,0 +1,15 @@
+@use lost;
+
+.item-grid-items {
+  lost-utility: clearfix;
+}
+
+.item-grid-items > * {
+  lost-column: 1/4;
+}
+
+.badges-list {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
