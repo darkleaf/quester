@@ -4,13 +4,14 @@ node_js:
 install:
   - npm install --global yarn
   - yarn install
+# TODO: use yarn for run scripts. yarn can't run scripts with spaces %)
 script:
-  - yarn run test
-  - yarn run build #TODO: убрать, когда сделаем тестирование в DOM
-  - yarn run lint
-  - yarn run stylelint
+  - npm run test
+  - npm run build #TODO: убрать, когда сделаем тестирование в DOM
+  - npm run lint
+  - npm run stylelint
 after_success:
-  - yarn run push-coverage
+  - npm run push-coverage
 cache:
   directories:
     - node_modules
