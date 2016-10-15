@@ -9,7 +9,7 @@ export default class NavSection extends Component {
   render() {
     return (
       <div className={styles.container}>
-          {React.Children.map(this.props.children, this.renderChild)}
+        {React.Children.map(this.props.children, this.renderChild)}
       </div>
     );
   }
