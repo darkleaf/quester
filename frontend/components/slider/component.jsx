@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
+import classNames from 'classnames';
 import styles from './styles.css';
 
 function Header({ title, seeAllUrl, totalCount }) {
@@ -33,19 +34,24 @@ export default class Slider extends Component {
   }
 
   render() {
+    const containerClasses = classNames(
+      styles.container,
+      { [styles.highlighted]: this.props.highlighted }
+    );
     return (
-      <div className={styles.container}>
+      <div className={containerClasses}>
+        <div className={styles.inner}>
+          <Header {...this.props} />
 
-        <Header {...this.props} />
+          <div className={styles.content}>
+            <div className={styles.leftArrow}>&lt;</div>
 
-        <div className={styles.content}>
-          <div className={styles.leftArrow}>&lt;</div>
+            <div className={styles.list}>
+              {React.Children.map(this.props.children, this.renderChild)}
+            </div>
 
-          <div className={styles.list}>
-            {React.Children.map(this.props.children, this.renderChild)}
+            <div className={styles.rightArrow}>&gt;</div>
           </div>
-
-          <div className={styles.rightArrow}>&gt;</div>
         </div>
       </div>
     );
@@ -54,4 +60,5 @@ export default class Slider extends Component {
 
 Slider.propTypes = {
   children: React.PropTypes.array.isRequired,
+  highlighted: React.PropTypes.bool,
 };
