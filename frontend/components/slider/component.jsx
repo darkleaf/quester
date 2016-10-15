@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
+import RegularGrid from '../layout/regular-grid';
 import styles from './styles.css';
 
 function Header({ title, seeAllUrl, totalCount }) {
@@ -23,21 +24,13 @@ Header.propTypes = {
 };
 
 export default class Slider extends Component {
-  constructor(props) {
-    super(props);
-    this.renderChild = this.renderChild.bind(this);
-  }
-
-  renderChild(child) {
-    const columns = React.Children.count(this.props.children);
-    return <div className={styles[`item-${columns}`]}>{child}</div>;
-  }
-
   render() {
     const containerClasses = classNames(
       styles.container,
       { [styles.highlighted]: this.props.highlighted }
     );
+    const columns = React.Children.count(this.props.children);
+
     return (
       <div className={containerClasses}>
         <div className={styles.inner}>
@@ -46,9 +39,9 @@ export default class Slider extends Component {
           <div className={styles.content}>
             <div className={styles.leftArrow}>&lt;</div>
 
-            <div className={styles.list}>
-              {React.Children.map(this.props.children, this.renderChild)}
-            </div>
+            <RegularGrid columns={columns}>
+              {this.props.children}
+            </RegularGrid>
 
             <div className={styles.rightArrow}>&gt;</div>
           </div>

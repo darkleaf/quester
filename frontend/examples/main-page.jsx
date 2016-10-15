@@ -111,7 +111,6 @@ export default class MainPage extends Component {
           />
         </Slider>
 
-
         <Slider
           title="Обзоры"
           totalCount={14}
@@ -135,7 +134,6 @@ export default class MainPage extends Component {
             imageUrl="https://placeimg.com/300/350/arch"
           />
         </Slider>
-
 
         <Slider
           title="Новые квесты"
@@ -179,7 +177,6 @@ export default class MainPage extends Component {
             rating={9.3}
           />
         </Slider>
-
 
         <Slider
           title="Компании"
