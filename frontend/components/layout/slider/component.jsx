@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import RegularGrid from '../layout/regular-grid';
+import RegularGrid from '../../grid/regular-grid';
 import styles from './styles.css';
 
 function Header({ title, seeAllUrl, totalCount }) {

@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 
-import AppContainer from '../components/app-container';
-import { Nav, NavSection } from '../components/nav';
-import NavBrand from '../components/nav-brand';
-import NavItem from '../components/nav-item';
-import NavSearch from '../components/nav-search';
-import MainCarousel from '../components/main-carousel';
-import MainFilter from '../components/main-filter';
-import Slider from '../components/slider';
-import QuestCard from '../components/quest-card';
-import SelectionCard from '../components/selection-card';
-import ReviewCard from '../components/review-card';
-import CompanyCard from '../components/company-card';
+import Canvas from '../components/layout/canvas';
+import Nav from '../components/layout/nav';
+import NavSection from '../components/layout/nav-section';
+import NavBrand from '../components/layout/nav-brand';
+import NavItem from '../components/layout/nav-item';
+import NavSearch from '../components/layout/nav-search';
+import MainCarousel from '../components/layout/main-carousel';
+import MainFilter from '../components/layout/main-filter';
+import Slider from '../components/layout/slider';
+
+import QuestCard from '../components/domain/quest-card';
+import SelectionCard from '../components/domain/selection-card';
+import ReviewCard from '../components/domain/review-card';
+import CompanyCard from '../components/domain/company-card';
 
 export default class MainPage extends Component {
   render() {
     return (
-      <AppContainer>
+      <Canvas>
         <Nav>
           <NavSection>
             <NavBrand name="Quester" />
@@ -214,7 +216,7 @@ export default class MainPage extends Component {
             questCount={4}
           />
         </Slider>
-      </AppContainer>
+      </Canvas>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './nav-section.css';
+import styles from './styles.css';
 
 export default class NavSection extends Component {
   renderChild(child) {

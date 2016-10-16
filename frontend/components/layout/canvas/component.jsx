@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import styles from './nav.css';
+import styles from './styles.css';
 
-export default class Nav extends Component {
+export default class Canvas extends Component {
   render() {
     return (
       <div className={styles.container}>
@@ -11,6 +11,6 @@ export default class Nav extends Component {
   }
 }
 
-Nav.propTypes = {
+Canvas.propTypes = {
   children: React.PropTypes.array.isRequired,
 };

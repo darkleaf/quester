@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import styles from './regular-grid.css';
+import styles from './styles.css';
 
 export default class RegularGrid extends Component {
   render () {
