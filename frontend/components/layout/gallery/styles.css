@@ -1,0 +1,50 @@
+@import '../canvas-vars';
+
+@use postcss-center;
+
+@use lost;
+@lost flexbox flex;
+
+.container {
+  overflow-x: hidden;
+}
+
+.sections {
+  lost-center: $(canvas-max-width) $(canvas-padding);
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.left-section {
+  position: absolute;
+  right: calc(100% - $(canvas-padding));
+}
+
+.center-section {
+  position: relative;
+}
+
+.right-section {
+  /*  */
+}
+
+$arrow-size: 40px;
+$arrow-half-size: 20px;
+
+.left-arrow,
+.right-arrow {
+  position: absolute;
+  width: $(arrow-size);
+  height: $(arrow-size);
+  border-radius: $(arrow-size);
+  background-color: white;
+  top: center;
+}
+
+.left-arrow {
+  left: -$(arrow-half-size);
+}
+
+.right-arrow {
+  right: -$(arrow-half-size);
+}

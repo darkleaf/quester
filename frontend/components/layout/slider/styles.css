@@ -13,7 +13,7 @@
 }
 
 .inner {
-  lost-center: $canvas-max-width $canvas-padding;
+  lost-center: $(canvas-max-width) $(canvas-padding);
 }
 
 .header {
