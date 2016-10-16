@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const postcssImport = require('postcss-import');
 const autoprefixer = require('autoprefixer');
 const use = require('postcss-use');
 
@@ -36,6 +37,6 @@ module.exports = {
     }],
   },
   postcss() {
-    return [use({ modules: '*' }), autoprefixer];
+    return [postcssImport, use({ modules: '*' }), autoprefixer];
   },
 };
