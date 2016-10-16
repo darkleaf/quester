@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import styles from './styles.css';
 
 export default class RegularGrid extends Component {
-  render () {
+  render() {
     const containerClasses = classNames(
       styles.container,
       styles[`columns-${this.props.columns}`]
@@ -19,4 +19,4 @@ export default class RegularGrid extends Component {
 RegularGrid.propTypes = {
   children: React.PropTypes.array.isRequired,
   columns: React.PropTypes.oneOf(Array(12).fill().map((_, i) => i + 1)).isRequired,
-}
+};
