@@ -4,11 +4,12 @@
 @lost flexbox flex;
 
 .container {
+  /*   lost-utility: clearfix; */
   lost-flex-container: row;
 }
 
 @for $col from 1 to 12 {
   .columns-$col > * {
-    lost-column: 1/$col flex;
+    lost-column: 1/$(col);
   }
 }

@@ -15,6 +15,7 @@ import CompanyContacts from '../components/company-contacts';
 import Comments from '../components/comments';
 import Comment from '../components/comment';
 import QuestCard from '../components/quest-card';
+import RegularGrid from '../components/layout/regular-grid';
 
 function ContentSectionMain(props) {
   return (
@@ -102,7 +103,8 @@ export default class QuestPage extends Component {
             <Comment />
           </Comments>
           <HorizontalRule />
-          <ItemGrid title="Похожие квесты">
+          <RegularGrid columns={4}>
+
             <QuestCard
               name="Insania 2.0"
               imageUrl="https://placeimg.com/300/210/arch"
@@ -157,7 +159,7 @@ export default class QuestPage extends Component {
               participantsMax={5}
               rating={9.3}
             />
-          </ItemGrid>
+          </RegularGrid>
         </ContentSectionMain>
       </AppContainer>
     );

@@ -2,6 +2,8 @@
 @use postcss-for;
 @use postcss-simple-vars;
 
+@lost flexbox flex;
+
 $button-width: 50px;
 
 .container {
