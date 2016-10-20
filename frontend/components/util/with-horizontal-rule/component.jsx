@@ -12,5 +12,5 @@ export default class WithHorizontalRule extends Component {
 }
 
 WithHorizontalRule.propTypes = {
- children: React.PropTypes.any,
-}
+  children: React.PropTypes.any,
+};

@@ -19,4 +19,4 @@ export default class Float extends Component {
 Float.propTypes = {
   children: React.PropTypes.any.isRequired,
   align: React.PropTypes.oneOf(['left', 'center', 'right', 'space-between']),
-}
+};

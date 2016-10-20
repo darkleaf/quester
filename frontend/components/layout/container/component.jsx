@@ -13,4 +13,4 @@ export default class Container extends Component {
 
 Container.propTypes = {
   children: React.PropTypes.any,
-}
+};

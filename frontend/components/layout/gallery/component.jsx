@@ -30,4 +30,4 @@ Gallery.propTypes = {
   left: React.PropTypes.string,
   center: React.PropTypes.string.isRequired,
   right: React.PropTypes.string,
-}
+};

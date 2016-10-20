@@ -8,7 +8,7 @@ import Rating from '../../widgets/rating';
 import Float from '../../util/float';
 import WithHorizontalRule from '../../util/with-horizontal-rule';
 
-function Description({}) {
+function Description() {
   return (
     <div>
       <Float align="left">
@@ -32,13 +32,13 @@ function Description({}) {
         как к количеству знаков.
       </div>
     </div>
-  )
+  );
 }
 
-function Schedule({}) {
+function Schedule() {
   return (
     <div>schedule</div>
-  )
+  );
 }
 
 export default class Quest extends Component {

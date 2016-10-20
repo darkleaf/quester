@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import RegularGrid from '../../util/regular-grid';
 import Float from '../../util/float';
 import Title from '../../widgets/title';
 import styles from './styles.css';
