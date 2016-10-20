@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import styles from './styles.css';
 
-export default class Badge extends Component {
+export default class Title extends Component {
   render() {
     return (
       <div className={styles.container}>
-        Badge
+        {this.props.children}
       </div>
     );
   }
 }
+
+Title.propTypes = {
+  children: React.PropTypes.any,
+};

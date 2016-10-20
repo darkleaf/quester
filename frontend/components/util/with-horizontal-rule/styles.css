@@ -1,0 +1,8 @@
+.container > :not(:last-child):after {
+  display: block;
+  content: '';
+  margin: 40px 0;
+  height: 1px;
+  width: 100%;
+  background-color: gray;
+}

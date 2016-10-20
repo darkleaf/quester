@@ -11,5 +11,6 @@
 @for $col from 1 to 12 {
   .columns-$col > * {
     lost-column: 1/$(col);
+    margin-bottom: 40px;
   }
 }

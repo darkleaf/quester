@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 /* TODO: удалить стили, когда разберемся с временными компонентами */
 import styles from './quest-page.css';
 
+import Quest from '../components/entity/quest';
 import Canvas from '../components/layout/canvas';
 import Nav from '../components/layout/nav'
 import NavSection from '../components/layout/nav-section';
@@ -10,69 +11,16 @@ import NavItem from '../components/layout/nav-item';
 import NavSearch from '../components/layout/nav-search';
 
 import Gallery from '../components/layout/gallery';
+import Container from '../components/layout/container';
 
-/* import QuestCarousel from '../components/layout/quest-carousel';
- * import Badge from '../components/widgets/badge';
- * import HorizontalRule from '../components/layout/horizontal-rule';
- *
- * import QuestSchedule from '../components/quest-schedule';
- * import CompanyContacts from '../components/company-contacts';
- * import Comments from '../components/comments';
- * import Comment from '../components/comment';
- * import QuestCard from '../components/quest-card';
- * import RegularGrid from '../components/layout/regular-grid';*/
+import WithHorizontalRule from '../components/util/with-horizontal-rule';
 
+import QuestCard from '../components/entity/quest-card';
 
-function ContentSectionMain(props) {
-  return (
-    <div style={{ padding: '5px' }}>
-      {React.Children.map(props.children, (child) => <div style={{ margin: '10px' }}>{child}</div>)}
-    </div>
-  );
-}
-ContentSectionMain.propTypes = {
-  children: React.PropTypes.array.isRequired,
-};
+import RegularGrid from '../components/util/regular-grid';
+import Columns from '../components/util/columns';
 
-function QuestShortDescription() {
-  return (
-    <div style={{ border: '1px solid black' }}>
-      QuestShortDescription
-    </div>
-  );
-}
-
-function ItemGrid(props) {
-  return (
-    <div>
-      <div style={{ paddingBottom: '5px' }}>{props.title}</div>
-      <div className={styles.itemGridItems}>{props.children}</div>
-    </div>
-  );
-}
-
-ItemGrid.propTypes = {
-  children: React.PropTypes.array.isRequired,
-  title: React.PropTypes.string.isRequired,
-};
-
-function QuestHeader() {
-  return (
-    <div style={{ border: '1px solid black' }}>Quest Header</div>
-  );
-}
-
-function BadgesList(props) {
-  return (
-    <div className={styles.badgesList}>
-      {props.children}
-    </div>
-  );
-}
-
-BadgesList.propTypes = {
-  children: React.PropTypes.array.isRequired,
-};
+import Title from '../components/widgets/title';
 
 export default class QuestPage extends Component {
   render() {
@@ -95,92 +43,79 @@ export default class QuestPage extends Component {
         </Nav>
 
         <Gallery
-          left="https://placeimg.com/991/495/arch"
-          center="https://placeimg.com/990/495/arch"
-          right="https://placeimg.com/992/495/arch"
+          left="http://placehold.it/991x495/555"
+          center="http://placehold.it/990x495/222"
+          right="http://placehold.it/992x495"
         />
 
-        {/* <ContentSectionMain>
-        <QuestCarousel />
-        <QuestHeader />
-        <BadgesList>
-        <Badge />
-        <Badge />
-        <Badge />
-        <Badge />
-        <Badge />
-        <Badge />
-        </BadgesList>
-        <QuestShortDescription />
-        <HorizontalRule />
-        <QuestSchedule />
-        <CompanyContacts />
-        <HorizontalRule />
-        <Comments>
-        <Comment />
-        <Comment />
-        <Comment />
-        <Comment />
-        </Comments>
-        <HorizontalRule />
-        <RegularGrid columns={4}>
+        <Container>
+          <WithHorizontalRule>
+            <Columns fractions={[[2, 3], [1, 3]]}>
+              <Quest />
+              <div>sidebar</div>
+            </Columns>
 
-        <QuestCard
-        name="Insania 2.0"
-        imageUrl="https://placeimg.com/300/210/arch"
-        priceMin={4500}
-        priceMax={9500}
-        participantsMin={2}
-        participantsMax={5}
-        rating={9.3}
-        />
-        <QuestCard
-        name="Фантомас против всех"
-        imageUrl="https://placeimg.com/300/210/arch"
-        priceMin={4500}
-        priceMax={9500}
-        participantsMin={2}
-        participantsMax={5}
-        rating={9.3}
-        />
-        <QuestCard
-        name="Психоатрическая больница"
-        imageUrl="https://placeimg.com/300/210/arch"
-        priceMin={4500}
-        priceMax={9500}
-        participantsMin={2}
-        participantsMax={5}
-        rating={9}
-        />
-        <QuestCard
-        name="Коллекционер"
-        imageUrl="https://placeimg.com/300/210/arch"
-        priceMin={4500}
-        priceMax={9500}
-        participantsMin={2}
-        participantsMax={5}
-        rating={9.3}
-        />
-        <QuestCard
-        name="Коллекционер"
-        imageUrl="https://placeimg.com/300/210/arch"
-        priceMin={4500}
-        priceMax={9500}
-        participantsMin={2}
-        participantsMax={5}
-        rating={9.3}
-        />
-        <QuestCard
-        name="Коллекционер"
-        imageUrl="https://placeimg.com/300/210/arch"
-        priceMin={4500}
-        priceMax={9500}
-        participantsMin={2}
-        participantsMax={5}
-        rating={9.3}
-        />
-        </RegularGrid>
-        </ContentSectionMain> */}
+            <div>
+              <Title>Похожие квесты</Title>
+              <RegularGrid columns={4}>
+                <QuestCard
+                  name="Insania 2.0"
+                  imageUrl="http://placehold.it/300x210"
+                  priceMin={4500}
+                  priceMax={9500}
+                  participantsMin={2}
+                  participantsMax={5}
+                  rating={9.3}
+                />
+                <QuestCard
+                  name="Фантомас против всех"
+                  imageUrl="http://placehold.it/300x210"
+                  priceMin={4500}
+                  priceMax={9500}
+                  participantsMin={2}
+                  participantsMax={5}
+                  rating={9.3}
+                />
+                <QuestCard
+                  name="Психоатрическая больница"
+                  imageUrl="http://placehold.it/300x210"
+                  priceMin={4500}
+                  priceMax={9500}
+                  participantsMin={2}
+                  participantsMax={5}
+                  rating={9}
+                />
+                <QuestCard
+                  name="Коллекционер"
+                  imageUrl="http://placehold.it/300x210"
+                  priceMin={4500}
+                  priceMax={9500}
+                  participantsMin={2}
+                  participantsMax={5}
+                  rating={9.3}
+                />
+                <QuestCard
+                  name="Коллекционер"
+                  imageUrl="http://placehold.it/300x210"
+                  priceMin={4500}
+                  priceMax={9500}
+                  participantsMin={2}
+                  participantsMax={5}
+                  rating={9.3}
+                />
+                <QuestCard
+                  name="Коллекционер"
+                  imageUrl="http://placehold.it/300x210"
+                  priceMin={4500}
+                  priceMax={9500}
+                  participantsMin={2}
+                  participantsMax={5}
+                  rating={9.3}
+                />
+              </RegularGrid>
+            </div>
+          </WithHorizontalRule>
+        </Container>
       </Canvas>
     );
   }

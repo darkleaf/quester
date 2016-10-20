@@ -32,7 +32,7 @@ module.exports = {
       test: /\.css$/,
       loaders: [
         'style-loader',
-        'css?modules&camelCase&localIdentName=[path][name]---[local]---[hash:base64:5]',
+        'css?modules&camelCase&localIdentName=[folder]---[local]---[hash:base64:3]',
         'postcss'],
     }],
   },

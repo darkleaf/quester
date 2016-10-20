@@ -10,11 +10,3 @@
 .name {
   /* todo: some style */
 }
-
-.info {
-  display: flex;
-}
-
-.info > * {
-  margin-right: 15px;
-}

@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import RegularGrid from '../../grid/regular-grid';
+import RegularGrid from '../../util/regular-grid';
+import Float from '../../util/float';
+import Title from '../../widgets/title';
 import styles from './styles.css';
 
 function Header({ title, seeAllUrl, totalCount }) {
   return (
-    <div className={styles.header}>
-      <div className={styles.title}>{title}</div>
+    <Float align="left">
+      <Title>{title}</Title>
       <div>
         <a href={seeAllUrl}>
           <FormattedMessage id="Slider.Header.totalCount" values={{ totalCount }} />
         </a>
       </div>
-    </div>
+    </Float>
   );
 }
 
@@ -29,7 +31,6 @@ export default class Slider extends Component {
       styles.container,
       { [styles.highlighted]: this.props.highlighted }
     );
-    const columns = React.Children.count(this.props.children);
 
     return (
       <div className={containerClasses}>
@@ -39,9 +40,9 @@ export default class Slider extends Component {
           <div className={styles.content}>
             <div className={styles.leftArrow}>&lt;</div>
 
-            <RegularGrid columns={columns}>
+            <div className={styles.children}>
               {this.props.children}
-            </RegularGrid>
+            </div>
 
             <div className={styles.rightArrow}>&gt;</div>
           </div>

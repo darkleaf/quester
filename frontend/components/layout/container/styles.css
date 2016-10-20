@@ -1,0 +1,8 @@
+@import '../canvas-vars';
+
+@use lost;
+@lost flexbox flex;
+
+.container {
+  lost-center: $(canvas-max-width) $(canvas-padding);
+}

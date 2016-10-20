@@ -16,16 +16,9 @@
   lost-center: $(canvas-max-width) $(canvas-padding);
 }
 
-.header {
-  display: flex;
-}
-
-.header .title {
-  margin-right: 15px;
-}
-
 .content {
   position: relative;
+  width: 100%;
 }
 
 .left-arrow,
@@ -48,4 +41,9 @@
 
 .right-arrow {
   right: -$canvas-padding;
+}
+
+.children {
+  display: flex;
+  justify-content: space-between;
 }
