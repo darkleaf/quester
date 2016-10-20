@@ -3,3 +3,5 @@
 npm-debug.log
 /.nyc_output/
 /coverage/
+/.nrepl-history
+/.nrepl-port
