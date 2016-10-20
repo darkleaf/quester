@@ -6,11 +6,11 @@
   margin: 0 10px;
 }
 
-.container > *:first-child {
+.container > :first-child {
   margin-left: 0;
 }
 
-.container > *:last-child {
+.container > :last-child {
   margin-right: 0;
 }
 
