@@ -5,7 +5,16 @@
 $button-width: 50px;
 
 .container {
-  /* todo: some style */
+  margin: 50px 0;
+}
+
+.highlighted {
+  background-color: lightgray;
+  padding: 50px 0;
+}
+
+.inner {
+  lost-center: 1290px $button-widht;
 }
 
 .header {
@@ -26,11 +35,11 @@ $button-width: 50px;
   top: 0;
   height: 100%;
   width: $button-width;
-  
+
   display: flex;
   justify-content: center; /* align horizontal */
   align-items: center; /* align vertical */
-  
+
   background: darkgray;
 }
 
