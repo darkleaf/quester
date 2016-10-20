@@ -1,13 +1,16 @@
 language: node_js
 node_js:
   - stable
+install:
+  - npm install --global yarn
+  - yarn install
 script:
-  - npm run test
-  - npm run build #TODO: убрать, когда сделаем тестирование в DOM
-  - npm run lint
-  - npm run stylelint
+  - yarn run test
+  - yarn run build #TODO: убрать, когда сделаем тестирование в DOM
+  - yarn run lint
+  - yarn run stylelint
 after_success:
-  - npm run push-coverage
+  - yarn run push-coverage
 cache:
   directories:
     - node_modules
