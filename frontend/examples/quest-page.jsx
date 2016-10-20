@@ -2,21 +2,19 @@ import React, { Component } from 'react';
 /* TODO: удалить стили, когда разберемся с временными компонентами */
 import styles from './quest-page.css';
 
-import Quest from '../components/entity/quest';
+import Quest from '../components/entities/quest';
+import QuestCard from '../components/entities/quest-card';
+
 import Canvas from '../components/layout/canvas';
+import Gallery from '../components/layout/gallery';
+import Container from '../components/layout/container';
 import Nav from '../components/layout/nav'
 import NavSection from '../components/layout/nav-section';
 import NavBrand from '../components/layout/nav-brand';
 import NavItem from '../components/layout/nav-item';
 import NavSearch from '../components/layout/nav-search';
 
-import Gallery from '../components/layout/gallery';
-import Container from '../components/layout/container';
-
 import WithHorizontalRule from '../components/util/with-horizontal-rule';
-
-import QuestCard from '../components/entity/quest-card';
-
 import RegularGrid from '../components/util/regular-grid';
 import Columns from '../components/util/columns';
 

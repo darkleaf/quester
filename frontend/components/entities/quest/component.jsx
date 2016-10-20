@@ -5,8 +5,8 @@ import Advantage from '../../widgets/advantage';
 import Icon from '../../widgets/icon';
 import Rating from '../../widgets/rating';
 
-import Float from '../../layout/float';
-import WithHorizontalRule from '../../layout/with-horizontal-rule';
+import Float from '../../util/float';
+import WithHorizontalRule from '../../util/with-horizontal-rule';
 
 function Description({}) {
   return (
@@ -54,15 +54,4 @@ export default class Quest extends Component {
   }
 }
 
-Quest.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  imageUrl: React.PropTypes.string.isRequired,
-
-  priceMin: React.PropTypes.number.isRequired,
-  priceMax: React.PropTypes.number.isRequired,
-
-  participantsMin: React.PropTypes.number.isRequired,
-  participantsMax: React.PropTypes.number.isRequired,
-
-  rating: React.PropTypes.number.isRequired,
-};
+Quest.propTypes = {};

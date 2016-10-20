@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 
+import QuestCard from '../components/entities/quest-card';
+import SelectionCard from '../components/entities/selection-card';
+import ReviewCard from '../components/entities/review-card';
+import CompanyCard from '../components/entities/company-card';
+
 import Canvas from '../components/layout/canvas';
 import Nav from '../components/layout/nav';
 import NavSection from '../components/layout/nav-section';
@@ -9,11 +14,6 @@ import NavSearch from '../components/layout/nav-search';
 import MainCarousel from '../components/layout/main-carousel';
 import MainFilter from '../components/layout/main-filter';
 import Slider from '../components/layout/slider';
-
-import QuestCard from '../components/entity/quest-card';
-import SelectionCard from '../components/entity/selection-card';
-import ReviewCard from '../components/entity/review-card';
-import CompanyCard from '../components/entity/company-card';
 
 export default class MainPage extends Component {
   render() {
