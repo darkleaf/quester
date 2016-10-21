@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+}
+
+.container > * {
+  margin: 0 10px;
+}
+
+.container > :first-child {
+  margin-left: 0;
+}
+
+.container > :last-child {
+  margin-right: 0;
+}
+
+.container.align-left {
+  justify-content: flex-start;
+}
+
+.container.align-right {
+  justify-content: flex-end;
+}
+
+.container.align-center {
+  justify-content: center;
+}
+
+.container.align-space-between {
+  justify-content: space-between;
+}

@@ -41,6 +41,7 @@
     "nyc": "8.1.0",
     "postcss-center": "^1.0.0",
     "postcss-for": "2.1.1",
+    "postcss-import": "^8.1.2",
     "postcss-initial": "^1.5.2",
     "postcss-loader": "^0.9.1",
     "postcss-property-lookup": "^1.2.1",

@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const postcssImport = require('postcss-import');
 const autoprefixer = require('autoprefixer');
 const use = require('postcss-use');
 
@@ -31,11 +32,11 @@ module.exports = {
       test: /\.css$/,
       loaders: [
         'style-loader',
-        'css?modules&camelCase&localIdentName=[path][name]---[local]---[hash:base64:5]',
+        'css?modules&camelCase&localIdentName=[folder]---[local]---[hash:base64:3]',
         'postcss'],
     }],
   },
   postcss() {
-    return [use({ modules: '*' }), autoprefixer];
+    return [postcssImport, use({ modules: '*' }), autoprefixer];
   },
 };

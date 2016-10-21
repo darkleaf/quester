@@ -1,0 +1,48 @@
+@import '../canvas-vars';
+
+@use lost;
+
+@lost flexbox flex;
+
+.container {
+  margin: 50px 0;
+}
+
+.highlighted {
+  background-color: lightgray;
+  padding: 50px 0;
+}
+
+.inner {
+  lost-center: $(canvas-max-width) $(canvas-padding);
+}
+
+.content {
+  position: relative;
+  width: 100%;
+}
+
+.left-arrow,
+.right-arrow {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: $(canvas-padding);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: darkgray;
+}
+
+.left-arrow {
+  left: -$(canvas-padding);
+}
+
+.right-arrow {
+  right: -$(canvas-padding);
+}
+
+.children {
+  display: flex;
+  justify-content: space-between;
+}

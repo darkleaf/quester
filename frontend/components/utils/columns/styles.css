@@ -1,0 +1,16 @@
+@use lost;
+@use postcss-for;
+
+@lost flexbox flex;
+
+.container {
+  lost-flex-container: row;
+}
+
+@for $numerator from 1 to 12 {
+  @for $denominator from 1 to 12 {
+    .column-$(numerator)-$(denominator) {
+      lost-column: $(numerator)/$(denominator);
+    }
+  }
+}

@@ -15,7 +15,6 @@ function Divider() {
   return <div style={style}>New page</div>;
 }
 
-
 export default class Examples extends Component {
   render() {
     return (

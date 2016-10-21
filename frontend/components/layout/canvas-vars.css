@@ -1,0 +1,4 @@
+@use postcss-simple-vars;
+
+$canvas-padding: 50px;
+$canvas-max-width: 1290px;

@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 
-import AppContainer from '../components/app-container';
-import { Nav, NavSection } from '../components/nav';
-import NavBrand from '../components/nav-brand';
-import NavItem from '../components/nav-item';
-import NavSearch from '../components/nav-search';
-import MainCarousel from '../components/main-carousel';
-import MainFilter from '../components/main-filter';
-import Slider from '../components/slider';
-import QuestCard from '../components/quest-card';
-import SelectionCard from '../components/selection-card';
-import ReviewCard from '../components/review-card';
-import CompanyCard from '../components/company-card';
+import QuestCard from '../components/entities/quest-card';
+import SelectionCard from '../components/entities/selection-card';
+import ReviewCard from '../components/entities/review-card';
+import CompanyCard from '../components/entities/company-card';
+
+import Canvas from '../components/layout/canvas';
+import Nav from '../components/layout/nav';
+import NavSection from '../components/layout/nav-section';
+import NavBrand from '../components/layout/nav-brand';
+import NavItem from '../components/layout/nav-item';
+import NavSearch from '../components/layout/nav-search';
+import MainCarousel from '../components/layout/main-carousel';
+import MainFilter from '../components/layout/main-filter';
+import Slider from '../components/layout/slider';
 
 export default class MainPage extends Component {
   render() {
     return (
-      <AppContainer>
+      <Canvas>
         <Nav>
           <NavSection>
             <NavBrand name="Quester" />
@@ -35,7 +37,7 @@ export default class MainPage extends Component {
         </Nav>
         <MainCarousel
           title="<b>Москва 2048,</b> Клаустрофобия"
-          currentImageUrl="https://placeimg.com/1900/500/arch"
+          currentImageUrl="http://placehold.it/1900x500"
           indicators={[
             { onClick: () => null },
             { onClick: () => null, active: true },
@@ -52,19 +54,19 @@ export default class MainPage extends Component {
         >
           <SelectionCard
             name="Перформансы"
-            imageUrl="https://placeimg.com/300/300/arch"
+            imageUrl="http://placehold.it/300x300"
           />
           <SelectionCard
             name="Страшные"
-            imageUrl="https://placeimg.com/300/300/arch"
+            imageUrl="http://placehold.it/300x300"
           />
           <SelectionCard
             name="Семейные"
-            imageUrl="https://placeimg.com/300/300/arch"
+            imageUrl="http://placehold.it/300x300"
           />
           <SelectionCard
             name="Виртуальная реальность"
-            imageUrl="https://placeimg.com/300/300/arch"
+            imageUrl="http://placehold.it/300x300"
           />
         </Slider>
 
@@ -75,7 +77,7 @@ export default class MainPage extends Component {
         >
           <QuestCard
             name="Insania 2.0"
-            imageUrl="https://placeimg.com/300/210/arch"
+            imageUrl="http://placehold.it/300x210"
             priceMin={4500}
             priceMax={9500}
             participantsMin={2}
@@ -84,7 +86,7 @@ export default class MainPage extends Component {
           />
           <QuestCard
             name="Фантомас против всех"
-            imageUrl="https://placeimg.com/300/210/arch"
+            imageUrl="http://placehold.it/300x210"
             priceMin={4500}
             priceMax={9500}
             participantsMin={2}
@@ -93,7 +95,7 @@ export default class MainPage extends Component {
           />
           <QuestCard
             name="Психоатрическая больница"
-            imageUrl="https://placeimg.com/300/210/arch"
+            imageUrl="http://placehold.it/300x210"
             priceMin={4500}
             priceMax={9500}
             participantsMin={2}
@@ -102,7 +104,7 @@ export default class MainPage extends Component {
           />
           <QuestCard
             name="Коллекционер"
-            imageUrl="https://placeimg.com/300/210/arch"
+            imageUrl="http://placehold.it/300x210"
             priceMin={4500}
             priceMax={9500}
             participantsMin={2}
@@ -110,7 +112,6 @@ export default class MainPage extends Component {
             rating={9.3}
           />
         </Slider>
-
 
         <Slider
           title="Обзоры"
@@ -120,22 +121,21 @@ export default class MainPage extends Component {
         >
           <ReviewCard
             name="Выбираем самый технологичный квест"
-            imageUrl="https://placeimg.com/300/350/arch"
+            imageUrl="http://placehold.it/300x350"
           />
           <ReviewCard
             name="Квесты для любителей побегать"
-            imageUrl="https://placeimg.com/300/350/arch"
+            imageUrl="http://placehold.it/300x350"
           />
           <ReviewCard
             name="Куда сходить семье с ребенком"
-            imageUrl="https://placeimg.com/300/350/arch"
+            imageUrl="http://placehold.it/300x350"
           />
           <ReviewCard
             name="Выбираем самый необычный квест"
-            imageUrl="https://placeimg.com/300/350/arch"
+            imageUrl="http://placehold.it/300x350"
           />
         </Slider>
-
 
         <Slider
           title="Новые квесты"
@@ -144,7 +144,7 @@ export default class MainPage extends Component {
         >
           <QuestCard
             name="Insania 2.0"
-            imageUrl="https://placeimg.com/300/210/arch"
+            imageUrl="http://placehold.it/300x210"
             priceMin={4500}
             priceMax={9500}
             participantsMin={2}
@@ -153,7 +153,7 @@ export default class MainPage extends Component {
           />
           <QuestCard
             name="Фантомас против всех"
-            imageUrl="https://placeimg.com/300/210/arch"
+            imageUrl="http://placehold.it/300x210"
             priceMin={4500}
             priceMax={9500}
             participantsMin={2}
@@ -162,7 +162,7 @@ export default class MainPage extends Component {
           />
           <QuestCard
             name="Психоатрическая больница"
-            imageUrl="https://placeimg.com/300/210/arch"
+            imageUrl="http://placehold.it/300x210"
             priceMin={4500}
             priceMax={9500}
             participantsMin={2}
@@ -171,7 +171,7 @@ export default class MainPage extends Component {
           />
           <QuestCard
             name="Коллекционер"
-            imageUrl="https://placeimg.com/300/210/arch"
+            imageUrl="http://placehold.it/300x210"
             priceMin={4500}
             priceMax={9500}
             participantsMin={2}
@@ -180,7 +180,6 @@ export default class MainPage extends Component {
           />
         </Slider>
 
-
         <Slider
           title="Компании"
           totalCount={14}
@@ -188,36 +187,36 @@ export default class MainPage extends Component {
         >
           <CompanyCard
             name="Клаустрафобия"
-            imageUrl="https://placeimg.com/190/140/arch"
+            imageUrl="http://placehold.it/190x140"
             questCount={94}
           />
           <CompanyCard
             name="Квеструм"
-            imageUrl="https://placeimg.com/190/140/arch"
+            imageUrl="http://placehold.it/190x140"
             questCount={22}
           />
           <CompanyCard
             name="Западня"
-            imageUrl="https://placeimg.com/190/140/arch"
+            imageUrl="http://placehold.it/190x140"
             questCount={19}
           />
           <CompanyCard
             name="Escape quest"
-            imageUrl="https://placeimg.com/190/140/arch"
+            imageUrl="http://placehold.it/190x140"
             questCount={12}
           />
           <CompanyCard
             name="Quest Gamer"
-            imageUrl="https://placeimg.com/190/140/arch"
+            imageUrl="http://placehold.it/190x140"
             questCount={5}
           />
           <CompanyCard
             name="Quest Room"
-            imageUrl="https://placeimg.com/190/140/arch"
+            imageUrl="http://placehold.it/190x140"
             questCount={4}
           />
         </Slider>
-      </AppContainer>
+      </Canvas>
     );
   }
 }
