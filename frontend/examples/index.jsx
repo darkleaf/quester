@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+
 import { IntlProvider } from 'react-intl';
 import messages from '../messages';
 
-import MainPage from './main-page';
-import QuestPage from './quest-page';
+import WithStubs from './with-stubs';
+
+import MainPage from '../components/pages/main';
+/* import QuestPage from './quest-page';*/
 
 function Divider() {
   const style = {
@@ -19,12 +22,26 @@ export default class Examples extends Component {
   render() {
     return (
       <IntlProvider locale="ru" messages={messages}>
-        <div>
+        <WithStubs>
           <MainPage />
-          <Divider />
-          <QuestPage />
-        </div>
+        </WithStubs>
       </IntlProvider>
-    );
+    )
   }
 }
+
+
+
+/* export default class Examples extends Component {
+ *   render() {
+ *     return (
+ *       <IntlProvider locale="ru" messages={messages}>
+ *         <div>
+ *           <MainPage />
+ *           <Divider />
+ *           <QuestPage />
+ *         </div>
+ *       </IntlProvider>
+ *     );
+ *   }
+ * }*/
