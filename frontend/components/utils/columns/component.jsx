@@ -13,15 +13,15 @@ export default class Columns extends Component {
     return (
       <div className={styles.container}>
         {React.Children.map(this.props.children, (child, idx) => {
-           const fraction = this.props.fractions[idx];
-           const [numerator, denominator] = fractionComponents(fraction);
-           const columnClass = styles[`column-${numerator}-${denominator}`];
-           return (
-             <div className={columnClass}>
-             {child}
-             </div>
-           )
-         })}
+          const fraction = this.props.fractions[idx];
+          const [numerator, denominator] = fractionComponents(fraction);
+          const columnClass = styles[`column-${numerator}-${denominator}`];
+          return (
+            <div className={columnClass}>
+              {child}
+            </div>
+           );
+        })}
       </div>
     );
   }
@@ -29,13 +29,16 @@ export default class Columns extends Component {
 
 Columns.propTypes = {
   children: React.PropTypes.any.isRequired,
-  fractions: function(props, propName, componentName) {
-    const error = new Error('Invalid prop `' + propName + '` supplied to' + ' `' + componentName + '`. Validation failed.');
+  fractions(props, propName, componentName) {
+    const error = new Error(
+      `Invalid prop \`${propName}\` supplied to \`${componentName}\`. Validation failed.`
+    );
 
     if (!props.fractions.every(f => fractionRegex.test(f))) return error;
 
     const childrenCount = React.Children.count(props.children);
     const fractionsCount = props.fractions.length;
-    if (fractionsCount != childrenCount) return error;
-  }
+    if (fractionsCount !== childrenCount) return error;
+    return null;
+  },
 };
