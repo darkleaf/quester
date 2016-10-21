@@ -12,9 +12,9 @@ import NavBrand from '../components/layout/nav-brand';
 import NavItem from '../components/layout/nav-item';
 import NavSearch from '../components/layout/nav-search';
 
-import WithHorizontalRule from '../components/util/with-horizontal-rule';
-import RegularGrid from '../components/util/regular-grid';
-import Columns from '../components/util/columns';
+import WithHorizontalRule from '../components/utils/with-horizontal-rule';
+import RegularGrid from '../components/utils/regular-grid';
+import Columns from '../components/utils/columns';
 
 import Title from '../components/widgets/title';
 
@@ -46,7 +46,7 @@ export default class QuestPage extends Component {
 
         <Container>
           <WithHorizontalRule>
-            <Columns fractions={[[2, 3], [1, 3]]}>
+            <Columns fractions={['2/3', '1/3']}>
               <Quest />
               <div>sidebar</div>
             </Columns>

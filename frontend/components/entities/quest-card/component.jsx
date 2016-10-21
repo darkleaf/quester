@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Float from '../../util/float';
+import Float from '../../utils/float';
 import Price from '../../widgets/price';
 import Icon from '../../widgets/icon';
 import Rating from '../../widgets/rating';

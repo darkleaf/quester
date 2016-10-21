@@ -5,8 +5,8 @@ import Advantage from '../../widgets/advantage';
 import Icon from '../../widgets/icon';
 import Rating from '../../widgets/rating';
 
-import Float from '../../util/float';
-import WithHorizontalRule from '../../util/with-horizontal-rule';
+import Float from '../../utils/float';
+import WithHorizontalRule from '../../utils/with-horizontal-rule';
 
 function Description() {
   return (
