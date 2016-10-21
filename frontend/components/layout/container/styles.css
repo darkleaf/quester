@@ -1,6 +1,7 @@
 @import '../canvas-vars';
 
 @use lost;
+
 @lost flexbox flex;
 
 .container {

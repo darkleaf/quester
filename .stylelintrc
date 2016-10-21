@@ -1,6 +1,7 @@
 extends: 'stylelint-config-standard'
 
-rules: 
- no-eol-whitespace: 
+rules:
+ no-eol-whitespace:
   - true
   - ignore: empty-lines
+  - ignore: at-rule-empty-line-before

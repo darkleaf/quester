@@ -1,6 +1,7 @@
 @import '../canvas-vars';
 
 @use lost;
+
 @lost flexbox flex;
 
 .container {
@@ -26,21 +27,19 @@
   position: absolute;
   top: 0;
   height: 100%;
-  width: $canvas-padding;
-
+  width: $(canvas-padding);
   display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
-
+  justify-content: center;
+  align-items: center;
   background: darkgray;
 }
 
 .left-arrow {
-  left: -$canvas-padding;
+  left: -$(canvas-padding);
 }
 
 .right-arrow {
-  right: -$canvas-padding;
+  right: -$(canvas-padding);
 }
 
 .children {

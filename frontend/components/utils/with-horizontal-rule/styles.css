@@ -1,4 +1,4 @@
-.container > :not(:last-child):after {
+.container > :not(:last-child)::after {
   display: block;
   content: '';
   margin: 40px 0;
