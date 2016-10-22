@@ -1,3 +1,7 @@
+.container {
+  width: 100%;
+}
+
 .container > :not(:last-child)::after {
   display: block;
   content: '';
