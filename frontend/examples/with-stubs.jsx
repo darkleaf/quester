@@ -25,7 +25,7 @@ function MainCarouselContainer() {
     >
       <MainFilter />
     </MainCarousel>
-  )
+  );
 }
 deps.MainCarousel = MainCarouselContainer;
 
@@ -34,22 +34,22 @@ function SelectionCardSliderContainer(props, context) {
   return (
     <Slider
       title="Подборки квестов"
-        totalCount={26}
-        seeAllUrl="/selections"
+      totalCount={26}
+      seeAllUrl="/selections"
     >
       <SelectionCard id={1} />
       <SelectionCard id={2} />
       <SelectionCard id={3} />
       <SelectionCard id={4} />
     </Slider>
-  )
+  );
 }
 SelectionCardSliderContainer.contextTypes = {
   SelectionCard: PropTypes.func.isRequired,
-}
+};
 deps.SelectionCardSlider = SelectionCardSliderContainer;
 
-function SelectionCardContainer({id}) {
+function SelectionCardContainer({ id }) {
   return (
     <SelectionCard
       name={`SelectionCard #${id}`}

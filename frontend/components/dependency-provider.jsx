@@ -16,7 +16,7 @@ const deps = [
   'MainCarousel',
   'SelectionCardSlider',
   'SelectionCard',
-]
+];
 
 const types = deps.reduce((obj, dep) => {
   obj[dep] = PropTypes.func.isRequired;
@@ -27,6 +27,6 @@ DependencyProvider.childContextTypes = types;
 
 const mainProps = {
   children: PropTypes.any.isRequired,
-}
+};
 
 DependencyProvider.propTypes = Object.assign(mainProps, types);

@@ -22,4 +22,4 @@ export default class MainPage extends Component {
 MainPage.contextTypes = {
   MainCarousel: PropTypes.any.isRequired,
   SelectionCardSlider: PropTypes.any.isRequired,
-}
+};

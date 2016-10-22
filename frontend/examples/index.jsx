@@ -26,10 +26,9 @@ export default class Examples extends Component {
           <MainPage />
         </WithStubs>
       </IntlProvider>
-    )
+    );
   }
 }
-
 
 
 /* export default class Examples extends Component {
