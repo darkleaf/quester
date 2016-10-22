@@ -25,9 +25,10 @@ const deps = [
   'CompanyCard',
 ];
 
-const types = deps.reduce((obj, dep) => {
-  return Object.assign(obj, {[dep]: PropTypes.func.isRequired});
-}, {});
+const types = deps.reduce(
+  (obj, dep) => Object.assign(obj, { [dep]: PropTypes.func.isRequired }),
+  {}
+);
 
 DependencyProvider.childContextTypes = types;
 

@@ -1,3 +1,5 @@
+/* eslint no-shadow: "off", react/prop-types: "off" */
+
 import React, { Component, PropTypes } from 'react';
 import DependencyProvider from '../components/dependency-provider';
 
@@ -62,11 +64,11 @@ function BestQuestsSliderContainer(props, context) {
       <QuestCard id={3} />
       <QuestCard id={4} />
     </Slider>
-  )
+  );
 }
 BestQuestsSliderContainer.contextTypes = {
   QuestCard: PropTypes.func.isRequired,
-}
+};
 deps.BestQuestsSlider = BestQuestsSliderContainer;
 
 function ReviewsSliderContainer(props, context) {
@@ -83,11 +85,11 @@ function ReviewsSliderContainer(props, context) {
       <ReviewCard id={3} />
       <ReviewCard id={4} />
     </Slider>
-  )
+  );
 }
 ReviewsSliderContainer.contextTypes = {
   ReviewCard: PropTypes.func.isRequired,
-}
+};
 deps.ReviewsSlider = ReviewsSliderContainer;
 
 function NewQuestsSliderContainer(props, context) {
@@ -103,11 +105,11 @@ function NewQuestsSliderContainer(props, context) {
       <QuestCard id={7} />
       <QuestCard id={8} />
     </Slider>
-  )
+  );
 }
 NewQuestsSliderContainer.contextTypes = {
   QuestCard: PropTypes.func.isRequired,
-}
+};
 deps.NewQuestsSlider = NewQuestsSliderContainer;
 
 function CompaniesSliderContainer(props, context) {
@@ -125,11 +127,11 @@ function CompaniesSliderContainer(props, context) {
       <CompanyCard id={5} />
       <CompanyCard id={6} />
     </Slider>
-  )
+  );
 }
 CompaniesSliderContainer.contextTypes = {
   CompanyCard: PropTypes.func.isRequired,
-}
+};
 deps.CompaniesSlider = CompaniesSliderContainer;
 
 function SelectionCardContainer({ id }) {
@@ -153,7 +155,7 @@ function QuestCardContainer({ id }) {
       participantsMax={5}
       rating={9.3}
     />
-  )
+  );
 }
 deps.QuestCard = QuestCardContainer;
 
@@ -163,18 +165,18 @@ function ReviewCardContainer({ id }) {
       name={`ReviewCard #${id}`}
       imageUrl="http://placehold.it/300x350"
     />
-  )
+  );
 }
 deps.ReviewCard = ReviewCardContainer;
 
-function CompanyCardContainer({id}) {
+function CompanyCardContainer({ id }) {
   return (
     <CompanyCard
       name={`CompanyCard #${id}`}
       imageUrl="http://placehold.it/190x140"
       questCount={id}
     />
-  )
+  );
 }
 deps.CompanyCard = CompanyCardContainer;
 

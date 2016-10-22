@@ -15,7 +15,7 @@ function Divider() {
     textAlign: 'center',
     background: 'black',
   };
-  return <div style={style}>New page</div>;
+  return <div style={style}>Divider</div>;
 }
 
 export default class Examples extends Component {
@@ -24,23 +24,9 @@ export default class Examples extends Component {
       <IntlProvider locale="ru" messages={messages}>
         <WithStubs>
           <MainPage />
+          <Divider />
         </WithStubs>
       </IntlProvider>
     );
   }
 }
-
-
-/* export default class Examples extends Component {
- *   render() {
- *     return (
- *       <IntlProvider locale="ru" messages={messages}>
- *         <div>
- *           <MainPage />
- *           <Divider />
- *           <QuestPage />
- *         </div>
- *       </IntlProvider>
- *     );
- *   }
- * }*/
