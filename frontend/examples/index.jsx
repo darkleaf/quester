@@ -6,7 +6,7 @@ import messages from '../messages';
 import WithStubs from './with-stubs';
 
 import MainPage from '../components/pages/main';
-/* import QuestPage from './quest-page';*/
+import QuestPage from '../components/pages/quest';
 
 function Divider() {
   const style = {
@@ -25,6 +25,7 @@ export default class Examples extends Component {
         <WithStubs>
           <MainPage />
           <Divider />
+          <QuestPage id={1} />
         </WithStubs>
       </IntlProvider>
     );

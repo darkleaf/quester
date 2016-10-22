@@ -5,12 +5,14 @@ import DependencyProvider from '../components/dependency-provider';
 
 import MainCarousel from '../components/layout/main-carousel';
 import MainFilter from '../components/layout/main-filter';
-
 import Slider from '../components/layout/slider';
+import Gallery from '../components/layout/gallery';
+
 import SelectionCard from '../components/entities/selection-card';
 import ReviewCard from '../components/entities/review-card';
 import CompanyCard from '../components/entities/company-card';
 import QuestCard from '../components/entities/quest-card';
+
 
 const deps = {};
 
@@ -179,6 +181,17 @@ function CompanyCardContainer({ id }) {
   );
 }
 deps.CompanyCard = CompanyCardContainer;
+
+function QuestGalleryContainer({ id }) {
+  return (
+    <Gallery
+      left="http://placehold.it/991x495/555"
+      center={`http://placehold.it/990x495/222?text=id:+${id}`}
+      right="http://placehold.it/992x495"
+    />
+  )
+}
+deps.QuestGallery = QuestGalleryContainer;
 
 export default class WithStubs extends Component {
   render() {
