@@ -16,6 +16,10 @@ export default class QuestPage extends Component {
   render() {
     const {
       QuestGallery,
+      QuestSimilarQuests,
+      QuestDescription,
+      QuestSchedule,
+      QuestLocation,
     } = this.context;
     return (
       <Canvas>
@@ -41,13 +45,14 @@ export default class QuestPage extends Component {
         <Container>
           <WithHorizontalRule>
             <Columns fractions={['2/3', '1/3']}>
-              <div>quest</div>
-              {/*               <Quest /> */}
+              <WithHorizontalRule>
+                <QuestDescription id={this.props.id} />
+                <QuestSchedule id={this.props.id} />
+                <QuestLocation id={this.props.id} />
+              </WithHorizontalRule>
               <div>sidebar</div>
             </Columns>
-            <div>
-              quests
-            </div>
+            <QuestSimilarQuests id={this.props.id} />
           </WithHorizontalRule>
         </Container>
       </Canvas>
@@ -57,8 +62,12 @@ export default class QuestPage extends Component {
 
 QuestPage.contextTypes = {
   QuestGallery: PropTypes.func.isRequired,
+  QuestDescription: PropTypes.func.isRequired,
+  QuestSchedule: PropTypes.func.isRequired,
+  QuestLocation: PropTypes.func.isRequired,
+  QuestSimilarQuests: PropTypes.func.isRequired,
 };
 
 QuestPage.propTypes = {
   id: PropTypes.number.isRequired,
-}
+};

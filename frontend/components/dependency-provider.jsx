@@ -24,6 +24,10 @@ const deps = [
   'ReviewCard',
   'CompanyCard',
   'QuestGallery',
+  'QuestDescription',
+  'QuestSchedule',
+  'QuestLocation',
+  'QuestSimilarQuests',
 ];
 
 const types = deps.reduce(

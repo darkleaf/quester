@@ -1,4 +1,4 @@
-/* eslint no-shadow: "off", react/prop-types: "off" */
+/* eslint no-shadow: "off", react/prop-types: "off", no-empty-pattern: "off" */
 
 import React, { Component, PropTypes } from 'react';
 import DependencyProvider from '../components/dependency-provider';
@@ -13,6 +13,12 @@ import ReviewCard from '../components/entities/review-card';
 import CompanyCard from '../components/entities/company-card';
 import QuestCard from '../components/entities/quest-card';
 
+import QuestDescription from '../components/entities/quest/description';
+import QuestSchedule from '../components/entities/quest/schedule';
+import QuestLocation from '../components/entities/quest/location';
+
+import Title from '../components/widgets/title';
+import RegularGrid from '../components/utils/regular-grid';
 
 const deps = {};
 
@@ -189,9 +195,51 @@ function QuestGalleryContainer({ id }) {
       center={`http://placehold.it/990x495/222?text=id:+${id}`}
       right="http://placehold.it/992x495"
     />
-  )
+  );
 }
 deps.QuestGallery = QuestGalleryContainer;
+
+function QuestDescriptionContainer({ /* id */ }) {
+  return (
+    <QuestDescription />
+  );
+}
+deps.QuestDescription = QuestDescriptionContainer;
+
+function QuesetScheduleContainer({ /* id */ }) {
+  return (
+    <QuestSchedule />
+  );
+}
+deps.QuestSchedule = QuesetScheduleContainer;
+
+function QuestLocationContainer({ /* id */ }) {
+  return (
+    <QuestLocation />
+  );
+}
+deps.QuestLocation = QuestLocationContainer;
+
+function QuestSimilarQuestsContainer({ /* id */ }, { QuestCard }) {
+  /* TODO: move to separate component like: <C><QuestCard/><QuestCard></C> */
+  return (
+    <div>
+      <Title>Похожие квесты</Title>
+      <RegularGrid columns={4}>
+        <QuestCard id={10} />
+        <QuestCard id={11} />
+        <QuestCard id={12} />
+        <QuestCard id={13} />
+        <QuestCard id={14} />
+        <QuestCard id={15} />
+      </RegularGrid>
+    </div>
+  );
+}
+QuestSimilarQuestsContainer.contextTypes = {
+  QuestCard: PropTypes.func.isRequired,
+};
+deps.QuestSimilarQuests = QuestSimilarQuestsContainer;
 
 export default class WithStubs extends Component {
   render() {
