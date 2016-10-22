@@ -14,13 +14,19 @@ export default class DependencyProvider extends Component {
 
 const deps = [
   'MainCarousel',
-  'SelectionCardSlider',
+  'SelectionsSlider',
+  'BestQuestsSlider',
+  'NewQuestsSlider',
+  'ReviewsSlider',
+  'CompaniesSlider',
   'SelectionCard',
+  'QuestCard',
+  'ReviewCard',
+  'CompanyCard',
 ];
 
 const types = deps.reduce((obj, dep) => {
-  obj[dep] = PropTypes.func.isRequired;
-  return obj;
+  return Object.assign(obj, {[dep]: PropTypes.func.isRequired});
 }, {});
 
 DependencyProvider.childContextTypes = types;

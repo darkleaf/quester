@@ -3,23 +3,36 @@ import React, { Component, PropTypes } from 'react';
 import Canvas from '../../layout/canvas';
 import Nav from '../../layout/nav';
 
-
 export default class MainPage extends Component {
   render() {
-    const { MainCarousel, SelectionCardSlider } = this.context;
+    const { MainCarousel,
+            SelectionsSlider,
+            BestQuestsSlider,
+            ReviewsSlider,
+            NewQuestsSlider,
+            CompaniesSlider,
+    } = this.context;
     return (
       <Canvas>
         <Nav>
           foo
         </Nav>
         <MainCarousel />
-        <SelectionCardSlider />
+        <SelectionsSlider />
+        <BestQuestsSlider />
+        <ReviewsSlider />
+        <NewQuestsSlider />
+        <CompaniesSlider />
       </Canvas>
     );
   }
 }
 
 MainPage.contextTypes = {
-  MainCarousel: PropTypes.any.isRequired,
-  SelectionCardSlider: PropTypes.any.isRequired,
+  MainCarousel: PropTypes.func.isRequired,
+  SelectionsSlider: PropTypes.func.isRequired,
+  BestQuestsSlider: PropTypes.func.isRequired,
+  ReviewsSlider: PropTypes.func.isRequired,
+  NewQuestsSlider: PropTypes.func.isRequired,
+  CompaniesSlider: PropTypes.func.isRequired,
 };
