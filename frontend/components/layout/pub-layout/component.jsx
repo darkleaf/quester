@@ -13,7 +13,7 @@ export default class PubLayout extends Component {
     return (
       <StickyContainer>
         <Canvas>
-          <Sticky style={{zIndex: 1}}>
+          <Sticky style={{ zIndex: 1 }}>
             <Nav>
               <LeftNavSection />
               <RightNavSection />
