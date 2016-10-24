@@ -3,6 +3,11 @@
 import React, { Component, PropTypes } from 'react';
 import DependencyProvider from '../components/dependency-provider';
 
+import NavSection from '../components/layout/nav-section';
+import NavBrand from '../components/layout/nav-brand';
+import NavItem from '../components/layout/nav-item';
+import NavSearch from '../components/layout/nav-search';
+
 import MainCarousel from '../components/layout/main-carousel';
 import MainFilter from '../components/layout/main-filter';
 import Slider from '../components/layout/slider';
@@ -21,6 +26,31 @@ import Title from '../components/widgets/title';
 import RegularGrid from '../components/utils/regular-grid';
 
 const deps = {};
+
+function LeftNavSectionContainer() {
+  return (
+    <NavSection>
+      <NavBrand name="Quester" />
+      <NavItem name="Квесты" />
+      <NavItem name="Подборки" />
+      <NavItem name="Обзоры" />
+      <NavItem name="Компании" />
+      <NavSearch />
+    </NavSection>
+  );
+}
+deps.LeftNavSection = LeftNavSectionContainer;
+
+function RightNavSectionContainer() {
+  return (
+    <NavSection>
+      <NavItem name="Москва" />
+      <NavItem name="Избранное" />
+      <NavItem name="Выйти" />
+    </NavSection>
+  );
+}
+deps.RightNavSection = RightNavSectionContainer;
 
 function MainCarouselContainer() {
   return (

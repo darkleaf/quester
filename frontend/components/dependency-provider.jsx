@@ -13,6 +13,8 @@ export default class DependencyProvider extends Component {
 }
 
 const deps = [
+  'LeftNavSection',
+  'RightNavSection',
   'MainCarousel',
   'SelectionsSlider',
   'BestQuestsSlider',
