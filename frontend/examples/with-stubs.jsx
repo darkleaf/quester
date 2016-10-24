@@ -28,7 +28,7 @@ import RegularGrid from '../components/utils/regular-grid';
 const deps = {};
 
 function LeftNavSectionContainer() {
-   return (
+  return (
     <NavSection>
       <NavBrand name="Quester" />
       <NavItem name="Квесты" />
@@ -37,7 +37,7 @@ function LeftNavSectionContainer() {
       <NavItem name="Компании" />
       <NavSearch />
     </NavSection>
-  )
+  );
 }
 deps.LeftNavSection = LeftNavSectionContainer;
 
@@ -48,7 +48,7 @@ function RightNavSectionContainer() {
       <NavItem name="Избранное" />
       <NavItem name="Выйти" />
     </NavSection>
-  )
+  );
 }
 deps.RightNavSection = RightNavSectionContainer;
 

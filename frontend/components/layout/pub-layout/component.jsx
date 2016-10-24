@@ -24,7 +24,7 @@ export default class PubLayout extends Component {
 PubLayout.contextTypes = {
   LeftNavSection: PropTypes.func.isRequired,
   RightNavSection: PropTypes.func.isRequired,
-}
+};
 
 PubLayout.propTypes = {
   children: React.PropTypes.array.isRequired,
