@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 import Canvas from '../canvas';
 import Nav from '../nav';
@@ -10,13 +11,17 @@ export default class PubLayout extends Component {
       RightNavSection,
     } = this.context;
     return (
-      <Canvas>
-        <Nav>
-          <LeftNavSection />
-          <RightNavSection />
-        </Nav>
-        {this.props.children}
-      </Canvas>
+      <StickyContainer>
+        <Canvas>
+          <Sticky style={{zIndex: 1}}>
+            <Nav>
+              <LeftNavSection />
+              <RightNavSection />
+            </Nav>
+          </Sticky>
+          {this.props.children}
+        </Canvas>
+      </StickyContainer>
     );
   }
 }
