@@ -274,14 +274,14 @@ deps.QuestSimilarQuests = QuestSimilarQuestsContainer;
 function QuestAddToFavoriteContainer({ /* id */ }) {
   return (
     <div>add to favorite</div>
-  )
+  );
 }
 deps.QuestAddToFavorite = QuestAddToFavoriteContainer;
 
 function QuestBookingContainer({ /* id */ }) {
   return (
-    <div style={{height: '100px', border: '1px gray solid'}}>quest booking form</div>
-  )
+    <div style={{ height: '100px', border: '1px gray solid' }}>quest booking form</div>
+  );
 }
 deps.QuestBooking = QuestBookingContainer;
 
