@@ -1,10 +1,13 @@
 import React, { Component, PropTypes } from 'react';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 import PubLayout from '../../layout/pub-layout';
 import Container from '../../layout/container';
 
 import WithHorizontalRule from '../../utils/with-horizontal-rule';
 import Columns from '../../utils/columns';
+
+import styles from './styles.css';
 
 export default class QuestPage extends Component {
   render() {
@@ -14,6 +17,8 @@ export default class QuestPage extends Component {
       QuestDescription,
       QuestSchedule,
       QuestLocation,
+      QuestAddToFavorite,
+      QuestBooking,
     } = this.context;
     return (
       <PubLayout>
@@ -26,7 +31,12 @@ export default class QuestPage extends Component {
                 <QuestSchedule id={this.props.id} />
                 <QuestLocation id={this.props.id} />
               </WithHorizontalRule>
-              <div>sidebar</div>
+              <StickyContainer className={styles.sidebar}>
+                <Sticky stickyClassName={styles.sticky}>
+                  <QuestAddToFavorite id={this.props.id} />
+                  <QuestBooking id={this.props.id} />
+                </Sticky>
+              </StickyContainer>
             </Columns>
             <QuestSimilarQuests id={this.props.id} />
           </WithHorizontalRule>
@@ -42,6 +52,8 @@ QuestPage.contextTypes = {
   QuestSchedule: PropTypes.func.isRequired,
   QuestLocation: PropTypes.func.isRequired,
   QuestSimilarQuests: PropTypes.func.isRequired,
+  QuestAddToFavorite: PropTypes.func.isRequired,
+  QuestBooking: PropTypes.func.isRequired,
 };
 
 QuestPage.propTypes = {
