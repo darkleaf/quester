@@ -30,6 +30,8 @@ const deps = [
   'QuestSchedule',
   'QuestLocation',
   'QuestSimilarQuests',
+  'QuestAddToFavorite',
+  'QuestBooking',
 ];
 
 const types = deps.reduce(
