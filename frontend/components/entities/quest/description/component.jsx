@@ -1,7 +1,7 @@
 import React, { Component/* , PropTypes */ } from 'react';
 import styles from './styles.css';
 
-import Advantage from '../../../widgets/advantage';
+import Advantage from '../../../entities/advantage';
 import Icon from '../../../widgets/icon';
 import Rating from '../../../widgets/rating';
 import Float from '../../../utils/float';
