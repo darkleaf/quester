@@ -5,6 +5,7 @@ import Advantage from '../../../widgets/advantage';
 import Icon from '../../../widgets/icon';
 import Rating from '../../../widgets/rating';
 import Float from '../../../utils/float';
+import Text from '../../../widgets/text';
 
 export default class Description extends Component {
   render() {
@@ -26,9 +27,13 @@ export default class Description extends Component {
           </Float>
         </div>
         <div className={styles.description}>
-          Служба Яндекс.Рефераты предназначена для студентов и школьников, дизайнеров и журналистов,
-          создателей научных заявок и отчетов — для всех, кто относится к тексту,
-          как к количеству знаков.
+          <Text>
+            Служба Яндекс.Рефераты предназначена для студентов и школьников,
+            дизайнеров и журналистов,
+            создателей научных заявок и отчетов — для всех,
+            кто относится к тексту,
+            как к количеству знаков.
+          </Text>
         </div>
       </div>
     );
