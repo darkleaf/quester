@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import styles from './styles.css';
 
 export default class Text extends Component {
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         {this.props.children}
       </div>
     );
