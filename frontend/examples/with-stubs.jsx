@@ -21,6 +21,8 @@ import QuestCard from '../components/entities/quest-card';
 import QuestDescription from '../components/entities/quest/description';
 import QuestSchedule from '../components/entities/quest/schedule';
 import QuestLocation from '../components/entities/quest/location';
+import QuestCommentList from '../components/entities/quest/comment-list';
+import QuestComment from '../components/entities/quest/comment';
 
 import Title from '../components/widgets/title';
 import RegularGrid from '../components/utils/regular-grid';
@@ -249,6 +251,25 @@ function QuestLocationContainer({ /* id */ }) {
   );
 }
 deps.QuestLocation = QuestLocationContainer;
+
+function QuestCommentContainer({ id }) {
+  return (
+    <QuestComment tempName={`Comment #${id}`} />
+  );
+}
+deps.QuestComment = QuestCommentContainer;
+
+function QuestCommentListContainer({ /* id */}) {
+  return (
+    <QuestCommentList>
+      <QuestCommentContainer id={1}/>
+      <QuestCommentContainer id={2}/>
+      <QuestCommentContainer id={3}/>
+      <QuestCommentContainer id={4}/>
+    </QuestCommentList>
+  );
+}
+deps.QuestCommentList = QuestCommentListContainer;
 
 function QuestSimilarQuestsContainer({ /* id */ }, { QuestCard }) {
   /* TODO: move to separate component like: <C><QuestCard/><QuestCard></C> */

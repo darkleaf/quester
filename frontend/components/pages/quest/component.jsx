@@ -19,6 +19,7 @@ export default class QuestPage extends Component {
       QuestLocation,
       QuestAddToFavorite,
       QuestBooking,
+      QuestCommentList,
     } = this.context;
     return (
       <PubLayout>
@@ -30,6 +31,7 @@ export default class QuestPage extends Component {
                 <QuestDescription id={this.props.id} />
                 <QuestSchedule id={this.props.id} />
                 <QuestLocation id={this.props.id} />
+                <QuestCommentList id={this.props.id} />
               </WithHorizontalRule>
               <StickyContainer className={styles.sidebar}>
                 <Sticky stickyClassName={styles.sticky}>
@@ -51,6 +53,7 @@ QuestPage.contextTypes = {
   QuestDescription: PropTypes.func.isRequired,
   QuestSchedule: PropTypes.func.isRequired,
   QuestLocation: PropTypes.func.isRequired,
+  QuestCommentList: PropTypes.func.isRequired,
   QuestSimilarQuests: PropTypes.func.isRequired,
   QuestAddToFavorite: PropTypes.func.isRequired,
   QuestBooking: PropTypes.func.isRequired,

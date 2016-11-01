@@ -29,6 +29,8 @@ const deps = [
   'QuestDescription',
   'QuestSchedule',
   'QuestLocation',
+  'QuestCommentList',
+  'QuestComment',
   'QuestSimilarQuests',
   'QuestAddToFavorite',
   'QuestBooking',
