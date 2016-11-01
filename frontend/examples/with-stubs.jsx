@@ -262,10 +262,10 @@ deps.QuestComment = QuestCommentContainer;
 function QuestCommentListContainer({ /* id */}) {
   return (
     <QuestCommentList>
-      <QuestCommentContainer id={1}/>
-      <QuestCommentContainer id={2}/>
-      <QuestCommentContainer id={3}/>
-      <QuestCommentContainer id={4}/>
+      <QuestCommentContainer id={1} />
+      <QuestCommentContainer id={2} />
+      <QuestCommentContainer id={3} />
+      <QuestCommentContainer id={4} />
     </QuestCommentList>
   );
 }
