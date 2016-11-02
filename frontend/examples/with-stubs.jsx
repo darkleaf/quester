@@ -23,9 +23,6 @@ import QuestDescription from '../components/entities/quest/description';
 import QuestSchedule from '../components/entities/quest/schedule';
 import QuestLocation from '../components/entities/quest/location';
 
-import Title from '../components/widgets/title';
-import RegularGrid from '../components/utils/regular-grid';
-
 const deps = {};
 
 function LeftNavSectionContainer() {
