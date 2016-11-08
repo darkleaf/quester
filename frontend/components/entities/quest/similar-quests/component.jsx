@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import RegularGrid from '../../../utils/regular-grid';
 import Title from '../../../widgets/title';
-import QuestCard from '../../quest-card';
 
 export default class SimilarQuests extends Component {
   render() {
@@ -18,8 +17,5 @@ export default class SimilarQuests extends Component {
 
 SimilarQuests.propTypes = {
   title: React.PropTypes.string.isRequired,
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.array.isRequired,
-    React.PropTypes.instanceOf(QuestCard).isRequired,
-  ]),
+  children: React.PropTypes.any.isRequired,
 };
