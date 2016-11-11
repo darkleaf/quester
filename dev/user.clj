@@ -1,14 +1,18 @@
 (ns user
   (:require [boot.core :refer :all]
             [mount.core]
-            [quester.web-server]
-            [quester.use-cases-deps.container]
-            [quester.use-cases-deps.setup]))
+            [quester.container]
+            [quester.composition-root]
+            [quester.web-server]))
 
 (defn start []
-  (quester.use-cases-deps.setup/setup)
+  (quester.composition-root/register-all)
   (mount.core/start))
 
 (defn stop []
-  (quester.use-cases-deps.container/clear)
+  (quester.container/clear)
   (mount.core/stop))
+
+(defn restart []
+  (stop)
+  (start))

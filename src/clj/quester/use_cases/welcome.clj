@@ -1,6 +1,4 @@
-(ns quester.use-cases.welcome
-  (:require [clojure.spec :as s]
-            [quester.entities.selection :as selection]))
+(ns quester.use-cases.welcome)
 
-(defn perform [{:keys [selections-for-slider]}]
-  {:selections-for-slider (selections-for-slider)})
+(defn perform [{:keys [selections]}]
+  {:selections (selections)})
