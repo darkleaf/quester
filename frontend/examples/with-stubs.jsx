@@ -17,13 +17,11 @@ import SelectionCard from '../components/entities/selection-card';
 import ReviewCard from '../components/entities/review-card';
 import CompanyCard from '../components/entities/company-card';
 import QuestCard from '../components/entities/quest-card';
+import SimilarQuests from '../components/entities/quest/similar-quests';
 
 import QuestDescription from '../components/entities/quest/description';
 import QuestSchedule from '../components/entities/quest/schedule';
 import QuestLocation from '../components/entities/quest/location';
-
-import Title from '../components/widgets/title';
-import RegularGrid from '../components/utils/regular-grid';
 
 const deps = {};
 
@@ -251,19 +249,15 @@ function QuestLocationContainer({ /* id */ }) {
 deps.QuestLocation = QuestLocationContainer;
 
 function QuestSimilarQuestsContainer({ /* id */ }, { QuestCard }) {
-  /* TODO: move to separate component like: <C><QuestCard/><QuestCard></C> */
   return (
-    <div>
-      <Title>Похожие квесты</Title>
-      <RegularGrid columns={4}>
-        <QuestCard id={10} />
-        <QuestCard id={11} />
-        <QuestCard id={12} />
-        <QuestCard id={13} />
-        <QuestCard id={14} />
-        <QuestCard id={15} />
-      </RegularGrid>
-    </div>
+    <SimilarQuests title="Похожие квесты">
+      <QuestCard id={10} />
+      <QuestCard id={11} />
+      <QuestCard id={12} />
+      <QuestCard id={13} />
+      <QuestCard id={14} />
+      <QuestCard id={15} />
+    </SimilarQuests>
   );
 }
 QuestSimilarQuestsContainer.contextTypes = {
