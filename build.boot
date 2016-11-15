@@ -1,4 +1,4 @@
-(set-env!
+(merge-env!
   :source-paths #{"src/cljc" "src/clj"}
   :dependencies '[[org.clojure/clojure "1.9.0-alpha14"]
                   [ring/ring-core "1.5.0"]

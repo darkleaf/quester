@@ -4,4 +4,4 @@
 
 (def routes
   (build-routes
-   (root #'special/welcome)))
+   (root special/welcome)))

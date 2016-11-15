@@ -5,4 +5,4 @@
 (defn welcome [req]
   (let [uc (c/resolve :use-cases/welcome)
         data (uc)]
-    (r/response (str data))))
+    (r/response data)))

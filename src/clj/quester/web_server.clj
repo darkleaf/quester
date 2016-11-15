@@ -4,5 +4,5 @@
             [quester.routes.core :refer [handler]]))
 
 (defstate web-server
-  :start (run-jetty #'handler {:port 3000, :join? false})
+  :start (run-jetty handler {:port 3000, :join? false})
   :stop (.stop web-server))
