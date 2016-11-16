@@ -1,6 +1,7 @@
 (ns quester.middlewares.web
   (:require [cognitect.transit :as t]
-            [ring.util.response :as r])
+            [ring.util.response :as r]
+            [hiccup.page :as h])
   (:import [java.io ByteArrayOutputStream]))
 
 (defn- data->transit [data]
@@ -9,10 +10,22 @@
     (t/write writer data)
     (.toString out)))
 
+(defn- data->html [data]
+  (h/html5
+   [:head
+    [:title "Quester"]]
+   [:body
+    "hello"
+    [:script
+     "window.initData = "
+     (data->transit data)]]))
+
 (defn wrap-response-body [handler]
   (fn [req]
     (let [resp (handler req)]
       ;; добавить условие на success и проверять content-type запроса
       (-> resp
-          (update :body data->transit)
-          (r/content-type "application/transit+json")))))
+          #_(update :body data->transit)
+          #_(r/content-type "application/transit+json")
+          (update :body data->html)
+          (r/content-type "text/html")))))

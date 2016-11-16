@@ -6,6 +6,7 @@
                   [darkleaf/router "0.1.0-20161110.194632-2"]
                   [mount "0.1.10"]
                   [com.cognitect/transit-clj "0.8.290"]
+                  [hiccup "1.0.5"]
                   [org.clojure/test.check "0.9.0" :scope "test"]])
 
 (task-options!
