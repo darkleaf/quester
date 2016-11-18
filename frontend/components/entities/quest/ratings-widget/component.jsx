@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 
 import Float from '../../../utils/float';
+import Rating from '../../../widgets/rating';
 
 export default class RatingsWidget extends Component {
   render() {
     return (
       <div>
-        <Float align="left">
-          <div>Рейтинг по основаниям отзывов</div>
-        </Float>
         <Float align="right">
-          <div>Different ratings</div>
+          <Rating value="10" />
+          <div>Атмосфера</div>
+          <div>Сюжетная линия</div>
+          <div>Загадки</div>
         </Float>
       </div>
     );
