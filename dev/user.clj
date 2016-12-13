@@ -1,9 +1,17 @@
-(ns user
-  (:require [boot.core :refer :all]
-            [mount.core]
-            [quester.container]
-            [quester.composition-root]
-            [quester.web-server]))
+(in-ns 'boot.user)
+
+(require '[mount.core]
+         '[quester.container]
+         '[quester.composition-root]
+         '[quester.web-server])
+
+(mount.core/defstate cljs-process
+  :start (future
+           (boot
+            (watch)
+            (cljs-repl-env)
+            (cljs)))
+  :stop (future-cancel cljs-process))
 
 (defn start []
   (mount.core/start))

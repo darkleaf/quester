@@ -1,7 +1,7 @@
 (ns quester.routes.web
-  (:require [darkleaf.router :refer :all]
-            [quester.handlers.web.special :as special]))
+  (:require [darkleaf.router :as r]
+            [quester.controllers.web.site :as site]))
 
 (def routes
-  (build-routes
-   (root special/welcome)))
+  (r/resource :site site/controller
+              :segment false))

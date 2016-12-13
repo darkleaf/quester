@@ -18,7 +18,8 @@
     "hello"
     [:script
      "window.initData = "
-     (data->transit data)]]))
+     (data->transit data)]
+    (h/include-js "/js/main.js")]))
 
 (defn wrap-response-body [handler]
   (fn [req]

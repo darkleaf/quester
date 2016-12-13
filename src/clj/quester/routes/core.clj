@@ -1,16 +1,12 @@
 (ns quester.routes.core
-  (:require [darkleaf.router :refer :all]
+  (:require [darkleaf.router :as r]
             [quester.routes.web :as web]
             [quester.middlewares.core :as core-mw]
             [quester.middlewares.web :as web-mw]))
 
 (def routes
-  (build-routes
-   (wrap-handler
-    core-mw/wrap-charset
-    (wrap-handler
+  (r/wrapper
+   core-mw/wrap-charset
+   (r/wrapper
      web-mw/wrap-response-body
-     web/routes))))
-
-(def handler (build-handler routes)
- #_(def request-for (build-request-for routes)))
+     web/routes)))
