@@ -15,16 +15,17 @@
    [:head
     [:title "Quester"]]
    [:body
-    "hello"
+    "hello 11"
     [:script
      "window.initData = "
      (data->transit data)]
-    (h/include-js "/js/main.js")]))
+    (h/include-js "/js/web.js")]))
 
 (defn wrap-response-body [handler]
   (fn [req]
     (let [resp (handler req)]
       ;; добавить условие на success и проверять content-type запроса
+
       (-> resp
           #_(update :body data->transit)
           #_(r/content-type "application/transit+json")
