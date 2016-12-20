@@ -1,0 +1,2 @@
+{:require [quester.web]
+ :compiler-options {:asset-path "/js/web.out"}}
