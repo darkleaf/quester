@@ -1,9 +1,10 @@
 const path = require('path');
+const rootPath = path.join(__dirname, '..', '..');
 
 module.exports = {
-  entry: './frontend/tests_entry.js',
+  entry: path.join(rootPath, 'src', 'frontend', 'tests_entry.js'),
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(rootPath, 'dist'),
     filename: 'tests.js',
   },
   resolve: {
@@ -13,7 +14,7 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       loader: 'babel',
-      include: path.join(__dirname, 'frontend'),
+      include: path.join(rootPath, 'src', 'frontend'),
     }, {
       test: /\.css$/,
       loader: 'null-loader',

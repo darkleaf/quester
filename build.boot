@@ -34,7 +34,7 @@
   (swap! @(resolve 'boot.repl/*default-middleware*)
          concat '[cider.nrepl/cider-middleware
                   refactor-nrepl.middleware/wrap-refactor])
-  (merge-env! :source-paths #{"dev"})
+  (merge-env! :source-paths #{"src/clj-dev"})
   (require ['user :as 'u])
   (comp
    (repl :server true)

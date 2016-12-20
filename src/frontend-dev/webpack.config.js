@@ -5,15 +5,17 @@ const postcssImport = require('postcss-import');
 const autoprefixer = require('autoprefixer');
 const use = require('postcss-use');
 
+const rootPath = path.join(__dirname, '..', '..');
+
 module.exports = {
   devtool: 'eval',
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    './frontend/index',
+    path.join(rootPath, 'src', 'frontend', 'index'),
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(rootPath, 'dist'),
     filename: 'bundle.js',
     publicPath: '/static/',
   },
@@ -27,7 +29,7 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       loaders: ['react-hot', 'babel'],
-      include: path.join(__dirname, 'frontend'),
+      include: path.join(rootPath, 'src', 'frontend'),
     }, {
       test: /\.css$/,
       loaders: [
