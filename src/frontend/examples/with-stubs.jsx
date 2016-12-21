@@ -1,7 +1,7 @@
 /* eslint no-shadow: "off", react/prop-types: "off", no-empty-pattern: "off" */
 
-import React, { Component, PropTypes } from 'react';
-import DependencyProvider from '../components/dependency-provider';
+import React, { PropTypes } from 'react';
+import dependencyProviderBuilder from '../components/dependency-provider-builder';
 
 import NavSection from '../components/layout/nav-section';
 import NavBrand from '../components/layout/nav-brand';
@@ -279,8 +279,4 @@ function QuestBookingContainer({ /* id */ }) {
 }
 deps.QuestBooking = QuestBookingContainer;
 
-export default class WithStubs extends Component {
-  render() {
-    return <DependencyProvider {...deps}>{this.props.children}</DependencyProvider>;
-  }
-}
+export default dependencyProviderBuilder(deps);

@@ -12,7 +12,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    path.join(rootPath, 'src', 'frontend', 'index'),
+    path.join(rootPath, 'src', 'frontend', 'entries', 'example'),
   ],
   output: {
     path: path.join(rootPath, 'dist'),

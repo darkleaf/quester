@@ -8,7 +8,7 @@ const use = require('postcss-use');
 const rootPath = path.join(__dirname, '..', '..');
 
 module.exports = {
-  entry:  path.join(rootPath, 'src', 'frontend', 'index'),
+  entry:  path.join(rootPath, 'src', 'frontend', 'entries', 'main'),
   output: {
     path: path.join(rootPath, 'resources', 'public', 'frontend'),
     filename: 'bundle.js',

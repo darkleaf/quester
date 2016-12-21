@@ -15,10 +15,11 @@
    [:head
     [:title "Quester"]]
    [:body
-    "hello 11"
+    [:div#root]
     [:script
      "window.initData = "
      (data->transit data)]
+    (h/include-js "/frontend/bundle.js")
     (h/include-js "/js/web.js")]))
 
 (defn wrap-response-body [handler]

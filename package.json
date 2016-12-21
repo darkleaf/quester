@@ -7,6 +7,7 @@
     "start": "node src/frontend-dev/server.js",
     "test": "cross-env NODE_ENV=test webpack --config src/frontend-dev/webpack.config.test.js && nyc --reporter=lcov --reporter=text-summary mocha dist/tests.js",
     "build": "webpack --config src/frontend-dev/webpack.config.build.js",
+    "build-watch": "webpack --watch --config src/frontend-dev/webpack.config.build.js",
     "lint": "eslint --ext=jsx --ext=js src/frontend",
     "lint-fix": "eslint --fix --ext=jsx --ext=js src/frontend",
     "stylelint": "stylelint src/frontend/**/*.css",
