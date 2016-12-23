@@ -22,7 +22,7 @@
     (h/include-js "/frontend/bundle.js")
     (h/include-js "/js/web.js")]))
 
-(defn wrap-response-body [handler]
+(defn middleware [handler]
   (fn [req]
     (let [resp (handler req)]
       ;; добавить условие на success и проверять content-type запроса
