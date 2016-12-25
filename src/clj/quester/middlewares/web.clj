@@ -16,8 +16,7 @@
     [:title "Quester"]]
    [:body
     [:div#root]
-    [:script
-     "window.initData = "
+    [:script#init-data {:type "application/transit+json"}
      (data->transit data)]
     (h/include-js "/frontend/bundle.js")
     (h/include-js "/js/web.js")]))

@@ -279,4 +279,4 @@ function QuestBookingContainer({ /* id */ }) {
 }
 deps.QuestBooking = QuestBookingContainer;
 
-export default dependencyProviderBuilder(deps);
+export default dependencyProviderBuilder('stubs', deps);

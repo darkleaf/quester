@@ -17,11 +17,16 @@
    :CompaniesSlider #(e "div" {} "c")})
 
 (def DependencyProvider
-  (f/dependencyProviderBuilder (clj->js deps)))
+  (f/dependencyProviderBuilder "containers" (clj->js deps)))
 
-(defn middleware [handler]
+(defn add-deps [handler]
   (fn [req]
     (let [element (handler req)]
       (e f/IntlProvider {:locale "ru", :messages f/messages}
          (e DependencyProvider {}
             element)))))
+
+
+
+
+(def middleware (comp add-deps))

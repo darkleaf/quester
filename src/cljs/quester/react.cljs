@@ -11,3 +11,5 @@
 (defn create-class [& {:as spec}]
   (let [js-spec (clj->js spec)]
     (f/React.createClass js-spec)))
+
+(def PropTypes f/React.PropTypes)
