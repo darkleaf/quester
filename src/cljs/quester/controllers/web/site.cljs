@@ -1,7 +1,6 @@
 (ns quester.controllers.web.site
-  (:require [quester.frontend :as f]
-            [quester.react :refer [e]]))
+  (:require [quester.react :refer [e]]))
 
 (def controller
   {:show (fn [req]
-           (e f/MainPage {}))})
+           (e js/ui.MainPage {}))})

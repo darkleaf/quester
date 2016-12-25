@@ -1,9 +1,8 @@
 (ns quester.containers.right-nav-section
-  (:require [quester.frontend :as f]
-            [quester.react :refer [e]]))
+  (:require [quester.react :refer [e]]))
 
 (defn container []
-  (e f/NavSection {}
-     (e f/NavItem {:name "Москва"})
-     (e f/NavItem {:name "Избранное"})
-     (e f/NavItem {:name "Выйти"})))
+  (e js/ui.NavSection {}
+     (e js/ui.NavItem {:name "Москва"})
+     (e js/ui.NavItem {:name "Избранное"})
+     (e js/ui.NavItem {:name "Выйти"})))

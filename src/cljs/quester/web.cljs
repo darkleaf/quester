@@ -3,7 +3,6 @@
             [cognitect.transit :as t]
             [darkleaf.router :as router]
             [quester.routes.web :as web-routes]
-            [quester.frontend :as f]
             [quester.react :refer [e]]))
 
 ;; HACK: TypeError: Cannot convert a Symbol value to a string
@@ -25,7 +24,7 @@
 (def history)
 
 (defn dependency-provider-builder [deps]
-  (f/dependencyProviderBuilder "deps" (clj->js deps)))
+  (js/ui.dependencyProviderBuilder "deps" (clj->js deps)))
 
 (defn wrap-deps [handler deps]
   (fn [req]
@@ -42,7 +41,7 @@
         handler (-> handler (wrap-deps deps))
         element (handler req)
 
-        render #(f/ReactDOM.render element root)]
+        render #(js/ui.ReactDOM.render element root)]
 
     (when element
       (add-watch page-state :rerender (fn [_key _ref _old _new] (render)))

@@ -1,12 +1,11 @@
 (ns quester.containers.left-nav-section
-  (:require [quester.frontend :as f]
-            [quester.react :refer [e]]))
+  (:require [quester.react :refer [e]]))
 
 (defn container []
-  (e f/NavSection {}
-     (e f/NavBrand {:name "Quester"})
-     (e f/NavItem {:name "Квесты"})
-     (e f/NavItem {:name "Подборки"})
-     (e f/NavItem {:name "Обзоры"})
-     (e f/NavItem {:name "Компании"})
-     (e f/NavSearch {})))
+  (e js/ui.NavSection {}
+     (e js/ui.NavBrand {:name "Quester"})
+     (e js/ui.NavItem {:name "Квесты"})
+     (e js/ui.NavItem {:name "Подборки"})
+     (e js/ui.NavItem {:name "Обзоры"})
+     (e js/ui.NavItem {:name "Компании"})
+     (e js/ui.NavSearch {})))

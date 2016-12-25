@@ -2,7 +2,7 @@ const path = require('path');
 const rootPath = path.join(__dirname, '..', '..');
 
 module.exports = {
-  entry: path.join(rootPath, 'src', 'frontend', 'tests_entry.js'),
+  entry: path.join(rootPath, 'src', 'ui', 'tests_entry.js'),
   output: {
     path: path.join(rootPath, 'dist'),
     filename: 'tests.js',
@@ -14,7 +14,7 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       loader: 'babel',
-      include: path.join(rootPath, 'src', 'frontend'),
+      include: path.join(rootPath, 'src', 'ui'),
     }, {
       test: /\.css$/,
       loader: 'null-loader',

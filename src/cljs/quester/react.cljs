@@ -1,15 +1,12 @@
-(ns quester.react
-  (:require [quester.frontend :as f]))
+(ns quester.react)
 
 (defn e [component props & children]
   (let [js-props (clj->js props)]
-    (apply f/React.createElement
+    (apply js/ui.React.createElement
            component
            js-props
            children)))
 
 (defn create-class [& {:as spec}]
   (let [js-spec (clj->js spec)]
-    (f/React.createClass js-spec)))
-
-(def PropTypes f/React.PropTypes)
+    (js/ui.React.createClass js-spec)))

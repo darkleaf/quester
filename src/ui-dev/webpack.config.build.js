@@ -8,33 +8,26 @@ const use = require('postcss-use');
 const rootPath = path.join(__dirname, '..', '..');
 
 module.exports = {
-  devtool: 'eval',
-  entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
-    path.join(rootPath, 'src', 'frontend', 'entries', 'example'),
-  ],
+  entry:  path.join(rootPath, 'src', 'ui', 'entries', 'main'),
   output: {
-    path: path.join(rootPath, 'dist'),
+    path: path.join(rootPath, 'resources', 'public', 'ui'),
     filename: 'bundle.js',
-    publicPath: '/static/',
+    library: 'ui',
+    libraryTarget: 'var',
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-  ],
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
   module: {
     loaders: [{
       test: /\.jsx?$/,
-      loaders: ['react-hot', 'babel'],
-      include: path.join(rootPath, 'src', 'frontend'),
+      loaders: ['babel'],
+      include: path.join(rootPath, 'src', 'ui'),
     }, {
       test: /\.css$/,
       loaders: [
         'style-loader',
-        'css?modules&camelCase&localIdentName=[folder]---[local]---[hash:base64:3]',
+        'css?modules&camelCase',
         'postcss'],
     }],
   },
