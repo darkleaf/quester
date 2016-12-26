@@ -10,7 +10,7 @@ const rootPath = path.join(__dirname, '..', '..');
 module.exports = {
   devtool: 'eval',
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
+    'webpack-dev-server/client?http://localhost:3001',
     'webpack/hot/only-dev-server',
     path.join(rootPath, 'src', 'ui', 'entries', 'example'),
   ],
