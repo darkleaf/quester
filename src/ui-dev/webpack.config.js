@@ -12,7 +12,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    path.join(rootPath, 'src', 'frontend', 'index'),
+    path.join(rootPath, 'src', 'ui', 'entries', 'example'),
   ],
   output: {
     path: path.join(rootPath, 'dist'),
@@ -29,7 +29,7 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       loaders: ['react-hot', 'babel'],
-      include: path.join(rootPath, 'src', 'frontend'),
+      include: path.join(rootPath, 'src', 'ui'),
     }, {
       test: /\.css$/,
       loaders: [

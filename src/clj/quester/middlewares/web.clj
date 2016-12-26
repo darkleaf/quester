@@ -15,13 +15,13 @@
    [:head
     [:title "Quester"]]
    [:body
-    "hello 11"
-    [:script
-     "window.initData = "
+    [:div#root]
+    [:script#init-data {:type "application/transit+json"}
      (data->transit data)]
+    (h/include-js "/ui/bundle.js")
     (h/include-js "/js/web.js")]))
 
-(defn wrap-response-body [handler]
+(defn middleware [handler]
   (fn [req]
     (let [resp (handler req)]
       ;; добавить условие на success и проверять content-type запроса

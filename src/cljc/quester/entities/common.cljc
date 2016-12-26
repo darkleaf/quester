@@ -2,8 +2,8 @@
   (:require [clojure.spec :as s]))
 
 (defn- generate-uuid []
-  (java.util.UUID/randomUUID))
-
+  #?(:clj  (java.util.UUID/randomUUID)
+     :cljs (random-uuid)))
 (s/def ::uuid uuid?)
 
 (s/def ::spec (s/keys :req [::uuid]))

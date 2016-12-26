@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const config = require('./webpack.config');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const host = process.env.PORT ? '0.0.0.0' : 'localhost';
 
 new WebpackDevServer(webpack(config), {

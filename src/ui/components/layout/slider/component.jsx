@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Children } from 'react';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
 import Float from '../../utils/float';
@@ -40,7 +40,7 @@ export default class Slider extends Component {
             <div className={styles.leftArrow}>&lt;</div>
 
             <div className={styles.children}>
-              {this.props.children}
+              {Children.toArray(this.props.children).slice(0, 4)}
             </div>
 
             <div className={styles.rightArrow}>&gt;</div>

@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/frontend-dev/server.js",
-    "test": "cross-env NODE_ENV=test webpack --config src/frontend-dev/webpack.config.test.js && nyc --reporter=lcov --reporter=text-summary mocha dist/tests.js",
-    "build": "webpack --config src/frontend-dev/webpack.config.js",
-    "lint": "eslint --ext=jsx --ext=js src/frontend",
-    "lint-fix": "eslint --fix --ext=jsx --ext=js src/frontend",
-    "stylelint": "stylelint src/frontend/**/*.css",
+    "start": "node src/ui-dev/server.js",
+    "test": "cross-env NODE_ENV=test webpack --config src/ui-dev/webpack.config.test.js && nyc --reporter=lcov --reporter=text-summary mocha dist/tests.js",
+    "build": "webpack --config src/ui-dev/webpack.config.build.js",
+    "build-watch": "webpack --watch --config src/ui-dev/webpack.config.build.js",
+    "lint": "eslint --ext=jsx --ext=js src/ui",
+    "lint-fix": "eslint --fix --ext=jsx --ext=js src/ui",
+    "stylelint": "stylelint src/ui/**/*.css",
     "push-coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "nyc": {

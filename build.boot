@@ -10,6 +10,7 @@
 
                  [mount "0.1.10"]
                  [com.cognitect/transit-clj "0.8.290"]
+                 [com.cognitect/transit-cljs "0.8.239"]
                  [hiccup "1.0.5"]
 
                  [org.clojure/test.check "0.9.0" :scope "test"]
@@ -41,5 +42,5 @@
    (watch)
    (refresh)
    (cljs-repl-env)
-   (reload :asset-path "/public")
+   (reload :asset-path "/public", :on-jsload 'quester.web/restart)
    (cljs)))

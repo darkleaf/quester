@@ -1,2 +1,3 @@
 {:require [quester.web]
+ :init-fns [quester.web/restart]
  :compiler-options {:asset-path "/js/web.out"}}
