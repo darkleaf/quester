@@ -1,7 +1,7 @@
 /* eslint no-shadow: "off", react/prop-types: "off", no-empty-pattern: "off" */
 
 import React, { PropTypes } from 'react';
-import dependencyProviderBuilder from '../components/dependency-provider-builder';
+import DependencyProvider from '../components/dependency-provider';
 
 import NavSection from '../components/layout/nav-section';
 import NavBrand from '../components/layout/nav-brand';
@@ -67,48 +67,83 @@ function MainCarouselContainer() {
 }
 deps.MainCarousel = MainCarouselContainer;
 
-function SelectionsSliderContainer(props, context) {
-  const { SelectionCard } = context;
+function SelectionsSliderContainer() {
   return (
     <Slider
       title="Подборки квестов"
       totalCount={26}
       seeAllUrl="/selections"
     >
-      <SelectionCard id={1} />
-      <SelectionCard id={2} />
-      <SelectionCard id={3} />
-      <SelectionCard id={4} />
+      <SelectionCard
+        name="SelectionCard 1"
+        imageUrl="http://placehold.it/300x300"
+      />
+      <SelectionCard
+        name="SelectionCard 2"
+        imageUrl="http://placehold.it/300x300"
+      />
+      <SelectionCard
+        name="SelectionCard 3"
+        imageUrl="http://placehold.it/300x300"
+      />
+      <SelectionCard
+        name="SelectionCard 4"
+        imageUrl="http://placehold.it/300x300"
+      />
     </Slider>
   );
 }
-SelectionsSliderContainer.contextTypes = {
-  SelectionCard: PropTypes.func.isRequired,
-};
 deps.SelectionsSlider = SelectionsSliderContainer;
 
-function BestQuestsSliderContainer(props, context) {
-  const { QuestCard } = context;
+function BestQuestsSliderContainer() {
   return (
     <Slider
       title="Лучшие квесты"
       totalCount={14}
       seeAllUrl="/best"
     >
-      <QuestCard id={1} />
-      <QuestCard id={2} />
-      <QuestCard id={3} />
-      <QuestCard id={4} />
+      <QuestCard
+        name="QuestCard 1"
+        imageUrl="http://placehold.it/300x210"
+        priceMin={4500}
+        priceMax={9500}
+        participantsMin={2}
+        participantsMax={5}
+        rating={9.3}
+      />
+      <QuestCard
+        name="QuestCard 2"
+        imageUrl="http://placehold.it/300x210"
+        priceMin={4500}
+        priceMax={9500}
+        participantsMin={2}
+        participantsMax={5}
+        rating={9.3}
+      />
+      <QuestCard
+        name="QuestCard 3"
+        imageUrl="http://placehold.it/300x210"
+        priceMin={4500}
+        priceMax={9500}
+        participantsMin={2}
+        participantsMax={5}
+        rating={9.3}
+      />
+      <QuestCard
+        name="QuestCard 4"
+        imageUrl="http://placehold.it/300x210"
+        priceMin={4500}
+        priceMax={9500}
+        participantsMin={2}
+        participantsMax={5}
+        rating={9.3}
+      />
     </Slider>
   );
 }
-BestQuestsSliderContainer.contextTypes = {
-  QuestCard: PropTypes.func.isRequired,
-};
 deps.BestQuestsSlider = BestQuestsSliderContainer;
 
-function ReviewsSliderContainer(props, context) {
-  const { ReviewCard } = context;
+function ReviewsSliderContainer() {
   return (
     <Slider
       title="Обзоры"
@@ -116,105 +151,116 @@ function ReviewsSliderContainer(props, context) {
       seeAllUrl="/reviews"
       highlighted
     >
-      <ReviewCard id={1} />
-      <ReviewCard id={2} />
-      <ReviewCard id={3} />
-      <ReviewCard id={4} />
+      <ReviewCard
+        name="ReviewCard 1"
+        imageUrl="http://placehold.it/300x350"
+      />
+      <ReviewCard
+        name="ReviewCard 2"
+        imageUrl="http://placehold.it/300x350"
+      />
+      <ReviewCard
+        name="ReviewCard 3"
+        imageUrl="http://placehold.it/300x350"
+      />
+      <ReviewCard
+        name="ReviewCard 4"
+        imageUrl="http://placehold.it/300x350"
+      />
     </Slider>
   );
 }
-ReviewsSliderContainer.contextTypes = {
-  ReviewCard: PropTypes.func.isRequired,
-};
 deps.ReviewsSlider = ReviewsSliderContainer;
 
-function NewQuestsSliderContainer(props, context) {
-  const { QuestCard } = context;
+function NewQuestsSliderContainer(props) {
   return (
     <Slider
       title="Новые квесты"
       totalCount={14}
       seeAllUrl="/new"
     >
-      <QuestCard id={5} />
-      <QuestCard id={6} />
-      <QuestCard id={7} />
-      <QuestCard id={8} />
+      <QuestCard
+        name="QuestCard 1"
+        imageUrl="http://placehold.it/300x210"
+        priceMin={4500}
+        priceMax={9500}
+        participantsMin={2}
+        participantsMax={5}
+        rating={9.3}
+      />
+      <QuestCard
+        name="QuestCard 2"
+        imageUrl="http://placehold.it/300x210"
+        priceMin={4500}
+        priceMax={9500}
+        participantsMin={2}
+        participantsMax={5}
+        rating={9.3}
+      />
+      <QuestCard
+        name="QuestCard 3"
+        imageUrl="http://placehold.it/300x210"
+        priceMin={4500}
+        priceMax={9500}
+        participantsMin={2}
+        participantsMax={5}
+        rating={9.3}
+      />
+      <QuestCard
+        name="QuestCard 4"
+        imageUrl="http://placehold.it/300x210"
+        priceMin={4500}
+        priceMax={9500}
+        participantsMin={2}
+        participantsMax={5}
+        rating={9.3}
+      />
     </Slider>
   );
 }
-NewQuestsSliderContainer.contextTypes = {
-  QuestCard: PropTypes.func.isRequired,
-};
 deps.NewQuestsSlider = NewQuestsSliderContainer;
 
-function CompaniesSliderContainer(props, context) {
-  const { CompanyCard } = context;
+function CompaniesSliderContainer() {
   return (
     <Slider
       title="Компании"
       totalCount={14}
       seeAllUrl="/companies"
     >
-      <CompanyCard id={1} />
-      <CompanyCard id={2} />
-      <CompanyCard id={3} />
-      <CompanyCard id={4} />
-      <CompanyCard id={5} />
-      <CompanyCard id={6} />
+      <CompanyCard
+        name="CompanyCard 3"
+        imageUrl="http://placehold.it/190x140"
+        questCount={7}
+      />
+      <CompanyCard
+        name="CompanyCard 122"
+        imageUrl="http://placehold.it/190x140"
+        questCount={4}
+      />
+      <CompanyCard
+        name="CompanyCard 12"
+        imageUrl="http://placehold.it/190x140"
+        questCount={12}
+      />
+      <CompanyCard
+        name="CompanyCard 23"
+        imageUrl="http://placehold.it/190x140"
+        questCount={6}
+      />
+      <CompanyCard
+        name="CompanyCard 22"
+        imageUrl="http://placehold.it/190x140"
+        questCount={3}
+      />
+      <CompanyCard
+        name="CompanyCard 1"
+        imageUrl="http://placehold.it/190x140"
+        questCount={2}
+      />
     </Slider>
   );
 }
-CompaniesSliderContainer.contextTypes = {
-  CompanyCard: PropTypes.func.isRequired,
-};
 deps.CompaniesSlider = CompaniesSliderContainer;
-
-function SelectionCardContainer({ id }) {
-  return (
-    <SelectionCard
-      name={`SelectionCard #${id}`}
-      imageUrl="http://placehold.it/300x300"
-    />
-  );
-}
-deps.SelectionCard = SelectionCardContainer;
-
-function QuestCardContainer({ id }) {
-  return (
-    <QuestCard
-      name={`QuestCard #${id}`}
-      imageUrl="http://placehold.it/300x210"
-      priceMin={4500}
-      priceMax={9500}
-      participantsMin={2}
-      participantsMax={5}
-      rating={9.3}
-    />
-  );
-}
-deps.QuestCard = QuestCardContainer;
-
-function ReviewCardContainer({ id }) {
-  return (
-    <ReviewCard
-      name={`ReviewCard #${id}`}
-      imageUrl="http://placehold.it/300x350"
-    />
-  );
-}
-deps.ReviewCard = ReviewCardContainer;
-
-function CompanyCardContainer({ id }) {
-  return (
-    <CompanyCard
-      name={`CompanyCard #${id}`}
-      imageUrl="http://placehold.it/190x140"
-      questCount={id}
-    />
-  );
-}
-deps.CompanyCard = CompanyCardContainer;
 
 function QuestGalleryContainer({ id }) {
   return (
@@ -248,21 +294,66 @@ function QuestLocationContainer({ /* id */ }) {
 }
 deps.QuestLocation = QuestLocationContainer;
 
-function QuestSimilarQuestsContainer({ /* id */ }, { QuestCard }) {
+function QuestSimilarQuestsContainer({ /* id */ }) {
   return (
     <SimilarQuests title="Похожие квесты">
-      <QuestCard id={10} />
-      <QuestCard id={11} />
-      <QuestCard id={12} />
-      <QuestCard id={13} />
-      <QuestCard id={14} />
-      <QuestCard id={15} />
+      <QuestCard
+        name="QuestCard 1"
+        imageUrl="http://placehold.it/300x210"
+        priceMin={4500}
+        priceMax={9500}
+        participantsMin={2}
+        participantsMax={5}
+        rating={9.3}
+      />
+      <QuestCard
+        name="QuestCard 2"
+        imageUrl="http://placehold.it/300x210"
+        priceMin={4500}
+        priceMax={9500}
+        participantsMin={2}
+        participantsMax={5}
+        rating={9.3}
+      />
+      <QuestCard
+        name="QuestCard 3"
+        imageUrl="http://placehold.it/300x210"
+        priceMin={4500}
+        priceMax={9500}
+        participantsMin={2}
+        participantsMax={5}
+        rating={9.3}
+      />
+      <QuestCard
+        name="QuestCard 4"
+        imageUrl="http://placehold.it/300x210"
+        priceMin={4500}
+        priceMax={9500}
+        participantsMin={2}
+        participantsMax={5}
+        rating={9.3}
+      />
+      <QuestCard
+        name="QuestCard 5"
+        imageUrl="http://placehold.it/300x210"
+        priceMin={4500}
+        priceMax={9500}
+        participantsMin={2}
+        participantsMax={5}
+        rating={9.3}
+      />
+      <QuestCard
+        name="QuestCard 6"
+        imageUrl="http://placehold.it/300x210"
+        priceMin={4500}
+        priceMax={9500}
+        participantsMin={2}
+        participantsMax={5}
+        rating={9.3}
+      />
     </SimilarQuests>
   );
 }
-QuestSimilarQuestsContainer.contextTypes = {
-  QuestCard: PropTypes.func.isRequired,
-};
 deps.QuestSimilarQuests = QuestSimilarQuestsContainer;
 
 function QuestAddToFavoriteContainer({ /* id */ }) {
@@ -279,4 +370,6 @@ function QuestBookingContainer({ /* id */ }) {
 }
 deps.QuestBooking = QuestBookingContainer;
 
-export default dependencyProviderBuilder('stubs', deps);
+export default function WithDeps({children}) {
+  return <DependencyProvider deps={deps}>{children}</DependencyProvider>;
+}

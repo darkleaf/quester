@@ -42,5 +42,5 @@
    (watch)
    (refresh)
    (cljs-repl-env)
-   (reload :asset-path "/public")
+   (reload :asset-path "/public", :on-jsload 'quester.web/restart)
    (cljs)))
