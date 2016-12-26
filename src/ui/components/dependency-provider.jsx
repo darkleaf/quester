@@ -21,7 +21,7 @@ const deps = [
 export default class DependencyProvider extends Component {
   getChildContext() { return this.props.deps; }
   render() { return <div>{this.props.children}</div>; }
-};
+}
 
 DependencyProvider.propTypes = {
   children: PropTypes.any.isRequired,

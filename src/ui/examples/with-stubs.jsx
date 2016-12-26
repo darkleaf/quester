@@ -1,6 +1,6 @@
 /* eslint no-shadow: "off", react/prop-types: "off", no-empty-pattern: "off" */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
 import DependencyProvider from '../components/dependency-provider';
 
 import NavSection from '../components/layout/nav-section';
@@ -172,7 +172,7 @@ function ReviewsSliderContainer() {
 }
 deps.ReviewsSlider = ReviewsSliderContainer;
 
-function NewQuestsSliderContainer(props) {
+function NewQuestsSliderContainer() {
   return (
     <Slider
       title="Новые квесты"
@@ -370,6 +370,6 @@ function QuestBookingContainer({ /* id */ }) {
 }
 deps.QuestBooking = QuestBookingContainer;
 
-export default function WithDeps({children}) {
+export default function WithDeps({ children }) {
   return <DependencyProvider deps={deps}>{children}</DependencyProvider>;
 }

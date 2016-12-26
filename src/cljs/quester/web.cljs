@@ -37,7 +37,6 @@
    :NewQuestsSlider #(e "div" {} "n")
    :CompaniesSlider #(e "div" {} "c")})
 
-
 (def state-provider
   (r/create-class
    :childContextTypes {:state js/ui.React.PropTypes.any.isRequired}
@@ -48,8 +47,8 @@
    :render (fn []
              (this-as this
                (e "div" {} (.. this -props -children))))))
+
 (defn restart []
-  (js/console.log "restart")
   (when @history
     (pushy/stop! @history))
   (let [handler (comp (router/make-handler web-routes/routes)
