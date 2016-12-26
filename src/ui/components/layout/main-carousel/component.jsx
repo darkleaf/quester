@@ -3,12 +3,24 @@ import classNames from 'classnames';
 import styles from './styles.css';
 
 export default class MainCarousel extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentIndex: 0,
+    };
+  }
+
+  handleClick(index) {
+    this.setState({ currentIndex: index });
+  }
+
   render() {
+    const currentSlide = this.props.slides[this.state.currentIndex];
     return (
       <div className={styles.container}>
         <img
           className={styles.image}
-          src={this.props.currentImageUrl}
+          src={currentSlide.imageUrl}
           role="presentation"
         />
 
@@ -17,17 +29,26 @@ export default class MainCarousel extends Component {
         </div>
 
         <div className={styles.bottom}>
-          <div className={styles.title} dangerouslySetInnerHTML={{ __html: this.props.title }} />
+          <div
+            className={styles.title}
+            dangerouslySetInnerHTML={{ __html: currentSlide.title }}
+          />
 
           <ul className={styles.indicators}>
-            {this.props.indicators.map(indicator => {
+            {this.props.slides.map((slide, index) => {
               const classes = classNames(
-                styles.indicator,
+                 styles.indicator,
                 {
-                  [styles.activeIndicator]: indicator.active,
+                  [styles.activeIndicator]: this.state.currentIndex === index,
                 }
+               );
+              return (
+                <li
+                  key={index}
+                  className={classes}
+                  onClick={this.handleClick.bind(this, index)}
+                />
               );
-              return <li onClick={indicator.onClick} className={classes} />;
             })}
           </ul>
         </div>
@@ -37,8 +58,9 @@ export default class MainCarousel extends Component {
 }
 
 MainCarousel.propTypes = {
-  title: PropTypes.string.isRequired,
-  currentImageUrl: PropTypes.string.isRequired,
-  indicators: PropTypes.arrayOf(PropTypes.object).isRequired,
+  slides: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+  })),
   children: PropTypes.element,
 };

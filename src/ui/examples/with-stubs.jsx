@@ -53,12 +53,19 @@ deps.RightNavSection = RightNavSectionContainer;
 function MainCarouselContainer() {
   return (
     <MainCarousel
-      title="<b>Москва 2048,</b> Клаустрофобия"
-      currentImageUrl="http://placehold.it/1900x500"
-      indicators={[
-        { onClick: () => null },
-        { onClick: () => null, active: true },
-        { onClick: () => null },
+      slides={[
+        {
+          title: '<b>Москва 2048,</b> Клаустрофобия',
+          imageUrl: 'http://placehold.it/1900x500',
+        },
+        {
+          title: '2',
+          imageUrl: 'http://placehold.it/1900x500',
+        },
+        {
+          title: '3',
+          imageUrl: 'http://placehold.it/1900x500',
+        },
       ]}
     >
       <MainFilter />

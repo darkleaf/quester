@@ -2,8 +2,8 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const config = require('./webpack.config');
 
-const port = process.env.PORT || 3001;
-const host = process.env.PORT ? '0.0.0.0' : 'localhost';
+const port = 3001;
+const host = 'localhost';
 
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
