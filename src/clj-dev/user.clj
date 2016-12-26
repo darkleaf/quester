@@ -3,8 +3,8 @@
 (ns user)
 
 (require '[mount.core]
-         '[quester.container]
-         '[quester.composition-root]
+         '[quester.deps.db]
+         '[quester.deps.use-cases]
          '[quester.web-server])
 
 (defn start []
@@ -16,5 +16,3 @@
 (defn restart []
   (stop)
   (start))
-
-(quester.composition-root/register-all)

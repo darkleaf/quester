@@ -7,7 +7,9 @@
             [quester.containers.left-nav-section :as left-nav-section]
             [quester.containers.right-nav-section :as right-nav-section]
             [quester.containers.main-carousel :as main-carousel]
-            [quester.containers.selections-slider :as selections-slider]))
+            [quester.containers.selections-slider :as selections-slider]
+            [quester.containers.best-quests-slider :as best-quests-slider]
+            [quester.containers.reviews-slider :as reviews-slider]))
 
 ;; HACK: TypeError: Cannot convert a Symbol value to a string
 (extend-protocol IPrintWithWriter
@@ -18,7 +20,7 @@
 (enable-console-print!)
 
 (def init-page-data
-  (let [r (t/reader :json)
+  (let [r (t/reader :json {:handlers {"u" cljs.core/uuid} })
         data (.-innerHTML (.getElementById js/document "init-data"))]
    (t/read r data)))
 
@@ -32,8 +34,8 @@
    :RightNavSection right-nav-section/container
    :MainCarousel main-carousel/container
    :SelectionsSlider selections-slider/container
-   :BestQuestsSlider #(e "div" {} "b")
-   :ReviewsSlider #(e "div" {} "r")
+   :BestQuestsSlider best-quests-slider/container
+   :ReviewsSlider reviews-slider/container
    :NewQuestsSlider #(e "div" {} "n")
    :CompaniesSlider #(e "div" {} "c")})
 
