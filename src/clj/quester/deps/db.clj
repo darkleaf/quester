@@ -47,24 +47,29 @@
 (def review->card identity)
 (def company->card identity)
 
-(c/register :db/best-quests-cards (fn [_]
-                                    (constantly (->> quests
-                                                     (random-sample 0.7)
-                                                     (quest->card)))))
+(c/register :db/best-quests-cards
+            (fn [_]
+              (constantly (->> quests
+                               (random-sample 0.7)
+                               (quest->card)))))
 
-(c/register :db/new-quests-cards (fn [_]
-                                   (constantly (->> quests
-                                                    (random-sample 0.7)
-                                                    (quest->card)))))
+(c/register :db/new-quests-cards
+            (fn [_]
+              (constantly (->> quests
+                               (random-sample 0.7)
+                               (quest->card)))))
 
-(c/register :db/selections-cards (fn [_]
-                                   (constantly (->> selections
-                                                    (selection->card)))))
+(c/register :db/selections-cards
+            (fn [_]
+              (constantly (->> selections
+                               (selection->card)))))
 
-(c/register :db/reviews-cards (fn [_]
-                                (constantly (->> reviews
-                                                 (review->card)))))
+(c/register :db/reviews-cards
+            (fn [_]
+              (constantly (->> reviews
+                               (review->card)))))
 
-(c/register :db/companies-cards (fn [_]
-                                  (constantly (->> companies
-                                                   (company->card)))))
+(c/register :db/companies-cards
+            (fn [_]
+              (constantly (->> companies
+                               (company->card)))))
