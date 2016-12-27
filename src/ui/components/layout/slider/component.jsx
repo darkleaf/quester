@@ -35,27 +35,27 @@ export default class Slider extends Component {
     this.handleRightArrowClick = this.handleRightArrowClick.bind(this);
   }
 
-  handleLeftArrowClick() {
-    const {offset} = this.state;
-    const count = Children.count(this.props.children);
-    const newOffset = offset === 0 ? count - 1 : offset - 1;
-    this.setState({offset: newOffset});
-  }
-
-  handleRightArrowClick() {
-    const {offset} = this.state;
-    const count = Children.count(this.props.children);
-    const newOffset = offset === count - 1 ? 0 : offset + 1;
-    this.setState({offset: newOffset});
-  }
-
   getWindow() {
-    const {offset} = this.state;
-    const {windowLength} = this.props;
+    const { offset } = this.state;
+    const { windowLength } = this.props;
     const children = Children.toArray(this.props.children);
     const leftPart = children.slice(offset, offset + windowLength);
     const rightPart = children.splice(0, offset - (children.length - windowLength));
     return leftPart.concat(rightPart);
+  }
+
+  handleLeftArrowClick() {
+    const { offset } = this.state;
+    const count = Children.count(this.props.children);
+    const newOffset = offset === 0 ? count - 1 : offset - 1;
+    this.setState({ offset: newOffset });
+  }
+
+  handleRightArrowClick() {
+    const { offset } = this.state;
+    const count = Children.count(this.props.children);
+    const newOffset = offset === count - 1 ? 0 : offset + 1;
+    this.setState({ offset: newOffset });
   }
 
   render() {
