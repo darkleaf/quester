@@ -13,7 +13,8 @@
 (defn- data->html [data]
   (h/html5
    [:head
-    [:title "Quester"]]
+    [:title "Quester"]
+    [:style "body { margin: 0; }"]]
    [:body
     [:div#root]
     [:script#init-data {:type "application/transit+json"}
