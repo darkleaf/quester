@@ -42,8 +42,29 @@
    (company/build {::company/name "Барби"})
    (company/build {::company/name "Барби2"})])
 
-(c/register :db/main-best-quests (fn [_] (constantly (random-sample 0.5 quests))))
-(c/register :db/main-new-quests (fn [_] (constantly (random-sample 0.5 quests))))
-(c/register :db/main-selections (fn [_] (constantly selections)))
-(c/register :db/main-reviews (fn [_] (constantly reviews)))
-(c/register :db/main-companies (fn [_] (constantly companies)))
+(def selection->card identity)
+(def quest->card identity)
+(def review->card identity)
+(def company->card identity)
+
+(c/register :db/best-quests-cards (fn [_]
+                                    (constantly (->> quests
+                                                     (random-sample 0.7)
+                                                     (quest->card)))))
+
+(c/register :db/new-quests-cards (fn [_]
+                                   (constantly (->> quests
+                                                    (random-sample 0.7)
+                                                    (quest->card)))))
+
+(c/register :db/selections-cards (fn [_]
+                                   (constantly (->> selections
+                                                    (selection->card)))))
+
+(c/register :db/reviews-cards (fn [_]
+                                (constantly (->> reviews
+                                                 (review->card)))))
+
+(c/register :db/companies-cards (fn [_]
+                                  (constantly (->> companies
+                                                   (company->card)))))

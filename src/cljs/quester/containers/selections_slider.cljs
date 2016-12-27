@@ -5,7 +5,7 @@
 
 (defn container [props context]
   (let [state (.. context -state)
-        selections (get-in @state [:page :selections])
+        selections (get-in @state [:page :selections-cards])
         selection->element (fn [selection]
                              (e js/ui.SelectionCard
                                 {:key (::c/uuid selection)
