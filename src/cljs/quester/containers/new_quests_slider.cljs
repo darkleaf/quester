@@ -1,11 +1,11 @@
-(ns quester.containers.best-quests-slider
+(ns quester.containers.new-quests-slider
   (:require [quester.react :refer [e]]
             [quester.entities.common :as c]
             [quester.entities.quest :as quest]))
 
 (defn container [props context]
   (let [state (.. context -state)
-        quests (get-in @state [:page :best-quests])
+        quests (get-in @state [:page :new-quests])
         quest->element (fn [quest]
                          (e js/ui.QuestCard
                             {:key (::c/uuid quest)
@@ -16,9 +16,9 @@
                              :participantsMin 2
                              :participantsMax 5
                              :rating 9.3}))]
-    (e js/ui.Slider {:title "Лучшие квесты"
+    (e js/ui.Slider {:title "Новые квесты"
                      :totalCount 10
-                     :seeAllUrl "/best"
+                     :seeAllUrl "/quests"
                      :windowLength 4}
        (map quest->element quests))))
 

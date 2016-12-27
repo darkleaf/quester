@@ -7,4 +7,6 @@
               (partial uc-welcome/perform
                        {:selections  (resolve :db/main-selections)
                         :best-quests (resolve :db/main-best-quests)
-                        :reviews     (resolve :db/main-reviews)})))
+                        :reviews     (resolve :db/main-reviews)
+                        :new-quests  (resolve :db/main-new-quests)
+                        :companies   (resolve :db/main-companies)})))

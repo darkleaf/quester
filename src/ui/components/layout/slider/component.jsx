@@ -1,4 +1,4 @@
-import React, { Component, Children } from 'react';
+import React, { Component, Children, PropTypes } from 'react';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
 import Float from '../../utils/float';
@@ -19,12 +19,45 @@ function Header({ title, seeAllUrl, totalCount }) {
 }
 
 Header.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  seeAllUrl: React.PropTypes.string.isRequired,
-  totalCount: React.PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  seeAllUrl: PropTypes.string.isRequired,
+  totalCount: PropTypes.number.isRequired,
 };
 
 export default class Slider extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      offset: 0,
+    };
+
+    this.handleLeftArrowClick = this.handleLeftArrowClick.bind(this);
+    this.handleRightArrowClick = this.handleRightArrowClick.bind(this);
+  }
+
+  handleLeftArrowClick() {
+    const {offset} = this.state;
+    const count = Children.count(this.props.children);
+    const newOffset = offset === 0 ? count - 1 : offset - 1;
+    this.setState({offset: newOffset});
+  }
+
+  handleRightArrowClick() {
+    const {offset} = this.state;
+    const count = Children.count(this.props.children);
+    const newOffset = offset === count - 1 ? 0 : offset + 1;
+    this.setState({offset: newOffset});
+  }
+
+  getWindow() {
+    const {offset} = this.state;
+    const {windowLength} = this.props;
+    const children = Children.toArray(this.props.children);
+    const leftPart = children.slice(offset, offset + windowLength);
+    const rightPart = children.splice(0, offset - (children.length - windowLength));
+    return leftPart.concat(rightPart);
+  }
+
   render() {
     const containerClasses = classNames(
       styles.container,
@@ -37,13 +70,23 @@ export default class Slider extends Component {
           <Header {...this.props} />
 
           <div className={styles.content}>
-            <div className={styles.leftArrow}>&lt;</div>
-
-            <div className={styles.children}>
-              {Children.toArray(this.props.children).slice(0, 4)}
+            <div
+              onClick={this.handleLeftArrowClick}
+              className={styles.leftArrow}
+            >
+              &lt;
             </div>
 
-            <div className={styles.rightArrow}>&gt;</div>
+            <div className={styles.children}>
+              {this.getWindow()}
+            </div>
+
+            <div
+              onClick={this.handleRightArrowClick}
+              className={styles.rightArrow}
+            >
+              &gt;
+            </div>
           </div>
         </div>
       </div>
@@ -52,6 +95,7 @@ export default class Slider extends Component {
 }
 
 Slider.propTypes = {
-  children: React.PropTypes.array.isRequired,
-  highlighted: React.PropTypes.bool,
+  children: PropTypes.array.isRequired,
+  highlighted: PropTypes.bool,
+  windowLength: PropTypes.number.isRequired,
 };

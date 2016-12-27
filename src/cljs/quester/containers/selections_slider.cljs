@@ -13,7 +13,8 @@
                                  :imageUrl "http://placehold.it/300x300"}))]
     (e js/ui.Slider {:title "Подборки квестов"
                      :totalCount 25
-                     :seeAllUrl "/selections"}
+                     :seeAllUrl "/selections"
+                     :windowLength 4}
        (map selection->element selections))))
 
 (aset container

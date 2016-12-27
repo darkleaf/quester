@@ -26,8 +26,6 @@
     (let [resp (handler req)]
       ;; добавить условие на success и проверять content-type запроса
 
-      (prn resp)
-
       (-> resp
           #_(update :body data->transit)
           #_(r/content-type "application/transit+json")

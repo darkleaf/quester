@@ -14,6 +14,7 @@
     (e js/ui.Slider {:title "Обзоры"
                      :totalCount 25
                      :seeAllUrl "/reviews"
+                     :windowLength 4
                      :highlighted true}
        (map review->element reviews))))
 

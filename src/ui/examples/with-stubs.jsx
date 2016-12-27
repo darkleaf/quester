@@ -80,6 +80,7 @@ function SelectionsSliderContainer() {
       title="Подборки квестов"
       totalCount={26}
       seeAllUrl="/selections"
+      windowLength={4}
     >
       <SelectionCard
         name="SelectionCard 1"
@@ -97,6 +98,10 @@ function SelectionsSliderContainer() {
         name="SelectionCard 4"
         imageUrl="http://placehold.it/300x300"
       />
+      <SelectionCard
+        name="SelectionCard 5"
+        imageUrl="http://placehold.it/300x300"
+      />
     </Slider>
   );
 }
@@ -108,6 +113,7 @@ function BestQuestsSliderContainer() {
       title="Лучшие квесты"
       totalCount={14}
       seeAllUrl="/best"
+      windowLength={4}
     >
       <QuestCard
         name="QuestCard 1"
@@ -156,6 +162,7 @@ function ReviewsSliderContainer() {
       title="Обзоры"
       totalCount={14}
       seeAllUrl="/reviews"
+      windowLength={4}
       highlighted
     >
       <ReviewCard
@@ -185,6 +192,7 @@ function NewQuestsSliderContainer() {
       title="Новые квесты"
       totalCount={14}
       seeAllUrl="/new"
+      windowLength={4}
     >
       <QuestCard
         name="QuestCard 1"
@@ -233,6 +241,7 @@ function CompaniesSliderContainer() {
       title="Компании"
       totalCount={14}
       seeAllUrl="/companies"
+      windowLength={6}
     >
       <CompanyCard
         name="CompanyCard 3"
