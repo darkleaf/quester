@@ -1,4 +1,4 @@
-(ns quester.entities.selection
+(ns quester.entities.company
   (:require [clojure.spec :as s]
             [quester.entities.common :as common]))
 

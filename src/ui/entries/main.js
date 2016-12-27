@@ -23,3 +23,6 @@ export { default as MainFilter } from '../components/layout/main-filter';
 export { default as Slider } from '../components/layout/slider';
 
 export { default as SelectionCard } from '../components/entities/selection-card';
+export { default as QuestCard } from '../components/entities/quest-card';
+export { default as ReviewCard } from '../components/entities/review-card';
+export { default as CompanyCard } from '../components/entities/company-card';
