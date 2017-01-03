@@ -6,10 +6,3 @@
 
 (s/def ::spec (s/merge ::common/spec
                        (s/keys :req [::name])))
-
-(defn build
-  ([] (build {}))
-  ([attrs]
-   (let [common-defaults (common/defaults)
-         defaults {::name ""}]
-     (merge common-defaults defaults attrs))))

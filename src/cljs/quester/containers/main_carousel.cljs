@@ -3,9 +3,9 @@
 
 (defn container []
   (e js/ui.MainCarousel {:slides [{:title "<b>Москва 2048,</b> Клаустрофобия"
-                                   :imageUrl "http://placehold.it/1900x500"}
+                                   :imageUrl "https://unsplash.it/1900/500?image=101"}
                                   {:title "2"
-                                   :imageUrl "http://placehold.it/1900x500/222"}
+                                   :imageUrl "https://unsplash.it/1900/500?image=672"}
                                   {:title "3"
-                                   :imageUrl "http://placehold.it/1900x500"}]}
+                                   :imageUrl "https://unsplash.it/1900/500?image=978"}]}
      (e js/ui.MainFilter {})))

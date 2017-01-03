@@ -10,7 +10,7 @@
                           (e js/ui.ReviewCard
                              {:key (::c/uuid review)
                               :name (::review/name review)
-                              :imageUrl "http://placehold.it/300x350"}))]
+                              :imageUrl (str "https://unsplash.it/300/350?image=" (rand-int 1000))}))]
     (e js/ui.Slider {:title "Обзоры"
                      :totalCount 25
                      :seeAllUrl "/reviews"
