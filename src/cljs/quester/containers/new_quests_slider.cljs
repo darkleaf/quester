@@ -5,7 +5,7 @@
 
 (defn container [props context]
   (let [state (.. context -state)
-        quests (get-in @state [:page :new-quests-cards])
+        quests (get-in state [:page :new-quests-cards])
         quest->element (fn [quest]
                          (e js/ui.QuestCard
                             {:key (::c/uuid quest)

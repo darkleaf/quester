@@ -7,7 +7,8 @@
                  [ring/ring-jetty-adapter "1.5.0"]
                  [darkleaf/router "0.2.0-alpha2"]
                  [kibu/pushy "0.3.6"]
-
+                 [cljs-http "0.1.42"]
+                 [org.clojure/core.async "0.2.395"]
                  [mount "0.1.10"]
                  [com.cognitect/transit-clj "0.8.290"]
                  [com.cognitect/transit-cljs "0.8.239"]
