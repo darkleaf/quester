@@ -5,7 +5,7 @@
 
 (defn container [props context]
   (let [state (.. context -state)
-        companies (get-in @state [:page :companies-cards])
+        companies (get-in state [:page :companies-cards])
         company->element (fn [company]
                            (e js/ui.CompanyCard
                               {:key (::c/uuid company)

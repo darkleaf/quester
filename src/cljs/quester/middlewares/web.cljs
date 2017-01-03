@@ -1,3 +1,6 @@
 (ns quester.middlewares.web)
 
-(def middleware identity)
+(defn middleware [handler]
+  (fn [req]
+    {:element (handler req)
+     :req req}))

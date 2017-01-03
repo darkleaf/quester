@@ -5,7 +5,7 @@
 
 (defn container [props context]
   (let [state (.. context -state)
-        reviews (get-in @state [:page :reviews-cards])
+        reviews (get-in state [:page :reviews-cards])
         review->element (fn [review]
                           (e js/ui.ReviewCard
                              {:key (::c/uuid review)
