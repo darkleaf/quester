@@ -13,30 +13,24 @@
    {:atom js/ui.React.PropTypes.any.isRequired}
 
    :getChildContext
-   (fn []
-     (this-as this
-       (js-obj "state" (.. this -state -value)
-               "updateState" (partial swap! (.. this -props -atom)))))
+   (fn [this]
+     (js-obj "state" (.. this -state -value)
+             "updateState" (partial swap! (.. this -props -atom))))
 
    :getInitialState
-   (fn []
-     (this-as this
-       (js-obj "value" @(.. this -props -atom))))
+   (fn [this]
+     (js-obj "value" @(.. this -props -atom)))
 
    :componentDidMount
-   (fn []
-     (this-as this
-       (add-watch (.. this -props -atom) :update
-                  (fn [_key _ref _old new]
-                    (prn "set new state")
-                    (.setState this (js-obj "value" new))))))
+   (fn [this]
+     (add-watch (.. this -props -atom) :update
+      (fn [_key _ref _old new]
+        (.setState this (js-obj "value" new)))))
 
    :componentWillUnmount
-   (fn []
-     (this-as this
-       (remove-watch (.. this -props -atom) :update)))
+   (fn [this]
+     (remove-watch (.. this -props -atom) :update))
 
    :render
-   (fn []
-     (this-as this
-       (e "div" {} (.. this -props -children))))))
+   (fn [this]
+     (e "div" {} (.. this -props -children)))))

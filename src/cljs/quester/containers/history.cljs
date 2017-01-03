@@ -17,42 +17,46 @@
   (let [req {:uri uri, :request-method :get}]
      (handler req)))
 
-(defn- handle [this {:keys [element req]}]
+(defn- handle-with-cache [this {:keys [element req]}]
+  (let [atom (.. this -props -atom)
+        key (req->hash req)]
+    (when-let [page-data (cache/get @atom key)]
+      (swap! atom assoc :element element, :page page-data))))
+
+;; TODO: cancel and progress
+(defn- handle-with-api [this {:keys [element req]}]
   (let [atom (.. this -props -atom)
         key (req->hash req)
-        page-data (cache/get @atom key)]
-    (if page-data
-      (swap! atom assoc :element element, :page page-data)
-      (go
-        (let [req (assoc-in req [:headers "accept"] "application/transit+json")
-              response (<! (http/request req))]
-          (prn element)
-          (swap! atom assoc :element element, :page (:body response)))))))
+        req (assoc-in req [:headers "accept"] "application/transit+json")]
+    (go
+      (let [response (<! (http/request req))]
+        (swap! atom assoc :element element, :page (:body response))))))
+
+(defn- handle [this req]
+  (or (handle-with-cache this req)
+      (handle-with-api this req)))
 
 (def container
   (r/create-class
    :displayName "History"
 
    :componentWillMount
-   (fn []
-     (this-as this
-       (let [history (pushy/pushy #(handle this %) matcher)]
+   (fn [this]
+     (let [history (pushy/pushy #(handle this %) matcher)]
          (aset this "history" history)
-         (pushy/start! history))))
+         (pushy/start! history)))
 
    :componentWillUnmount
-   (fn []
-     (this-as this
-       (pushy/stop! (.-history this))))
+   (fn [this]
+     (pushy/stop! (.-history this)))
 
    :render
-   (fn []
-     (this-as this
-       (let [atom (.. this -props -atom)]
+   (fn [this]
+     (let [atom (.. this -props -atom)]
          (e "div" {}
              (e "a" {:href "/"} "main")
              (e "br" {})
              (e "a" {:href "/quests/1"} "quest 1")
 
              (e state/container {:atom atom}
-                (e root/container {}))))))))
+                (e root/container {})))))))
