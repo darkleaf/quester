@@ -1,75 +1,77 @@
 (ns quester.deps.db
-  (:require [quester.container :as c]
+  (:require [clojure.spec :as s]
+            [clojure.spec.gen :as gen]
+            [quester.container :as c]
 
             ;; for stubs
+            [quester.entities.common :as common]
             [quester.entities.selection :as selection]
             [quester.entities.quest :as quest]
+            [quester.projections.quest :as quest-projection]
             [quester.entities.review :as review]
             [quester.entities.company :as company]))
 
 (def selections
-  [(selection/build {::selection/name "Перформансы"})
-   (selection/build {::selection/name "Страшные"})
-   (selection/build {::selection/name "Семейные"})
-   (selection/build {::selection/name "Виртуальная реальность"})
-   (selection/build {::selection/name "Крутые"})
-   (selection/build {::selection/name "Для девочек"})])
+  (->> (s/gen ::selection/spec)
+       (gen/sample)
+       (take 10)))
 
 (def quests
-  [(quest/build {::quest/name "Гагарин"})
-   (quest/build {::quest/name "Прометей"})
-   (quest/build {::quest/name "Дядя Федор"})
-   (quest/build {::quest/name "UT"})
-   (quest/build {::quest/name "Барби"})
-   (quest/build {::quest/name "Геннадий"})
-   (quest/build {::quest/name "В гостях у Ктулху"})
-   (quest/build {::quest/name "Кот Матроскин"})
-   (quest/build {::quest/name "Чужой"})
-   (quest/build {::quest/name "Хищник"})])
+  (->> (s/gen ::quest/spec)
+       (gen/sample)
+       (take 20)))
 
 (def reviews
-  [(review/build {::review/name "Выбираем самый технологичный квест"})
-   (review/build {::review/name "Квесты для любителей побегать"})
-   (review/build {::review/name "Куда сходить семье с ребенком"})
-   (review/build {::review/name "Выбираем самый необычный квест"})
-   (review/build {::review/name "Барби"})])
+  (->> (s/gen ::review/spec)
+       (gen/sample)
+       (take 10)))
 
 (def companies
-  [(company/build {::company/name "Гагарин"})
-   (company/build {::company/name "Прометей"})
-   (company/build {::company/name "Дядя Федор"})
-   (company/build {::company/name "UT"})
-   (company/build {::company/name "Барби"})
-   (company/build {::company/name "Барби2"})])
+  (->> (s/gen ::company/spec)
+       (gen/sample)
+       (take 10)))
 
 (def selection->card identity)
-(def quest->card identity)
+
+(defn quest->card [q]
+  (as-> q q
+    (select-keys q
+                 [::common/uuid
+                  ::quest/name
+                  ::quest/participants-min
+                  ::quest/participants-max])
+    (assoc q
+           ::quest-projection/price-min 1000
+           ::quest-projection/price-max 1500
+           ::quest-projection/total-rating 9.342)
+    (s/assert ::quest-projection/card q)))
+
 (def review->card identity)
 (def company->card identity)
 
 (c/register :db/best-quests-cards
             (fn [_]
               (constantly (->> quests
-                               (random-sample 0.7)
-                               (quest->card)))))
+                               (random-sample 0.5)
+                               (map quest->card)))))
 
 (c/register :db/new-quests-cards
             (fn [_]
               (constantly (->> quests
-                               (random-sample 0.7)
-                               (quest->card)))))
+                               (random-sample 0.5)
+                               (map quest->card)))))
 
 (c/register :db/selections-cards
             (fn [_]
               (constantly (->> selections
-                               (selection->card)))))
+                               (map selection->card)))))
 
 (c/register :db/reviews-cards
             (fn [_]
               (constantly (->> reviews
-                               (review->card)))))
+                               (map review->card)))))
 
 (c/register :db/companies-cards
             (fn [_]
               (constantly (->> companies
-                               (company->card)))))
+                               (map company->card)))))

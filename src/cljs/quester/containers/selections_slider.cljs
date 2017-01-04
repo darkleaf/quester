@@ -10,7 +10,7 @@
                              (e js/ui.SelectionCard
                                 {:key (::c/uuid selection)
                                  :name (::selection/name selection)
-                                 :imageUrl "http://placehold.it/300x300"}))]
+                                 :imageUrl (str "https://unsplash.it/300/300?image=" (rand-int 1000))}))]
     (e js/ui.Slider {:title "Подборки квестов 111"
                      :totalCount 25
                      :seeAllUrl "/selections"

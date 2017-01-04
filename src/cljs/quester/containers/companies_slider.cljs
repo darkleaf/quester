@@ -10,7 +10,7 @@
                            (e js/ui.CompanyCard
                               {:key (::c/uuid company)
                                :name (::company/name company)
-                               :imageUrl "http://placehold.it/190x140"
+                               :imageUrl (str "https://unsplash.it/190/140?image=" (rand-int 1000))
                                :questCount 3}))]
     (e js/ui.Slider {:title "Компании"
                      :totalCount 25

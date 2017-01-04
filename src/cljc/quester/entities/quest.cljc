@@ -3,13 +3,13 @@
             [quester.entities.common :as common]))
 
 (s/def ::name (s/and string? not-empty))
+(s/def ::participants-min (s/int-in 1 100))
+(s/def ::participants-max (s/int-in 1 100))
 
-(s/def ::spec (s/merge ::common/spec
-                       (s/keys :req [::name])))
 
-(defn build
-  ([] (build {}))
-  ([attrs]
-   (let [common-defaults (common/defaults)
-         defaults {::name ""}]
-     (merge common-defaults defaults attrs))))
+(s/def ::spec (s/and
+               (s/merge ::common/spec
+                        (s/keys :req [::name
+                                      ::participants-min
+                                      ::participants-max]))
+               #(>= (::participants-max %) (::participants-min %))))

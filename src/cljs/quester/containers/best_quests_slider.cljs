@@ -10,11 +10,11 @@
                          (e js/ui.QuestCard
                             {:key (::c/uuid quest)
                              :name (::quest/name quest)
-                             :imageUrl "http://placehold.it/300x210"
+                             :imageUrl (str "https://unsplash.it/300/210?image=" (rand-int 1000))
                              :priceMin 1000
                              :priceMax 5000
-                             :participantsMin 2
-                             :participantsMax 5
+                             :participantsMin (::quest/participants-min quest)
+                             :participantsMax (::quest/participants-max quest)
                              :rating 9.3}))]
     (e js/ui.Slider {:title "Лучшие квесты"
                      :totalCount 10
