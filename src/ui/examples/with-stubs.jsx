@@ -117,7 +117,8 @@ function BestQuestsSliderContainer() {
     >
       <QuestCard
         name="QuestCard 1"
-        imageUrl="http://placehold.it/300x210"
+        url="/1"
+        imageUrl="https://unsplash.it/300/210?image=101"
         priceMin={4500}
         priceMax={9500}
         participantsMin={2}
@@ -126,7 +127,8 @@ function BestQuestsSliderContainer() {
       />
       <QuestCard
         name="QuestCard 2"
-        imageUrl="http://placehold.it/300x210"
+        url="/2"
+        imageUrl="https://unsplash.it/300/210?image=102"
         priceMin={4500}
         priceMax={9500}
         participantsMin={2}
@@ -135,7 +137,8 @@ function BestQuestsSliderContainer() {
       />
       <QuestCard
         name="QuestCard 3"
-        imageUrl="http://placehold.it/300x210"
+        url="/3"
+        imageUrl="https://unsplash.it/300/210?image=103"
         priceMin={4500}
         priceMax={9500}
         participantsMin={2}
@@ -144,7 +147,8 @@ function BestQuestsSliderContainer() {
       />
       <QuestCard
         name="QuestCard 4"
-        imageUrl="http://placehold.it/300x210"
+        url="/4"
+        imageUrl="https://unsplash.it/300/210?image=104"
         priceMin={4500}
         priceMax={9500}
         participantsMin={2}
@@ -196,6 +200,7 @@ function NewQuestsSliderContainer() {
     >
       <QuestCard
         name="QuestCard 1"
+        url="/1"
         imageUrl="http://placehold.it/300x210"
         priceMin={4500}
         priceMax={9500}
@@ -205,6 +210,7 @@ function NewQuestsSliderContainer() {
       />
       <QuestCard
         name="QuestCard 2"
+        url="/2"
         imageUrl="http://placehold.it/300x210"
         priceMin={4500}
         priceMax={9500}
@@ -214,6 +220,7 @@ function NewQuestsSliderContainer() {
       />
       <QuestCard
         name="QuestCard 3"
+        url="/3"
         imageUrl="http://placehold.it/300x210"
         priceMin={4500}
         priceMax={9500}
@@ -223,6 +230,7 @@ function NewQuestsSliderContainer() {
       />
       <QuestCard
         name="QuestCard 4"
+        url="/4"
         imageUrl="http://placehold.it/300x210"
         priceMin={4500}
         priceMax={9500}
@@ -315,6 +323,7 @@ function QuestSimilarQuestsContainer({ /* id */ }) {
     <SimilarQuests title="Похожие квесты">
       <QuestCard
         name="QuestCard 1"
+        url="/1"
         imageUrl="http://placehold.it/300x210"
         priceMin={4500}
         priceMax={9500}
@@ -324,6 +333,7 @@ function QuestSimilarQuestsContainer({ /* id */ }) {
       />
       <QuestCard
         name="QuestCard 2"
+        url="/2"
         imageUrl="http://placehold.it/300x210"
         priceMin={4500}
         priceMax={9500}
@@ -333,6 +343,7 @@ function QuestSimilarQuestsContainer({ /* id */ }) {
       />
       <QuestCard
         name="QuestCard 3"
+        url="/3"
         imageUrl="http://placehold.it/300x210"
         priceMin={4500}
         priceMax={9500}
@@ -342,6 +353,7 @@ function QuestSimilarQuestsContainer({ /* id */ }) {
       />
       <QuestCard
         name="QuestCard 4"
+        url="/4"
         imageUrl="http://placehold.it/300x210"
         priceMin={4500}
         priceMax={9500}
@@ -351,6 +363,7 @@ function QuestSimilarQuestsContainer({ /* id */ }) {
       />
       <QuestCard
         name="QuestCard 5"
+        url="/5"
         imageUrl="http://placehold.it/300x210"
         priceMin={4500}
         priceMax={9500}
@@ -360,6 +373,7 @@ function QuestSimilarQuestsContainer({ /* id */ }) {
       />
       <QuestCard
         name="QuestCard 6"
+        url="/6"
         imageUrl="http://placehold.it/300x210"
         priceMin={4500}
         priceMax={9500}
