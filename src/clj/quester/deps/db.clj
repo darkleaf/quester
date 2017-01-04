@@ -7,6 +7,7 @@
             [quester.entities.common :as common]
             [quester.entities.selection :as selection]
             [quester.entities.quest :as quest]
+            [quester.projections.quest :as quest-projection]
             [quester.entities.review :as review]
             [quester.entities.company :as company]))
 
@@ -31,7 +32,20 @@
        (take 10)))
 
 (def selection->card identity)
-(def quest->card identity)
+
+(defn quest->card [q]
+  (as-> q q
+    (select-keys q
+                 [::common/uuid
+                  ::quest/name
+                  ::quest/participants-min
+                  ::quest/participants-max])
+    (assoc q
+           ::quest-projection/price-min 1000
+           ::quest-projection/price-max 1500
+           ::quest-projection/total-rating 9.342)
+    (s/assert ::quest-projection/card q)))
+
 (def review->card identity)
 (def company->card identity)
 
@@ -39,26 +53,26 @@
             (fn [_]
               (constantly (->> quests
                                (take-nth 2)
-                               (quest->card)))))
+                               (map quest->card)))))
 
 (c/register :db/new-quests-cards
             (fn [_]
               (constantly (->> quests
                                (rest)
                                (take-nth 2)
-                               (quest->card)))))
+                               (map quest->card)))))
 
 (c/register :db/selections-cards
             (fn [_]
               (constantly (->> selections
-                               (selection->card)))))
+                               (map selection->card)))))
 
 (c/register :db/reviews-cards
             (fn [_]
               (constantly (->> reviews
-                               (review->card)))))
+                               (map review->card)))))
 
 (c/register :db/companies-cards
             (fn [_]
               (constantly (->> companies
-                               (company->card)))))
+                               (map company->card)))))
