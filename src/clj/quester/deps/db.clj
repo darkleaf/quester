@@ -19,7 +19,7 @@
 (def quests
   (->> (s/gen ::quest/spec)
        (gen/sample)
-       (take 10)))
+       (take 20)))
 
 (def reviews
   (->> (s/gen ::review/spec)
@@ -52,14 +52,13 @@
 (c/register :db/best-quests-cards
             (fn [_]
               (constantly (->> quests
-                               (take-nth 2)
+                               (random-sample 0.5)
                                (map quest->card)))))
 
 (c/register :db/new-quests-cards
             (fn [_]
               (constantly (->> quests
-                               (rest)
-                               (take-nth 2)
+                               (random-sample 0.5)
                                (map quest->card)))))
 
 (c/register :db/selections-cards
