@@ -53,10 +53,5 @@
    :render
    (fn [this]
      (let [atom (.. this -props -atom)]
-         (e "div" {}
-             (e "a" {:href "/"} "main")
-             (e "br" {})
-             (e "a" {:href "/quests/1"} "quest 1")
-
-             (e state/container {:atom atom}
-                (e root/container {})))))))
+       (e state/container {:atom atom}
+          (e root/container {}))))))
