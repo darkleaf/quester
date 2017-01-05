@@ -3,4 +3,4 @@
 
 (def controller
   {:show (fn [req]
-           (e js/ui.MainPage {}))})
+           (e js/ui.MainPage))})

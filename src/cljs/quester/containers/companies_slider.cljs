@@ -8,16 +8,16 @@
         companies (get-in state [:page :companies-cards])
         company->element (fn [company]
                            (e js/ui.CompanyCard
-                              {:key (::c/uuid company)
-                               :name (::company/name company)
-                               :imageUrl (str "https://unsplash.it/190/140?image=" (rand-int 1000))
-                               :questCount 3}))]
-    (e js/ui.Slider {:title "Компании"
-                     :totalCount 25
-                     :seeAllUrl "/companies"
-                     :windowLength 6}
+                              #js {:key (::c/uuid company)
+                                   :name (::company/name company)
+                                   :imageUrl (str "https://unsplash.it/190/140?image=" (rand-int 1000))
+                                   :questCount 3}))]
+    (e js/ui.Slider #js {:title "Компании"
+                         :totalCount 25
+                         :seeAllUrl "/companies"
+                         :windowLength 6}
        (map company->element companies))))
 
 (aset container
       "contextTypes"
-      (js-obj "state" js/ui.React.PropTypes.any.isRequired))
+      #js {:state js/ui.React.PropTypes.any.isRequired})

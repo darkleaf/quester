@@ -1,5 +1,6 @@
 (ns quester.controllers.web.quests
-  (:require [quester.react :refer [e]]))
+  (:require [darkleaf.router :as router]
+            [quester.react :refer [e]]))
 
 (def controller
   {:show (fn [req]

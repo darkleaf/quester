@@ -25,5 +25,5 @@
 
 (defn restart []
   (js/ui.ReactDOM.render
-   (e history/container {:atom app-state})
+   (e history/container #js {:atom app-state})
    mount-point))

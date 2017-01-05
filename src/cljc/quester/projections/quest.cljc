@@ -7,10 +7,12 @@
 (s/def ::price-max pos-int?)
 (s/def ::total-rating (s/double-in :min 0, :max 10, :NaN? false, :infinite? false))
 
-(s/def ::card (s/keys :req [::common/uuid
-                            ::quest/name
-                            ::quest/participants-min
-                            ::quest/participants-max
-                            ::price-min
-                            ::price-max
-                            ::total-rating]))
+(s/def ::card (s/and
+               (s/keys :req [::common/uuid
+                             ::quest/name
+                             ::quest/participants-min
+                             ::quest/participants-max
+                             ::price-min
+                             ::price-max
+                             ::total-rating])
+               #(>= (::price-max %) (::price-min %))))

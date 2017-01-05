@@ -53,5 +53,5 @@
    :render
    (fn [this]
      (let [atom (.. this -props -atom)]
-       (e state/container {:atom atom}
-          (e root/container {}))))))
+       (e state/container #js {:atom atom}
+          (e root/container))))))

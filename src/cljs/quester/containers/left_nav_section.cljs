@@ -2,10 +2,10 @@
   (:require [quester.react :refer [e]]))
 
 (defn container []
-  (e js/ui.NavSection {}
-     (e js/ui.NavBrand {:name "Quester"})
-     (e js/ui.NavItem {:name "Квесты"})
-     (e js/ui.NavItem {:name "Подборки"})
-     (e js/ui.NavItem {:name "Обзоры"})
-     (e js/ui.NavItem {:name "Компании"})
-     (e js/ui.NavSearch {})))
+  (e js/ui.NavSection nil
+     (e js/ui.NavBrand #js {:name "Quester"})
+     (e js/ui.NavItem #js {:name "Квесты"})
+     (e js/ui.NavItem #js {:name "Подборки"})
+     (e js/ui.NavItem #js {:name "Обзоры"})
+     (e js/ui.NavItem #js {:name "Компании"})
+     (e js/ui.NavSearch)))

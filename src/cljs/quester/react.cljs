@@ -1,11 +1,14 @@
-(ns quester.react)
+(ns quester.react
+  (:require [clojure.walk :refer [stringify-keys]]))
 
-(defn e [component props & children]
-  (let [js-props (clj->js props)]
-    (apply js/ui.React.createElement
-           component
-           js-props
-           children)))
+(defn e
+  ([component]
+   (e component nil))
+  ([component props & children]
+   (apply js/ui.React.createElement
+          component
+          props
+          children)))
 
 (defn- add-this-as-first-arg [spec]
   (reduce-kv

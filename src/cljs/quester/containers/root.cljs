@@ -10,20 +10,20 @@
             [quester.containers.companies-slider :as companies-slider]))
 
 (defn container [props context]
-  (let [deps {:LeftNavSection left-nav-section/container
-              :RightNavSection right-nav-section/container
-              :MainCarousel main-carousel/container
-              :SelectionsSlider selections-slider/container
-              :BestQuestsSlider best-quests-slider/container
-              :ReviewsSlider reviews-slider/container
-              :NewQuestsSlider new-quests-slider/container
-              :CompaniesSlider companies-slider/container}
+  (let [deps #js {:LeftNavSection left-nav-section/container
+                  :RightNavSection right-nav-section/container
+                  :MainCarousel main-carousel/container
+                  :SelectionsSlider selections-slider/container
+                  :BestQuestsSlider best-quests-slider/container
+                  :ReviewsSlider reviews-slider/container
+                  :NewQuestsSlider new-quests-slider/container
+                  :CompaniesSlider companies-slider/container}
         state (.. context -state)
         element (:element state)]
-    (e js/ui.IntlProvider {:locale "ru", :messages js/ui.messages}
-       (e js/ui.DependencyProvider {:deps deps}
+    (e js/ui.IntlProvider #js {:locale "ru", :messages js/ui.messages}
+       (e js/ui.DependencyProvider #js {:deps deps}
           element))))
 
 (aset container
       "contextTypes"
-      (js-obj "state" js/ui.React.PropTypes.any.isRequired))
+      #js {:state js/ui.React.PropTypes.any.isRequired})

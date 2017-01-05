@@ -33,4 +33,4 @@
 
    :render
    (fn [this]
-     (e "div" {} (.. this -props -children)))))
+     (e "div" nil(.. this -props -children)))))
