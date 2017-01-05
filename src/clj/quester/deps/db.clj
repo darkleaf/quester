@@ -11,37 +11,43 @@
             [quester.entities.review :as review]
             [quester.entities.company :as company]))
 
-(c/register :db/best-quests-cards
-            (fn [_]
-              (constantly (->> (s/gen ::quest-projection/card)
-                               (gen/sample)
-                               (take 10)))))
+(c/register :db.quests/best-cards
+            (fn [_resolve]
+              (fn [& {:keys [limit]}]
+                (->> (s/gen ::quest-projection/card)
+                     (gen/sample)
+                     (take limit)))))
 
-(c/register :db/new-quests-cards
-            (fn [_]
-              (constantly (->> (s/gen ::quest-projection/card)
-                               (gen/sample)
-                               (take 10)))))
+(c/register :db.quests/new-cards
+            (fn [_resolve]
+              (fn [& {:keys [limit]}]
+                (->> (s/gen ::quest-projection/card)
+                     (gen/sample)
+                     (take limit)))))
 
-(c/register :db/selections-cards
-            (fn [_]
-              (constantly (->> (s/gen ::selection/spec)
-                               (gen/sample)
-                               (take 10)))))
+(c/register :db.selections/cards
+            (fn [_resolve]
+              (fn [& {:keys [limit]}]
+                (->> (s/gen ::selection/spec)
+                     (gen/sample)
+                     (take limit)))))
 
-(c/register :db/reviews-cards
-            (fn [_]
-              (constantly (->> (s/gen ::review/spec)
-                               (gen/sample)
-                               (take 10)))))
+(c/register :db.reviews/cards
+            (fn [_resolve]
+              (fn [& {:keys [limit]}]
+                (->> (s/gen ::review/spec)
+                     (gen/sample)
+                     (take limit)))))
 
-(c/register :db/companies-cards
-            (fn [_]
-              (constantly (->> (s/gen ::company/spec)
-                               (gen/sample)
-                               (take 10)))))
+(c/register :db.companies/cards
+            (fn [_resolve]
+              (fn [& {:keys [limit]}]
+                (->> (s/gen ::company/spec)
+                     (gen/sample)
+                     (take limit)))))
 
-(c/register :db/find-quest
-            (fn [_]
+(c/register :db.quests/page
+            (fn [_resolve]
               (fn [_uuid]
-                1)))
+                (->> (s/gen ::quest-projection/page)
+                     (gen/generate)))))

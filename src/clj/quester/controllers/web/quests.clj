@@ -5,7 +5,7 @@
 
 (def controller
   {:show (fn [req]
-           (let [uc (c/resolve :use-cases/quest-show)
+           (let [uc (c/resolve :use-cases.quests/show)
                  {:keys [quest-id]} (::router/params req)
                  data (uc quest-id)]
              (r/response data)))})
