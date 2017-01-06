@@ -5,33 +5,33 @@ import PubLayout from '../../layout/pub-layout';
 export default class MainPage extends Component {
   render() {
     const {
-      Nav,
-      MainCarousel,
-      SelectionsSlider,
-      BestQuestsSlider,
-      ReviewsSlider,
-      NewQuestsSlider,
-      CompaniesSlider,
+      nav,
+      mainCarousel,
+      selectionsSlider,
+      bestQuestsSlider,
+      reviewsSlider,
+      newQuestsSlider,
+      companiesSlider,
     } = this.props;
     return (
-      <PubLayout Nav={Nav}>
-        <MainCarousel />
-        <SelectionsSlider />
-        <BestQuestsSlider />
-        <ReviewsSlider />
-        <NewQuestsSlider />
-        <CompaniesSlider />
+      <PubLayout nav={nav}>
+        {mainCarousel}
+        {selectionsSlider}
+        {bestQuestsSlider}
+        {reviewsSlider}
+        {newQuestsSlider}
+        {companiesSlider}
       </PubLayout>
     );
   }
 }
 
 MainPage.propTypes = {
-  Nav: PropTypes.func.isRequired,
-  MainCarousel: PropTypes.func.isRequired,
-  SelectionsSlider: PropTypes.func.isRequired,
-  BestQuestsSlider: PropTypes.func.isRequired,
-  ReviewsSlider: PropTypes.func.isRequired,
-  NewQuestsSlider: PropTypes.func.isRequired,
-  CompaniesSlider: PropTypes.func.isRequired,
+  nav: PropTypes.object.isRequired,
+  mainCarousel: PropTypes.object.isRequired,
+  selectionsSlider: PropTypes.object.isRequired,
+  bestQuestsSlider: PropTypes.object.isRequired,
+  reviewsSlider: PropTypes.object.isRequired,
+  newQuestsSlider: PropTypes.object.isRequired,
+  companiesSlider: PropTypes.object.isRequired,
 };

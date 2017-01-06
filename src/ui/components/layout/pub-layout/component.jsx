@@ -6,13 +6,13 @@ import Canvas from '../canvas';
 export default class PubLayout extends Component {
   render() {
     const {
-      Nav,
+      nav,
     } = this.props;
     return (
       <StickyContainer>
         <Canvas>
           <Sticky style={{ zIndex: 1 }}>
-            <Nav />
+            {nav}
           </Sticky>
           {this.props.children}
         </Canvas>
@@ -22,6 +22,6 @@ export default class PubLayout extends Component {
 }
 
 PubLayout.propTypes = {
-  Nav: PropTypes.func.isRequired,
+  nav: PropTypes.object.isRequired,
   children: React.PropTypes.array.isRequired,
 };

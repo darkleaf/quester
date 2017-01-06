@@ -110,14 +110,14 @@ export default class QuestPageExample extends Component {
   render() {
     return (
       <QuestPage
-        Nav={NavContainer}
-        Gallery={GalleryContainer}
-        SimilarQuests={SimilarQuestsContainer}
-        Description={DescriptionContainer}
-        Schedule={ScheduleContainer}
-        Location={LocationContainer}
-        AddToFavorite={AddToFavoriteContainer}
-        Booking={BookingContainer}
+        nav={<NavContainer />}
+        gallery={<GalleryContainer />}
+        similarQuests={<SimilarQuestsContainer />}
+        description={<DescriptionContainer />}
+        schedule={<ScheduleContainer />}
+        location={<LocationContainer />}
+        addToFavorite={<AddToFavoriteContainer />}
+        booking={<BookingContainer />}
       />
     );
   }

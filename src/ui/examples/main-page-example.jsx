@@ -209,13 +209,13 @@ export default class MainPageExample extends Component {
   render() {
     return (
       <MainPage
-        Nav={NavContainer}
-        MainCarousel={MainCarouselContainer}
-        SelectionsSlider={SelectionsSliderContainer}
-        BestQuestsSlider={BestQuestsSliderContainer}
-        ReviewsSlider={ReviewsSliderContainer}
-        NewQuestsSlider={NewQuestsSliderContainer}
-        CompaniesSlider={CompaniesSliderContainer}
+        nav={<NavContainer />}
+        mainCarousel={<MainCarouselContainer />}
+        selectionsSlider={<SelectionsSliderContainer />}
+        bestQuestsSlider={<BestQuestsSliderContainer />}
+        reviewsSlider={<ReviewsSliderContainer />}
+        newQuestsSlider={<NewQuestsSliderContainer />}
+        companiesSlider={<CompaniesSliderContainer />}
       />
     );
   }

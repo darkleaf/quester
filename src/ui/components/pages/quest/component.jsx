@@ -12,34 +12,34 @@ import styles from './styles.css';
 export default class QuestPage extends Component {
   render() {
     const {
-      Nav,
-      Gallery,
-      SimilarQuests,
-      Description,
-      Schedule,
-      Location,
-      AddToFavorite,
-      Booking,
+      nav,
+      gallery,
+      similarQuests,
+      description,
+      schedule,
+      location,
+      addToFavorite,
+      booking,
     } = this.props;
     return (
-      <PubLayout Nav={Nav}>
-        <Gallery />
+      <PubLayout nav={nav}>
+        {gallery}
         <Container>
           <WithHorizontalRule>
             <Columns fractions={['2/3', '1/3']}>
               <WithHorizontalRule>
-                <Description />
-                <Schedule />
-                <Location />
+                {description}
+                {schedule}
+                {location}
               </WithHorizontalRule>
               <StickyContainer className={styles.sidebar}>
                 <Sticky stickyClassName={styles.sticky}>
-                  <AddToFavorite />
-                  <Booking />
+                  {addToFavorite}
+                  {booking}
                 </Sticky>
               </StickyContainer>
             </Columns>
-            <SimilarQuests />
+            {similarQuests}
           </WithHorizontalRule>
         </Container>
       </PubLayout>
@@ -48,12 +48,12 @@ export default class QuestPage extends Component {
 }
 
 QuestPage.propTypes = {
-  Nav: PropTypes.func.isRequired,
-  Gallery: PropTypes.func.isRequired,
-  Description: PropTypes.func.isRequired,
-  Schedule: PropTypes.func.isRequired,
-  Location: PropTypes.func.isRequired,
-  SimilarQuests: PropTypes.func.isRequired,
-  AddToFavorite: PropTypes.func.isRequired,
-  Booking: PropTypes.func.isRequired,
+  nav: PropTypes.object.isRequired,
+  gallery: PropTypes.object.isRequired,
+  description: PropTypes.object.isRequired,
+  schedule: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  similarQuests: PropTypes.object.isRequired,
+  addToFavorite: PropTypes.object.isRequired,
+  booking: PropTypes.object.isRequired,
 };
