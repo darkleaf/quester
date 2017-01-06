@@ -5,53 +5,59 @@
             [cljs.core.async :refer [<!]]
             [quester.routes.web :as web-routes]
             [quester.react :refer [e] :as r]
-            [quester.util.request-cache :as cache]
-            [quester.util.request-hash :refer [req->hash]]
-            [quester.containers.state :as state]
-            [quester.containers.root :as root])
+            [quester.util.request-cache :as request-cache]
+            [quester.util.request-hash :refer [req->hash]])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
-(def ^:private handler (router/make-handler web-routes/routes))
-
-(defn- matcher [uri]
-  (let [req {:uri uri, :request-method :get}]
-     (handler req)))
-
-(defn- handle-with-cache [this {:keys [element req]}]
-  (let [atom (.. this -props -atom)
-        key (req->hash req)]
-    (when-let [page-data (cache/get @atom key)]
-      (swap! atom assoc :element element, :page page-data))))
-
 ;; TODO: cancel and progress
-(defn- handle-with-api [this {:keys [element req]}]
-  (let [atom (.. this -props -atom)
-        key (req->hash req)
-        req (assoc-in req [:headers "accept"] "application/transit+json")]
-    (go
-      (let [response (<! (http/request req))]
-        (swap! atom assoc :element element, :page (:body response))))))
 
-(defn- handle [this req]
-  (or (handle-with-cache this req)
-      (handle-with-api this req)))
+(defn- blank-component []
+  (e "div" nil "loading"))
 
 (def container
   (r/create-class
    :displayName "History"
 
+   :matcher
+   (fn [this uri]
+     (let [req {:uri uri, :request-method :get}
+           handler (.. this -handler)]
+       (handler req)))
+
+   :dispatch
+   (fn [this {:keys [component-var req]}]
+     (let [cache (.. this -props -cache)
+           key (req->hash req)
+           component @component-var
+           data (request-cache/get cache key)]
+       (if data
+         (.setState this (js-obj "component" component, "data" data))
+         (go
+           (let [req (assoc-in req [:headers "accept"] "application/transit+json")
+                 response (<! (http/request req))
+                 data (:body response)]
+             (.setState this (js-obj "component" component, "data" data)))))))
+
+   :getInitialState
+   (fn [_this] (js-obj "component" blank-component, "data" {}))
+
    :componentWillMount
-   (fn [this]
-     (let [history (pushy/pushy #(handle this %) matcher)]
-         (aset this "history" history)
-         (pushy/start! history)))
+    (fn [this]
+      (aset this "handler" (router/make-handler web-routes/routes))
+      (let [matcher (.. this -matcher)
+            dispatch (.. this -dispatch)
+            history (pushy/pushy dispatch matcher)]
+        (aset this "history" history)
+        (pushy/start! history)))
 
-   :componentWillUnmount
-   (fn [this]
-     (pushy/stop! (.-history this)))
+    :componentWillUnmount
+    (fn [this]
+      (pushy/stop! (.-history this)))
 
-   :render
-   (fn [this]
-     (let [atom (.. this -props -atom)]
-       (e state/container #js {:atom atom}
-          (e root/container))))))
+    :render
+    (fn [this]
+      (let [component (.. this -state -component)
+            data (.. this -state -data)]
+        (e js/ui.IntlProvider (js-obj "locale" "ru", "messages" js/ui.messages)
+           (e "div" nil
+              (e component (js-obj "data" data))))))))

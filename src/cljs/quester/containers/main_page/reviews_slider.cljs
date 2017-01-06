@@ -1,4 +1,4 @@
-(ns quester.containers.reviews-slider
+(ns quester.containers.main-page.reviews-slider
   (:require [quester.react :refer [e]]
             [quester.entities.common :as c]
             [quester.entities.review :as review]))

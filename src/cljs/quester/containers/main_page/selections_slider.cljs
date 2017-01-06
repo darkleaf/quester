@@ -1,4 +1,4 @@
-(ns quester.containers.selections-slider
+(ns quester.containers.main-page.selections-slider
   (:require [quester.react :refer [e]]
             [quester.entities.common :as c]
             [quester.entities.selection :as selection]))

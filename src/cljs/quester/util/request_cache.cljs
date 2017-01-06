@@ -6,13 +6,15 @@
 (defn- timestamp []
   (.getTime (js/Date.)))
 
-(defn put [state key value]
-  (let [expired-at (+ (timestamp)
-                      (* 1 seconds))]
-    (assoc-in state [::storage key] {:expired-at expired-at
-                                     :value value})))
+(defn build [] (atom {}))
 
-(defn get [state key]
-  (when-let [{:keys [expired-at value]} (get-in state [::storage key])]
+(defn put [cache key value]
+  (let [expired-at (+ (timestamp)
+                      (* 10 seconds))]
+    (swap! cache assoc key {:expired-at expired-at
+                            :value value})))
+
+(defn get [cache key]
+  (when-let [{:keys [expired-at value]} (cljs.core/get @cache key)]
     (when (> expired-at (timestamp))
       value)))

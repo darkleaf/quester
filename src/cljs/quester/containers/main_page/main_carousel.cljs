@@ -1,4 +1,4 @@
-(ns quester.containers.main-carousel
+(ns quester.containers.main-page.main-carousel
   (:require [quester.react :refer [e]]))
 
 (defn container []

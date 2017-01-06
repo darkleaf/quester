@@ -4,4 +4,4 @@
 
 (def controller
   {:show (fn [req]
-           (e "div" {} "quest page"))})
+           #_(e "div" {} "quest page"))})

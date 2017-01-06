@@ -1,4 +1,4 @@
-(ns quester.containers.new-quests-slider
+(ns quester.containers.main-page.new-quests-slider
   (:require [quester.react :refer [e]]
             [quester.entities.common :as common]
             [quester.containers.quest-card :as quest-card]))

@@ -1,4 +1,4 @@
-(ns quester.containers.companies-slider
+(ns quester.containers.main-page.companies-slider
   (:require [quester.react :refer [e]]
             [quester.entities.common :as c]
             [quester.entities.company :as company]))
