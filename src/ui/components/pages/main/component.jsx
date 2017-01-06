@@ -5,15 +5,16 @@ import PubLayout from '../../layout/pub-layout';
 export default class MainPage extends Component {
   render() {
     const {
+      Nav,
       MainCarousel,
       SelectionsSlider,
       BestQuestsSlider,
       ReviewsSlider,
       NewQuestsSlider,
       CompaniesSlider,
-    } = this.context;
+    } = this.props;
     return (
-      <PubLayout>
+      <PubLayout Nav={Nav}>
         <MainCarousel />
         <SelectionsSlider />
         <BestQuestsSlider />
@@ -25,7 +26,8 @@ export default class MainPage extends Component {
   }
 }
 
-MainPage.contextTypes = {
+MainPage.propTypes = {
+  Nav: PropTypes.func.isRequired,
   MainCarousel: PropTypes.func.isRequired,
   SelectionsSlider: PropTypes.func.isRequired,
   BestQuestsSlider: PropTypes.func.isRequired,
