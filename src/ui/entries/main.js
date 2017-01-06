@@ -8,7 +8,6 @@ export { default as ReactDOM } from 'react-dom';
 export { IntlProvider } from 'react-intl';
 
 export { default as messages } from '../messages';
-export { default as DependencyProvider } from '../components/dependency-provider';
 
 export { default as MainPage } from '../components/pages/main';
 export { default as QuestPage } from '../components/pages/quest';
