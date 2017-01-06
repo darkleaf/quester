@@ -190,7 +190,7 @@ function CompaniesSliderContainer() {
   );
 }
 
-export default class MainPageContainer extends Component {
+export default class MainPageExample extends Component {
   render() {
     return (
       <MainPage

@@ -12,33 +12,34 @@ import styles from './styles.css';
 export default class QuestPage extends Component {
   render() {
     const {
-      QuestGallery,
-      QuestSimilarQuests,
-      QuestDescription,
-      QuestSchedule,
-      QuestLocation,
-      QuestAddToFavorite,
-      QuestBooking,
-    } = this.context;
+      Nav,
+      Gallery,
+      SimilarQuests,
+      Description,
+      Schedule,
+      Location,
+      AddToFavorite,
+      Booking,
+    } = this.props;
     return (
-      <PubLayout>
-        <QuestGallery id={this.props.id} />
+      <PubLayout Nav={Nav}>
+        <Gallery />
         <Container>
           <WithHorizontalRule>
             <Columns fractions={['2/3', '1/3']}>
               <WithHorizontalRule>
-                <QuestDescription id={this.props.id} />
-                <QuestSchedule id={this.props.id} />
-                <QuestLocation id={this.props.id} />
+                <Description />
+                <Schedule />
+                <Location />
               </WithHorizontalRule>
               <StickyContainer className={styles.sidebar}>
                 <Sticky stickyClassName={styles.sticky}>
-                  <QuestAddToFavorite id={this.props.id} />
-                  <QuestBooking id={this.props.id} />
+                  <AddToFavorite />
+                  <Booking />
                 </Sticky>
               </StickyContainer>
             </Columns>
-            <QuestSimilarQuests id={this.props.id} />
+            <SimilarQuests />
           </WithHorizontalRule>
         </Container>
       </PubLayout>
@@ -46,16 +47,13 @@ export default class QuestPage extends Component {
   }
 }
 
-QuestPage.contextTypes = {
-  QuestGallery: PropTypes.func.isRequired,
-  QuestDescription: PropTypes.func.isRequired,
-  QuestSchedule: PropTypes.func.isRequired,
-  QuestLocation: PropTypes.func.isRequired,
-  QuestSimilarQuests: PropTypes.func.isRequired,
-  QuestAddToFavorite: PropTypes.func.isRequired,
-  QuestBooking: PropTypes.func.isRequired,
-};
-
 QuestPage.propTypes = {
-  id: PropTypes.number.isRequired,
+  Nav: PropTypes.func.isRequired,
+  Gallery: PropTypes.func.isRequired,
+  Description: PropTypes.func.isRequired,
+  Schedule: PropTypes.func.isRequired,
+  Location: PropTypes.func.isRequired,
+  SimilarQuests: PropTypes.func.isRequired,
+  AddToFavorite: PropTypes.func.isRequired,
+  Booking: PropTypes.func.isRequired,
 };

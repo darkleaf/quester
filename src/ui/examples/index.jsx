@@ -5,7 +5,8 @@ import messages from '../messages';
 
 import WithStubs from './with-stubs';
 
-import MainPageContainer from './main-page-container';
+import MainPageExample from './main-page-example';
+import QuestPageExample from './quest-page-example';
 
 function Divider() {
   const style = {
@@ -21,7 +22,11 @@ export default class Examples extends Component {
   render() {
     return (
       <IntlProvider locale="ru" messages={messages}>
-        <MainPageContainer />
+        <div>
+          <MainPageExample />
+          <Divider />
+          <QuestPageExample />
+        </div>
       </IntlProvider>
     );
   }
