@@ -6,7 +6,7 @@ import Canvas from '../canvas';
 export default class PubLayout extends Component {
   render() {
     const {
-      Nav
+      Nav,
     } = this.props;
     return (
       <StickyContainer>

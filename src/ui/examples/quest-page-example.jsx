@@ -62,7 +62,7 @@ function LocationContainer() {
   );
 }
 
-function QuestCardContainer({id}) {
+function QuestCardContainer({ id }) {
   return (
     <QuestCard
       name={`QuestCard ${id}`}
@@ -74,8 +74,12 @@ function QuestCardContainer({id}) {
       participantsMax={5}
       rating={9.3}
     />
-  )
+  );
 }
+
+QuestCardContainer.propTypes = {
+  id: PropTypes.any.isRequired,
+};
 
 function SimilarQuestsContainer() {
   return (
@@ -115,6 +119,6 @@ export default class QuestPageExample extends Component {
         AddToFavorite={AddToFavoriteContainer}
         Booking={BookingContainer}
       />
-    )
+    );
   }
 }

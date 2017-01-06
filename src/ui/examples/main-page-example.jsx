@@ -10,7 +10,6 @@ import NavSearch from '../components/layout/nav-search';
 import MainCarousel from '../components/layout/main-carousel';
 import MainFilter from '../components/layout/main-filter';
 import Slider from '../components/layout/slider';
-import Gallery from '../components/layout/gallery';
 import SelectionCard from '../components/entities/selection-card';
 import ReviewCard from '../components/entities/review-card';
 import CompanyCard from '../components/entities/company-card';
@@ -59,16 +58,20 @@ function MainCarouselContainer() {
   );
 }
 
-function SelectionCardContainer({id}) {
+function SelectionCardContainer({ id }) {
   return (
     <SelectionCard
       name={`SelectionCard ${id}`}
       imageUrl="http://placehold.it/300x300"
     />
-  )
+  );
 }
 
-function QuestCardContainer({id}) {
+SelectionCardContainer.propTypes = {
+  id: PropTypes.any.isRequired,
+};
+
+function QuestCardContainer({ id }) {
   return (
     <QuestCard
       name={`QuestCard ${id}`}
@@ -80,27 +83,39 @@ function QuestCardContainer({id}) {
       participantsMax={5}
       rating={9.3}
     />
-  )
+  );
 }
 
-function ReviewCardContainer({id}) {
+QuestCardContainer.propTypes = {
+  id: PropTypes.any.isRequired,
+};
+
+function ReviewCardContainer({ id }) {
   return (
     <ReviewCard
       name={`ReviewCard ${id}`}
       imageUrl="http://placehold.it/300x350"
     />
-  )
+  );
 }
 
-function CompanyCardContainer({id}) {
+ReviewCardContainer.propTypes = {
+  id: PropTypes.any.isRequired,
+};
+
+function CompanyCardContainer({ id }) {
   return (
     <CompanyCard
       name={`CompanyCard ${id}`}
       imageUrl="http://placehold.it/190x140"
       questCount={7}
     />
-  )
+  );
 }
+
+CompanyCardContainer.propTypes = {
+  id: PropTypes.any.isRequired,
+};
 
 function SelectionsSliderContainer() {
   return (
@@ -202,6 +217,6 @@ export default class MainPageExample extends Component {
         NewQuestsSlider={NewQuestsSliderContainer}
         CompaniesSlider={CompaniesSliderContainer}
       />
-    )
+    );
   }
 }
