@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import { IntlProvider } from 'react-intl';
 import messages from '../messages';
 
-import WithStubs from './with-stubs';
-
 import MainPageExample from './main-page-example';
 import QuestPageExample from './quest-page-example';
 
