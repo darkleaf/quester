@@ -3,9 +3,9 @@
             [quester.entities.common :as c]
             [quester.entities.review :as review]))
 
-(defn container [props context]
-  (let [state (.. context -state)
-        reviews (get-in state [:page :reviews-cards])
+(defn container [props]
+  (let [data (.. props -data)
+        reviews (:reviews-cards data)
         review->element (fn [review]
                           (e js/ui.ReviewCard
                              #js {:key (::c/uuid review)
@@ -17,7 +17,3 @@
                          :windowLength 4
                          :highlighted true}
        (map review->element reviews))))
-
-(aset container
-      "contextTypes"
-      #js {:state js/ui.React.PropTypes.any.isRequired})
