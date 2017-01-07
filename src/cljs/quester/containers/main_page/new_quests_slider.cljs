@@ -1,7 +1,7 @@
 (ns quester.containers.main-page.new-quests-slider
   (:require [quester.react :refer [e]]
             [quester.entities.common :as common]
-            [quester.containers.quest-card :as quest-card]))
+            [quester.containers.adapters.quest-card :as quest-card]))
 
 (defn container [props context]
   (let [state (.. context -state)

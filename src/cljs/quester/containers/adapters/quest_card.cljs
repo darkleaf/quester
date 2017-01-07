@@ -1,4 +1,4 @@
-(ns quester.containers.quest-card
+(ns quester.containers.adapters.quest-card
   (:require [quester.react :refer [e]]
             [quester.util.url :refer [url-for]]
             [quester.entities.common :as common]
