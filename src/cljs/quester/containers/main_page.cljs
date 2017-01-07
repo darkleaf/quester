@@ -1,4 +1,4 @@
-(ns quester.pages.main
+(ns quester.containers.main-page
   (:require [quester.react :refer [e]]
             [quester.containers.main-page.main-carousel :as carousel]
             [quester.containers.main-page.reviews-slider :as reviews-slider]
@@ -7,7 +7,7 @@
 (defn stub []
   (e "div" nil "stub"))
 
-(defn page [props]
+(defn container [props]
   (e js/ui.MainPage
      #js{:nav (e stub)
          :mainCarousel (e carousel/container)
