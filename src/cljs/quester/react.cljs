@@ -1,5 +1,4 @@
-(ns quester.react
-  (:require [clojure.walk :refer [stringify-keys]]))
+(ns quester.react)
 
 (defn e
   ([component]

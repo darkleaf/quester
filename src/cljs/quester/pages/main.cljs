@@ -5,12 +5,13 @@
 (defn stub []
   (e "div" nil "stub"))
 
+
 (defn page [props]
   (e js/ui.MainPage
-     (js-obj "Nav" stub
-             "MainCarousel" carousel/container
-             "SelectionsSlider" stub
-             "BestQuestsSlider" stub
-             "ReviewsSlider" stub
-             "NewQuestsSlider" stub
-             "CompaniesSlider" stub)))
+     (js-obj "nav" (e stub)
+             "mainCarousel" (e carousel/container)
+             "selectionsSlider" (e stub)
+             "bestQuestsSlider" (e stub)
+             "reviewsSlider" (e stub)
+             "newQuestsSlider" (e stub)
+             "companiesSlider" (e stub))))
