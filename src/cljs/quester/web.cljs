@@ -1,6 +1,6 @@
 (ns quester.web
-  (:require [cognitect.transit :as t]
-            [quester.react :refer [e] :as r]
+  (:require [reagent.core :as r]
+            [cognitect.transit :as t]
             [quester.containers.history :as history]))
 
 ;; HACK: TypeError: Cannot convert a Symbol value to a string
@@ -22,6 +22,5 @@
                        (let [text (.-innerHTML el)]
                          (.remove el)
                          (read-transit text)))]
-    (js/ui.ReactDOM.render
-     (e history/container #js{:initialData initial-data})
-     mount-point)))
+    (r/render-component [history/container initial-data]
+                        mount-point)))

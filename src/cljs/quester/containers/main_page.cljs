@@ -7,12 +7,16 @@
 (defn stub []
   (e "div" nil "stub"))
 
-(defn container [props]
-  (e js/ui.MainPage
-     #js{:nav (e stub)
-         :mainCarousel (e carousel/container)
-         :selectionsSlider (e stub)
-         :bestQuestsSlider (e stub) #_(e best-quests-slider/container props)
-         :reviewsSlider   (e reviews-slider/container props)
-         :newQuestsSlider (e stub)
-         :companiesSlider (e stub)}))
+
+(defn container [& args]
+  [:div "hi"])
+
+#_(defn container [props]
+    (e js/ui.MainPage
+       #js{:nav (e stub)
+           :mainCarousel (e carousel/container)
+           :selectionsSlider (e stub)
+           :bestQuestsSlider (e stub) #_(e best-quests-slider/container props)
+           :reviewsSlider   (e reviews-slider/container props)
+           :newQuestsSlider (e stub)
+           :companiesSlider (e stub)}))
