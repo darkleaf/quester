@@ -2,7 +2,7 @@ const path = require('path');
 const rootPath = path.join(__dirname, '..', '..');
 
 module.exports = {
-  entry: path.join(rootPath, 'src', 'ui', 'tests_entry.js'),
+  entry: path.join(rootPath, 'src', 'ui', 'entries', 'tests.js'),
   output: {
     path: path.join(rootPath, 'dist'),
     filename: 'tests.js',
