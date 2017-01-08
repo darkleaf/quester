@@ -13,7 +13,9 @@
                  [com.cognitect/transit-clj "0.8.290"]
                  [com.cognitect/transit-cljs "0.8.239"]
                  [hiccup "1.0.5"]
-
+                 [reagent "0.6.0" :exclusions [cljsjs/react
+                                               cljsjs/react-dom
+                                               cljsjs/react-dom-server]]
                  [org.clojure/test.check "0.9.0" :scope "test"]
                  [samestep/boot-refresh "0.1.0" :scope "test"]
                  [adzerk/boot-reload "0.4.13" :scope "test"]

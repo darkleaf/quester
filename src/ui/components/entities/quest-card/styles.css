@@ -1,5 +1,8 @@
+@use postcss-initial;
+
 .container {
-  /* todo: some style */
+  text-decoration: initial;
+  color: initial;
 }
 
 .image {

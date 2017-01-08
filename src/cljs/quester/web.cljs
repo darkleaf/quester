@@ -1,7 +1,6 @@
 (ns quester.web
-  (:require [cognitect.transit :as t]
-            [quester.react :refer [e] :as r]
-            [quester.util.request-cache :as cache]
+  (:require [reagent.core :as r]
+            [cognitect.transit :as t]
             [quester.containers.history :as history]))
 
 ;; HACK: TypeError: Cannot convert a Symbol value to a string
@@ -12,18 +11,18 @@
 
 (enable-console-print!)
 
-(def payload
-  (let [r (t/reader :json {:handlers {"u" cljs.core/uuid}})
-        data (.-innerHTML (.getElementById js/document "payload"))]
-   (t/read r data)))
+(def mount-point (.getElementById js/document "root"))
 
-(defonce mount-point (.getElementById js/document "root"))
+(defn read-transit [text]
+  (let [r (t/reader :json {:handlers {"u" cljs.core/uuid}})]
+    (t/read r text)))
 
-(defonce app-state (atom (-> {}
-                             (cache/put (:req-hash payload)
-                                        (:data payload)))))
+(defonce state (r/atom {}))
+
+(def initial-data (-> (.getElementById js/document "initial-data")
+                      (.-innerHTML)
+                      (read-transit)))
 
 (defn restart []
-  (js/ui.ReactDOM.render
-   (e history/container {:atom app-state})
-   mount-point))
+  (r/render-component [history/container :state state, :initial-data initial-data]
+                      mount-point))

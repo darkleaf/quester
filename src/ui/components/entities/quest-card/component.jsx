@@ -23,7 +23,7 @@ Participants.propTypes = {
 export default class QuestCard extends Component {
   render() {
     return (
-      <div className={styles.container}>
+      <a href={this.props.url} className={styles.container}>
         <img className={styles.image} src={this.props.imageUrl} role="presentation" />
         <div className={styles.name}>{this.props.name}</div>
         <Float align="left">
@@ -31,13 +31,14 @@ export default class QuestCard extends Component {
           <Participants min={this.props.participantsMin} max={this.props.participantsMax} />
           <Rating value={this.props.rating} />
         </Float>
-      </div>
+      </a>
     );
   }
 }
 
 QuestCard.propTypes = {
   name: React.PropTypes.string.isRequired,
+  url: React.PropTypes.string.isRequired,
   imageUrl: React.PropTypes.string.isRequired,
 
   priceMin: React.PropTypes.number.isRequired,

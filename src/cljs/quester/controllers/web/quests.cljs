@@ -1,6 +1,5 @@
 (ns quester.controllers.web.quests
-  (:require [quester.react :refer [e]]))
+  (:require [quester.containers.quest-page :as quest-page]))
 
 (def controller
-  {:show (fn [req]
-           (e "div" {} "quest page"))})
+  {:show (fn [req] #'quest-page/container)})

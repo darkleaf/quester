@@ -2,22 +2,17 @@ import React, { Component, PropTypes } from 'react';
 import { StickyContainer, Sticky } from 'react-sticky';
 
 import Canvas from '../canvas';
-import Nav from '../nav';
 
 export default class PubLayout extends Component {
   render() {
     const {
-      LeftNavSection,
-      RightNavSection,
-    } = this.context;
+      nav,
+    } = this.props;
     return (
       <StickyContainer>
         <Canvas>
           <Sticky style={{ zIndex: 1 }}>
-            <Nav>
-              <LeftNavSection />
-              <RightNavSection />
-            </Nav>
+            {nav}
           </Sticky>
           {this.props.children}
         </Canvas>
@@ -26,11 +21,7 @@ export default class PubLayout extends Component {
   }
 }
 
-PubLayout.contextTypes = {
-  LeftNavSection: PropTypes.func.isRequired,
-  RightNavSection: PropTypes.func.isRequired,
-};
-
 PubLayout.propTypes = {
+  nav: PropTypes.object.isRequired,
   children: React.PropTypes.array.isRequired,
 };

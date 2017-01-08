@@ -2,5 +2,5 @@
 
 (defn middleware [handler]
   (fn [req]
-    {:element (handler req)
+    {:component-var (handler req)
      :req req}))

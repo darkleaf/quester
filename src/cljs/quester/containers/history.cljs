@@ -1,62 +1,51 @@
 (ns quester.containers.history
-  (:require [pushy.core :as pushy]
+  (:require [reagent.core :as r]
+            [pushy.core :as pushy]
             [darkleaf.router :as router]
             [cljs-http.client :as http]
             [cljs.core.async :refer [<!]]
             [quester.routes.web :as web-routes]
-            [quester.react :refer [e] :as r]
-            [quester.util.request-cache :as cache]
-            [quester.util.request-hash :refer [req->hash]]
-            [quester.containers.state :as state]
-            [quester.containers.root :as root])
+            [quester.ui :as ui])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
-(def ^:private handler (router/make-handler web-routes/routes))
-
-(defn- matcher [uri]
-  (let [req {:uri uri, :request-method :get}]
-     (handler req)))
-
-(defn- handle-with-cache [this {:keys [element req]}]
-  (let [atom (.. this -props -atom)
-        key (req->hash req)]
-    (when-let [page-data (cache/get @atom key)]
-      (swap! atom assoc :element element, :page page-data))))
 
 ;; TODO: cancel and progress
-(defn- handle-with-api [this {:keys [element req]}]
-  (let [atom (.. this -props -atom)
-        key (req->hash req)
-        req (assoc-in req [:headers "accept"] "application/transit+json")]
-    (go
-      (let [response (<! (http/request req))]
-        (swap! atom assoc :element element, :page (:body response))))))
 
-(defn- handle [this req]
-  (or (handle-with-cache this req)
-      (handle-with-api this req)))
+(defn container [& {:keys [state initial-data]}]
+  (let [handler (router/make-handler web-routes/routes)
+        matcher (fn [uri]
+                  (let [req {:uri uri, :request-method :get}]
+                    (handler req)))
 
-(def container
-  (r/create-class
-   :displayName "History"
+        initial-dispatch (fn [{:keys [component-var router-req]}]
+                           (reset! state {:component-var component-var
+                                          :data initial-data
+                                          :router-req router-req}))
+        usual-dispatch (fn [{:keys [component-var router-req]}]
+                         (when (not= router-req (:router-req @state))
+                           (go
+                             (let [req (assoc-in router-req [:headers "accept"] "application/transit+json")
+                                   response (<! (http/request req))
+                                   data (:body response)]
+                               (reset! state {:component-var component-var
+                                              :data data
+                                              :router-req router-req})))))
+        dispatch (fn [router-resp]
+                   (if (empty? @state)
+                     (initial-dispatch router-resp)
+                     (usual-dispatch router-resp)))
+        history (pushy/pushy dispatch matcher)]
+    (r/create-class
+     {:display-name
+      "History"
 
-   :componentWillMount
-   (fn [this]
-     (let [history (pushy/pushy #(handle this %) matcher)]
-         (aset this "history" history)
-         (pushy/start! history)))
+      :component-will-mount
+      #(pushy/start! history)
 
-   :componentWillUnmount
-   (fn [this]
-     (pushy/stop! (.-history this)))
+      :component-will-unmount
+      #(pushy/stop! history)
 
-   :render
-   (fn [this]
-     (let [atom (.. this -props -atom)]
-         (e "div" {}
-             (e "a" {:href "/"} "main")
-             (e "br" {})
-             (e "a" {:href "/quests/1"} "quest 1")
-
-             (e state/container {:atom atom}
-                (e root/container {})))))))
+      :reagent-render
+      (fn [& _]
+        [ui/wrapper
+         [@(:component-var @state) (r/cursor state [:data])]])})))

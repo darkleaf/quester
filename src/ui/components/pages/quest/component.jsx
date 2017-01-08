@@ -12,33 +12,34 @@ import styles from './styles.css';
 export default class QuestPage extends Component {
   render() {
     const {
-      QuestGallery,
-      QuestSimilarQuests,
-      QuestDescription,
-      QuestSchedule,
-      QuestLocation,
-      QuestAddToFavorite,
-      QuestBooking,
-    } = this.context;
+      nav,
+      gallery,
+      similarQuests,
+      description,
+      schedule,
+      location,
+      addToFavorite,
+      booking,
+    } = this.props;
     return (
-      <PubLayout>
-        <QuestGallery id={this.props.id} />
+      <PubLayout nav={nav}>
+        {gallery}
         <Container>
           <WithHorizontalRule>
             <Columns fractions={['2/3', '1/3']}>
               <WithHorizontalRule>
-                <QuestDescription id={this.props.id} />
-                <QuestSchedule id={this.props.id} />
-                <QuestLocation id={this.props.id} />
+                {description}
+                {schedule}
+                {location}
               </WithHorizontalRule>
               <StickyContainer className={styles.sidebar}>
                 <Sticky stickyClassName={styles.sticky}>
-                  <QuestAddToFavorite id={this.props.id} />
-                  <QuestBooking id={this.props.id} />
+                  {addToFavorite}
+                  {booking}
                 </Sticky>
               </StickyContainer>
             </Columns>
-            <QuestSimilarQuests id={this.props.id} />
+            {similarQuests}
           </WithHorizontalRule>
         </Container>
       </PubLayout>
@@ -46,16 +47,13 @@ export default class QuestPage extends Component {
   }
 }
 
-QuestPage.contextTypes = {
-  QuestGallery: PropTypes.func.isRequired,
-  QuestDescription: PropTypes.func.isRequired,
-  QuestSchedule: PropTypes.func.isRequired,
-  QuestLocation: PropTypes.func.isRequired,
-  QuestSimilarQuests: PropTypes.func.isRequired,
-  QuestAddToFavorite: PropTypes.func.isRequired,
-  QuestBooking: PropTypes.func.isRequired,
-};
-
 QuestPage.propTypes = {
-  id: PropTypes.number.isRequired,
+  nav: PropTypes.object.isRequired,
+  gallery: PropTypes.object.isRequired,
+  description: PropTypes.object.isRequired,
+  schedule: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  similarQuests: PropTypes.object.isRequired,
+  addToFavorite: PropTypes.object.isRequired,
+  booking: PropTypes.object.isRequired,
 };

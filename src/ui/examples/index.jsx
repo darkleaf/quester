@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 
-import { IntlProvider } from 'react-intl';
-import messages from '../messages';
-
-import WithStubs from './with-stubs';
-
-import MainPage from '../components/pages/main';
-import QuestPage from '../components/pages/quest';
+import Wrapper from '../wrapper';
+import MainPageExample from './main-page-example';
+import QuestPageExample from './quest-page-example';
 
 function Divider() {
   const style = {
@@ -21,13 +17,11 @@ function Divider() {
 export default class Examples extends Component {
   render() {
     return (
-      <IntlProvider locale="ru" messages={messages}>
-        <WithStubs>
-          <MainPage />
-          <Divider />
-          <QuestPage id={1} />
-        </WithStubs>
-      </IntlProvider>
+      <Wrapper>
+        <MainPageExample />
+        <Divider />
+        <QuestPageExample />
+      </Wrapper>
     );
   }
 }
