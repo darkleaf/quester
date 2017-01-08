@@ -1,13 +1,7 @@
-import { addLocaleData } from 'react-intl';
-import ru from 'react-intl/locale-data/ru';
-
-addLocaleData([...ru]);
-
 export { default as React } from 'react';
 export { default as ReactDOM } from 'react-dom';
-export { IntlProvider } from 'react-intl';
 
-export { default as messages } from '../messages';
+export { default as Wrapper } from '../wrapper';
 
 export { default as MainPage } from '../components/pages/main';
 export { default as QuestPage } from '../components/pages/quest';

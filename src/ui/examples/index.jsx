@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-import { IntlProvider } from 'react-intl';
-import messages from '../messages';
-
+import Wrapper from '../wrapper';
 import MainPageExample from './main-page-example';
 import QuestPageExample from './quest-page-example';
 
@@ -19,13 +17,11 @@ function Divider() {
 export default class Examples extends Component {
   render() {
     return (
-      <IntlProvider locale="ru" messages={messages}>
-        <div>
-          <MainPageExample />
-          <Divider />
-          <QuestPageExample />
-        </div>
-      </IntlProvider>
+      <Wrapper>
+        <MainPageExample />
+        <Divider />
+        <QuestPageExample />
+      </Wrapper>
     );
   }
 }
