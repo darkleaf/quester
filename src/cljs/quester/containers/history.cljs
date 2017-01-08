@@ -11,27 +11,29 @@
 
 ;; TODO: cancel and progress
 
-(defn- blank-component []
-  [:div "loading"])
-
-(defn container [initial-data]
-  (let [use-initial? (atom (some? initial-data))
-        state (r/atom {:component blank-component, :data {}})
-        handler (router/make-handler web-routes/routes)
+(defn container [& {:keys [state initial-data]}]
+  (let [handler (router/make-handler web-routes/routes)
         matcher (fn [uri]
                   (let [req {:uri uri, :request-method :get}]
                     (handler req)))
-        dispatch (fn [{:keys [component-var req]}]
-                  (let [component @component-var]
-                    (if @use-initial?
-                      (do
-                        (reset! use-initial? false)
-                        (reset! state {:component component, :data initial-data}))
-                      (go
-                        (let [req (assoc-in req [:headers "accept"] "application/transit+json")
-                              response (<! (http/request req))
-                              data (:body response)]
-                          (reset! state {:component component, :data data}))))))
+
+        initial-dispatch (fn [{:keys [component-var router-req]}]
+                           (reset! state {:component-var component-var
+                                          :data initial-data
+                                          :router-req router-req}))
+        usual-dispatch (fn [{:keys [component-var router-req]}]
+                         (when (not= router-req (:router-req @state))
+                           (go
+                             (let [req (assoc-in router-req [:headers "accept"] "application/transit+json")
+                                   response (<! (http/request req))
+                                   data (:body response)]
+                               (reset! state {:component-var component-var
+                                              :data data
+                                              :router-req router-req})))))
+        dispatch (fn [router-resp]
+                   (if (empty? @state)
+                     (initial-dispatch router-resp)
+                     (usual-dispatch router-resp)))
         history (pushy/pushy dispatch matcher)]
     (r/create-class
      {:display-name
@@ -44,6 +46,6 @@
       #(pushy/stop! history)
 
       :reagent-render
-      (fn [_initial-data]
+      (fn [& _]
         [ui/wrapper
-         [(:component @state) (r/cursor state [:data])]])})))
+         [@(:component-var @state) (r/cursor state [:data])]])})))

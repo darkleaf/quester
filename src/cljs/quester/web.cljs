@@ -11,16 +11,18 @@
 
 (enable-console-print!)
 
-(defonce mount-point (.getElementById js/document "root"))
+(def mount-point (.getElementById js/document "root"))
 
 (defn read-transit [text]
   (let [r (t/reader :json {:handlers {"u" cljs.core/uuid}})]
     (t/read r text)))
 
+(defonce state (r/atom {}))
+
+(def initial-data (-> (.getElementById js/document "initial-data")
+                      (.-innerHTML)
+                      (read-transit)))
+
 (defn restart []
-  (let [initial-data (when-let [el (.getElementById js/document "initial-data")]
-                       (let [text (.-innerHTML el)]
-                         (.remove el)
-                         (read-transit text)))]
-    (r/render-component [history/container initial-data]
-                        mount-point)))
+  (r/render-component [history/container :state state, :initial-data initial-data]
+                      mount-point))

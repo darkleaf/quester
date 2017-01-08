@@ -17,8 +17,14 @@
 (def main-carousel (r/adapt-react-class js/ui.MainCarousel))
 (def main-filter (r/adapt-react-class js/ui.MainFilter))
 (def slider (r/adapt-react-class js/ui.Slider))
+(def gallery (r/adapt-react-class js/ui.Gallery))
 
 (def selection-card (r/adapt-react-class js/ui.SelectionCard))
 (def quest-card (r/adapt-react-class js/ui.QuestCard))
 (def review-card (r/adapt-react-class js/ui.ReviewCard))
 (def company-card (r/adapt-react-class js/ui.CompanyCard))
+
+(def quest-similar-quests (r/adapt-react-class js/ui.QuestSimilarQuests))
+(def quest-description (r/adapt-react-class js/ui.QuestDescription))
+(def quest-schedule (r/adapt-react-class js/ui.QuestSchedule))
+(def quest-location (r/adapt-react-class js/ui.QuestLocation))

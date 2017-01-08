@@ -1,6 +1,5 @@
 (ns quester.controllers.web.quests
-  (:require [darkleaf.router :as router]))
+  (:require [quester.containers.quest-page :as quest-page]))
 
 (def controller
-  {:show (fn [req]
-           #_(e "div" {} "quest page"))})
+  {:show (fn [req] #'quest-page/container)})
