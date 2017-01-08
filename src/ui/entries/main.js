@@ -6,6 +6,7 @@ export { default as Wrapper } from '../wrapper';
 export { default as MainPage } from '../components/pages/main';
 export { default as QuestPage } from '../components/pages/quest';
 
+export { default as Nav } from '../components/layout/nav';
 export { default as NavSection } from '../components/layout/nav-section';
 export { default as NavBrand } from '../components/layout/nav-brand';
 export { default as NavItem } from '../components/layout/nav-item';

@@ -1,17 +1,12 @@
 (ns quester.containers.main-page.new-quests-slider
-  (:require [quester.react :refer [e]]
-            [quester.entities.common :as common]
-            [quester.containers.adapters.quest-card :as quest-card]))
+  (:require [quester.ui :as ui]
+            [quester.containers.adapters.quest-card :as quest-card]
+            [quester.entities.common :as c]))
 
-(defn container [props context]
-  (let [state (.. context -state)
-        models (get-in state [:page :new-quests-cards])]
-    (e js/ui.Slider #js {:title "Новые квесты"
-                         :totalCount 10
-                         :seeAllUrl "/quests"
-                         :windowLength 4}
-       (map #(e quest-card/container #js {:quest %, :key (::common/uuid %)}) models))))
-
-(aset container
-      "contextTypes"
-      #js {:state js/ui.React.PropTypes.any.isRequired})
+(defn container [cards-ratom]
+  [ui/slider {:title "Новые квесты"
+              :totalCount 10
+              :seeAllUrl "/quests"
+              :windowLength 4}
+   (for [card @cards-ratom]
+    ^{:key (::c/uuid card)} [quest-card/container card])])

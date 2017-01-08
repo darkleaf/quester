@@ -1,6 +1,5 @@
 (ns quester.containers.main-page.main-carousel
-  (:require [reagent.core :as r]
-            [quester.ui :as ui]))
+  (:require [quester.ui :as ui]))
 
 (defn container []
   [ui/main-carousel {:slides [{:title "<b>Москва 2048,</b> Клаустрофобия"

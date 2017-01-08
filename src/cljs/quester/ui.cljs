@@ -8,7 +8,8 @@
 (def main-page (r/adapt-react-class js/ui.MainPage))
 (def quest-page (r/adapt-react-class js/ui.QuestPage))
 
-(def nav-selection (r/adapt-react-class js/ui.NavSection))
+(def nav (r/adapt-react-class js/ui.Nav))
+(def nav-section (r/adapt-react-class js/ui.NavSection))
 (def nav-brand (r/adapt-react-class js/ui.NavBrand))
 (def nav-item (r/adapt-react-class js/ui.NavItem))
 (def nav-search (r/adapt-react-class js/ui.NavSearch))

@@ -1,22 +1,12 @@
 (ns quester.containers.main-page.selections-slider
-  (:require [quester.react :refer [e]]
-            [quester.entities.common :as c]
-            [quester.entities.selection :as selection]))
+  (:require [quester.ui :as ui]
+            [quester.entities.common :as common]
+            [quester.containers.adapters.selection-card :as selection-card]))
 
-(defn container [props context]
-  (let [state (.. context -state)
-        selections (get-in state [:page :selections-cards])
-        selection->element (fn [selection]
-                             (e js/ui.SelectionCard
-                                #js {:key (::c/uuid selection)
-                                     :name (::selection/name selection)
-                                     :imageUrl (str "https://unsplash.it/300/300?image=" (rand-int 1000))}))]
-    (e js/ui.Slider #js {:title "Подборки квестов 111"
-                         :totalCount 25
-                         :seeAllUrl "/selections"
-                         :windowLength 4}
-       (map selection->element selections))))
-
-(aset container
-      "contextTypes"
-      #js {:state js/ui.React.PropTypes.any.isRequired})
+(defn container [cards-ratom]
+  [ui/slider {:title "Подборки квестов"
+              :totalCount 25
+              :seeAllUrl "/selections"
+              :windowLength 4}
+   (for [card @cards-ratom]
+     ^{:key (::common/uuid card)} [selection-card/container card])])
