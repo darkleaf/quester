@@ -1,22 +1,33 @@
 (ns quester.containers.main-page
-  (:require [quester.react :refer [e]]
+  (:require [reagent.core :as r]
+            [quester.ui :as ui]
             [quester.containers.main-page.main-carousel :as carousel]
             [quester.containers.main-page.reviews-slider :as reviews-slider]
-            #_[quester.containers.main-page.best-quests-slider :as best-quests-slider]))
+            #_[quester.containers.main-page.best-quests-slider :as best-quests-slider]
+            [quester.ui :as ui]))
 
 (defn stub []
-  (e "div" nil "stub"))
+  [:div "stub"])
 
+(defn container [data]
+  [ui/main-page {:nav
+                 (r/as-element [stub])
 
-(defn container [& args]
-  [:div "hi"])
+                 :main-carousel
+                 (r/as-element [carousel/container])
 
-#_(defn container [props]
-    (e js/ui.MainPage
-       #js{:nav (e stub)
-           :mainCarousel (e carousel/container)
-           :selectionsSlider (e stub)
-           :bestQuestsSlider (e stub) #_(e best-quests-slider/container props)
-           :reviewsSlider   (e reviews-slider/container props)
-           :newQuestsSlider (e stub)
-           :companiesSlider (e stub)}))
+                 :selections-slider
+                 (r/as-element [stub])
+
+                 :best-quests-slider
+                 (r/as-element [stub])
+
+                 :reviews-slider
+                 (r/as-element
+                  [reviews-slider/container (r/cursor data [:reviews-cards])])
+
+                 :new-quests-slider
+                 (r/as-element [stub])
+
+                 :companies-slider
+                 (r/as-element [stub])}])

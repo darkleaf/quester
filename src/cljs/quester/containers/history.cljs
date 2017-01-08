@@ -5,7 +5,7 @@
             [cljs-http.client :as http]
             [cljs.core.async :refer [<!]]
             [quester.routes.web :as web-routes]
-            [quester.containers.state :as state])
+            [quester.ui :as ui])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 
@@ -45,16 +45,5 @@
 
       :reagent-render
       (fn [_initial-data]
-        [(:component @state)])})))
-
-
-
-;; (r/create-class
-
-;;   :render
-;;   (fn [this]
-;;     (let [component (.. this -state -component)
-;;           data (.. this -state -data)]
-;;       (e js/ui.IntlProvider #js{:locale "ru", :messages js/ui.messages}
-;;          (e state/container #js{:data data}
-;;             (e component))))))
+        [ui/wrapper
+         [(:component @state) (r/cursor state [:data])]])})))
