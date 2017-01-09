@@ -5,19 +5,20 @@
             [cljs-http.client :as http]
             [cljs.core.async :refer [<!]]
             [quester.routes.web :as web-routes]
-            [quester.ui :as ui])
+            [quester.ui :as ui]
+            [quester.util.url-helpers :as url-helpers])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
+(def ^:private handler (router/make-handler web-routes/routes))
+(def ^:private request-for (router/make-request-for web-routes/routes))
+
+(defn- matcher [uri]
+  (let [req {:uri uri, :request-method :get}]
+    (handler req)))
 
 ;; TODO: cancel and progress
-
 (defn container [& {:keys [state initial-data]}]
-  (let [handler (router/make-handler web-routes/routes)
-        matcher (fn [uri]
-                  (let [req {:uri uri, :request-method :get}]
-                    (handler req)))
-
-        initial-dispatch (fn [{:keys [component-var router-req]}]
+  (let [initial-dispatch (fn [{:keys [component-var router-req]}]
                            (reset! state {:component-var component-var
                                           :data initial-data
                                           :router-req router-req}))
@@ -47,5 +48,8 @@
 
       :reagent-render
       (fn [& _]
-        [ui/wrapper
-         [@(:component-var @state) (r/cursor state [:data])]])})))
+        (let [component @(:component-var @state)
+              data (r/cursor state [:data])]
+          [url-helpers/provider request-for
+           [ui/wrapper
+            [component data]]]))})))
