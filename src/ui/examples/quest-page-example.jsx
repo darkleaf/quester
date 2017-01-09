@@ -37,9 +37,12 @@ function NavContainer() {
 function GalleryContainer() {
   return (
     <Gallery
-      left="http://placehold.it/991x495/555"
-      center="http://placehold.it/990x495/222"
-      right="http://placehold.it/992x495"
+      imageUrls={['http://placehold.it/991x495/555?text=1',
+                  'http://placehold.it/990x495/222?text=2',
+                  'http://placehold.it/992x495?text=3',
+                  'http://placehold.it/992x495?text=4',
+                  'http://placehold.it/992x495?text=5',
+        ]}
     />
   );
 }

@@ -3,15 +3,10 @@
             [quester.ui :as ui]
             [quester.containers.shared.nav :as nav]))
 
-
-(defn stub []
-  [:div "stub"])
-
-
 (defn gallery []
-  [ui/gallery {:left "http://placehold.it/991x495/555"
-               :center "http://placehold.it/990x495/222"
-               :right "http://placehold.it/992x495"}])
+  [ui/gallery {:imageUrls ["http://placehold.it/991x495/555"
+                           "http://placehold.it/990x495/222"
+                           "http://placehold.it/992x495"]}])
 
 (defn description []
   [ui/quest-description])

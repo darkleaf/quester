@@ -40,7 +40,7 @@ export default class Slider extends Component {
     const { windowLength } = this.props;
     const children = Children.toArray(this.props.children);
     const leftPart = children.slice(offset, offset + windowLength);
-    const rightPart = children.splice(0, offset - (children.length - windowLength));
+    const rightPart = children.slice(0, windowLength - leftPart.length);
     return leftPart.concat(rightPart);
   }
 

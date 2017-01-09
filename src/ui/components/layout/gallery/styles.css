@@ -39,6 +39,7 @@ $arrow-half-size: 20px;
   border-radius: $(arrow-size);
   background-color: white;
   top: center;
+  cursor: pointer;
 }
 
 .left-arrow {
