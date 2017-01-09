@@ -12,18 +12,18 @@
 (def ^:private handler (router/make-handler web-routes/routes))
 (def ^:private request-for (router/make-request-for web-routes/routes))
 
+(defn- matcher [uri]
+  (let [req {:uri uri, :request-method :get}]
+    (handler req)))
+
 ;; TODO: cancel and progress
 (defn container [& {:keys [state initial-data]}]
-  (let [matcher (fn [uri]
-                  (let [req {:uri uri, :request-method :get}]
-                    (handler req)))
-
-        initial-dispatch (fn [{:keys [component-var router-req]}]
+  (let [initial-dispatch (fn [{:keys [component-var router-req]}]
                            (reset! state {:component-var component-var
                                           :data initial-data
                                           :router-req router-req}))
         usual-dispatch (fn [{:keys [component-var router-req]}]
-                         (when true #_(not= router-req (:router-req @state))
+                         (when (not= router-req (:router-req @state))
                            (go
                              (let [req (assoc-in router-req [:headers "accept"] "application/transit+json")
                                    response (<! (http/request req))
