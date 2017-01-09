@@ -15,7 +15,6 @@ export default class Gallery extends Component {
 
   getWindow() {
     const { offset } = this.state;
-    const count = this.props.imageUrls.length;
     const leftPart = this.props.imageUrls.slice(offset, offset + this.windowLength);
     const rightPart = this.props.imageUrls.slice(0, this.windowLength - leftPart.length);
     return leftPart.concat(rightPart);
