@@ -20,5 +20,5 @@
                       (read-transit)))
 
 (defn restart []
- (r/render-component [history/container :state state, :initial-data initial-data]
-                     mount-point))
+  (r/render-component [history/container :state state, :initial-data initial-data]
+                      mount-point))
