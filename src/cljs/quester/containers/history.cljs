@@ -18,19 +18,19 @@
 
 ;; TODO: cancel and progress
 (defn container [& {:keys [state initial-data]}]
-  (let [initial-dispatch (fn [{:keys [component-var router-req]}]
+  (let [initial-dispatch (fn [{:keys [component-var req]}]
                            (reset! state {:component-var component-var
                                           :data initial-data
-                                          :router-req router-req}))
-        usual-dispatch (fn [{:keys [component-var router-req]}]
-                         (when (not= router-req (:router-req @state))
+                                          :req req}))
+        usual-dispatch (fn [{:keys [component-var req]}]
+                         (when (not= req (:req @state))
                            (go
-                             (let [req (assoc-in router-req [:headers "accept"] "application/transit+json")
-                                   response (<! (http/request req))
-                                   data (:body response)]
+                             (let [api-req (assoc-in req [:headers "accept"] "application/transit+json")
+                                   api-response (<! (http/request api-req))
+                                   data (:body api-response)]
                                (reset! state {:component-var component-var
                                               :data data
-                                              :router-req router-req})))))
+                                              :router-req req})))))
         dispatch (fn [router-resp]
                    (if (empty? @state)
                      (initial-dispatch router-resp)
