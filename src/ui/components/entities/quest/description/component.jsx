@@ -1,4 +1,4 @@
-import React, { Component/* , PropTypes */ } from 'react';
+import React, { Component, PropTypes } from 'react';
 import styles from './styles.css';
 
 import Advantage from '../../../entities/advantage';
@@ -12,9 +12,9 @@ export default class Description extends Component {
     return (
       <div>
         <Float align="left">
-          <div>007: Доктор Но</div>
-          <Rating value={9.8} />
-          <Icon>10</Icon>
+          <div>{this.props.name}</div>
+          <Rating value={this.props.rating} />
+          <Icon>{this.props.commentsCount}</Icon>
         </Float>
         <div className={styles.advantages}>
           <Float align="space-between">
@@ -26,16 +26,15 @@ export default class Description extends Component {
             <Advantage />
           </Float>
         </div>
-        <Text>
-          Служба Яндекс.Рефераты предназначена для студентов и школьников,
-          дизайнеров и журналистов,
-          создателей научных заявок и отчетов — для всех,
-          кто относится к тексту,
-          как к количеству знаков.
-        </Text>
+        <Text>{this.props.description}</Text>
       </div>
     );
   }
 }
 
-Description.propTypes = {};
+Description.propTypes = {
+  name: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  commentsCount: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+};
