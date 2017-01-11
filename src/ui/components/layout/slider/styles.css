@@ -25,21 +25,29 @@
 .left-arrow,
 .right-arrow {
   position: absolute;
-  top: 0;
-  height: 100%;
-  width: $(canvas-padding);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: darkgray;
+  padding: 15px; /* Arrow size */
+  margin: 0 -20px 0 -20px;
+  box-shadow: 1px -1px 0 1px #ccc inset;
+  border: solid transparent;
+  border-width: 0 0 2rem 2rem;
+  top: 50%;
+  transition: 0.2s;
+}
+
+.left-arrow:hover,
+.right-arrow:hover {
+  box-shadow: 2px -2px 0 2px #ccc inset;
+  cursor: pointer;
 }
 
 .left-arrow {
   left: -$(canvas-padding);
+  transform: rotate(45deg);
 }
 
 .right-arrow {
   right: -$(canvas-padding);
+  transform: rotate(225deg);
 }
 
 .children {
