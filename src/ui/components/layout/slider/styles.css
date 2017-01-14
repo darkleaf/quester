@@ -25,31 +25,46 @@
 
 .left-arrow,
 .right-arrow {
-  position: absolute;
   padding: 15px; /* Arrow size */
   margin: 0 -20px 0 -20px;
   box-shadow: 1px -1px 0 1px #ccc inset;
+  -webkit-box-shadow: 2px -2px #ccc inset;
   border: solid transparent;
-  border-width: 0 0 2rem 2rem;
+  border-width: 0 0 3rem 3rem;
   transition: 0.2s;
+  align-self: center;
 }
 
 .left-arrow:hover,
 .right-arrow:hover {
   box-shadow: 2px -2px 0 2px #ccc inset;
+  -webkit-box-shadow: 3px -3px #ccc inset;
   cursor: pointer;
 }
 
 .left-arrow {
-  left: -$(canvas-padding);
   top: center;
+  left: -55px;
   transform: rotate(45deg);
+  transform-origin: top right;
 }
 
 .right-arrow {
-  right: -$(canvas-padding);
   top: center;
+  right: calc(-$(canvas-padding) + 75px);
   transform: rotate(225deg);
+  transform-origin: top right;
+}
+
+/* bigger click area */
+.left-arrow::after,
+.right-arrow::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
 }
 
 .children {
