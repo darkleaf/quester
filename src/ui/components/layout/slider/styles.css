@@ -1,5 +1,6 @@
 @import '../canvas-vars';
 
+@use postcss-center;
 @use lost;
 
 @lost flexbox flex;
@@ -30,7 +31,6 @@
   box-shadow: 1px -1px 0 1px #ccc inset;
   border: solid transparent;
   border-width: 0 0 2rem 2rem;
-  top: 50%;
   transition: 0.2s;
 }
 
@@ -42,11 +42,13 @@
 
 .left-arrow {
   left: -$(canvas-padding);
+  top: center;
   transform: rotate(45deg);
 }
 
 .right-arrow {
   right: -$(canvas-padding);
+  top: center;
   transform: rotate(225deg);
 }
 
