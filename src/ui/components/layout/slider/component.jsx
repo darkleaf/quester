@@ -72,15 +72,23 @@ export default class Slider extends Component {
           <div className={styles.content}>
             <div
               onClick={this.handleLeftArrowClick}
-              className={styles.leftArrow}
-            />
+              className={styles.leftArrowWrapper}
+            >
+              <div
+                className={styles.leftArrow}
+              />
+            </div>
             <div className={styles.children}>
               {this.getWindow()}
             </div>
             <div
               onClick={this.handleRightArrowClick}
-              className={styles.rightArrow}
-            />
+              className={styles.rightArrowWrapper}
+            >
+              <div
+                className={styles.rightArrow}
+              />
+            </div>
           </div>
         </div>
       </div>
