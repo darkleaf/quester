@@ -23,35 +23,36 @@
   width: 100%;
 }
 
-.left-arrow-wrapper,
-.right-arrow-wrapper {
-  position: absolute;
-  top: center;
-  height: calc($(canvas-padding) + 10px);
-  width: calc($(canvas-padding) - 10px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: dashed 1px;
-  overflow: hidden;
-}
+/* .left-arrow-wrapper,
+   .right-arrow-wrapper {
+   position: absolute;
+   top: center;
+   height: calc($(canvas-padding) + 10px);
+   width: calc($(canvas-padding) - 10px);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border: dashed 1px;
+   overflow: hidden;
+   }
 
-.left-arrow-wrapper:hover,
-.right-arrow-wrapper:hover {
-  cursor: pointer;
-}
+   .left-arrow-wrapper:hover,
+   .right-arrow-wrapper:hover {
+   cursor: pointer;
+   } */
 
-.left-arrow-wrapper {
-  left: calc(-$(canvas-padding) + 10px);
-}
+/* .left-arrow-wrapper {
+   left: calc(-$(canvas-padding) + 10px);
+   }
 
-.right-arrow-wrapper {
-  right: calc(-$(canvas-padding) + 10px);
-}
+   .right-arrow-wrapper {
+   right: calc(-$(canvas-padding) + 10px);
+   } */
 
-.left-arrow,
+
+/* .left-arrow,
 .right-arrow {
-  padding: 15px; /* Arrow size */
+  padding: 15px;
   margin: 0 -20px 0 -20px;
   box-shadow: 1px -1px 0 1px #ccc inset;
   -webkit-box-shadow: 2px -2px #ccc inset;
@@ -59,26 +60,65 @@
   border-width: 0 0 3rem 3rem;
   transition: 0.2s;
   align-self: center;
+}*/
+
+/* .left-arrow:hover,
+    .right-arrow:hover {
+    box-shadow: 2px -2px 0 2px #ccc inset;
+    -webkit-box-shadow: 3px -3px #ccc inset;
+    cursor: pointer;
+    } */
+/*
+   .left-arrow {
+   position: relative;
+   left: -25px;
+   transform: rotate(45deg);
+   }
+
+   .right-arrow {
+   position: relative;
+   right: -25px;
+   transform: rotate(225deg);
+   } */
+
+
+
+.left-arrow-wrapper,
+.right-arrow-wrapper {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  background: #eee;
+//  height: 33px;
+//  width: 33px;
+  padding: 10px;
 }
 
-.left-arrow:hover,
-.right-arrow:hover {
-  box-shadow: 2px -2px 0 2px #ccc inset;
-  -webkit-box-shadow: 3px -3px #ccc inset;
-  cursor: pointer;
+
+.left-arrow-wrapper {
+  left: -$(canvas-padding);
 }
+
+.left-arrow,
+.right-arrow {
+  background: #ddd;
+  height: 15px;
+  width: 15px;
+}
+
 
 .left-arrow {
-  position: relative;
-  left: -25px;
-  transform: rotate(45deg);
+  border-top: 2px solid red;
+  border-left: 2px solid red;
+  transform: rotate(-45deg);
 }
 
 .right-arrow {
-  position: relative;
-  right: -25px;
-  transform: rotate(225deg);
+  right: -$(canvas-padding);
 }
+
+
+
 
 .children {
   display: flex;

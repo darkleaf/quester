@@ -74,9 +74,7 @@ export default class Slider extends Component {
               onClick={this.handleLeftArrowClick}
               className={styles.leftArrowWrapper}
             >
-              <div
-                className={styles.leftArrow}
-              />
+              <div className={styles.leftArrow} />
             </div>
             <div className={styles.children}>
               {this.getWindow()}
@@ -85,9 +83,7 @@ export default class Slider extends Component {
               onClick={this.handleRightArrowClick}
               className={styles.rightArrowWrapper}
             >
-              <div
-                className={styles.rightArrow}
-              />
+              <div className={styles.rightArrow} />
             </div>
           </div>
         </div>
