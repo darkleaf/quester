@@ -1,15 +1,21 @@
 (ns quester.containers.quest-page
   (:require [reagent.core :as r]
             [quester.ui :as ui]
-            [quester.containers.shared.nav :as nav]))
+            [quester.containers.shared.nav :as nav]
+            [quester.entities.quest :as quest]
+            [quester.projections.quest :as quest-projection]))
 
 (defn gallery []
   [ui/gallery {:imageUrls ["http://placehold.it/991x495/555"
                            "http://placehold.it/990x495/222"
                            "http://placehold.it/992x495"]}])
 
-(defn description []
-  [ui/quest-description])
+(defn description [page-ratom]
+  [ui/quest-description {:name (::quest/name @page-ratom)
+                         :description (::quest/description @page-ratom)
+                         :rating (::quest-projection/total-rating @page-ratom)
+                         :commentsCount (::quest-projection/comments-count @page-ratom)}])
+
 
 (defn schedule []
   [ui/quest-schedule])
@@ -41,7 +47,7 @@
 
                   :description
                   (r/as-element
-                   [description])
+                   [description (r/cursor data [:quest-page])])
 
                   :schedule
                   (r/as-element
