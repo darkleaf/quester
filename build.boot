@@ -17,18 +17,27 @@
                                                cljsjs/react-dom
                                                cljsjs/react-dom-server]]
                  [org.clojure/test.check "0.9.0" :scope "test"]
+                 [com.cemerick/piggieback "0.2.1" :scope "test"]
+                 [weasel "0.7.0" :scope "test"]
+                 [org.clojure/tools.nrepl "0.2.12" :scope "test"]
+
+                 [degree9/boot-exec "0.4.0" :scope "test"]
                  [samestep/boot-refresh "0.1.0" :scope "test"]
                  [adzerk/boot-reload "0.4.13" :scope "test"]
                  [adzerk/boot-cljs "1.7.228-2" :scope "test"]
-                 [adzerk/boot-cljs-repl "0.3.3" :scope "test"]
-                 [com.cemerick/piggieback "0.2.1" :scope "test"]
-                 [weasel "0.7.0" :scope "test"]
-                 [org.clojure/tools.nrepl "0.2.12" :scope "test"]])
+                 [adzerk/boot-cljs-repl "0.3.3" :scope "test"]])
+
 
 (require '[samestep.boot-refresh :refer [refresh]])
 (require '[adzerk.boot-reload :refer [reload]])
 (require '[adzerk.boot-cljs :refer [cljs]])
 (require '[adzerk.boot-cljs-repl :refer [cljs-repl-env start-repl]])
+(require '[degree9.boot-exec :refer [exec]])
+
+(deftask yarn [a arguments VAL [str]]
+  (exec :process "yarn"
+        :arguments arguments
+        :directory "."))
 
 (deftask cider []
   (require 'boot.repl)
@@ -41,6 +50,8 @@
   (merge-env! :source-paths #{"src/clj-dev"})
   (require ['user :as 'u])
   (comp
+   (yarn)
+   (yarn :arguments ["build-watch"])
    (repl :server true)
    (watch)
    (refresh)
