@@ -5,6 +5,6 @@
             [quester.deps.use-cases :as use-cases]))
 
 (defstate registry
-  :start (doto (container/build)
-           (db/register)
-           (use-cases/register)))
+  :start (-> (container/build)
+             (db/register)
+             (use-cases/register)))
