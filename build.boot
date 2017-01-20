@@ -30,20 +30,25 @@
 (require '[adzerk.boot-cljs :refer [cljs]])
 (require '[adzerk.boot-cljs-repl :refer [cljs-repl-env start-repl]])
 
-(deftask cider []
-  (require 'boot.repl)
-  (swap! @(resolve 'boot.repl/*default-dependencies*)
-         concat '[[cider/cider-nrepl "0.14.0"]
-                  [refactor-nrepl "2.2.0"]])
-  (swap! @(resolve 'boot.repl/*default-middleware*)
-         concat '[cider.nrepl/cider-middleware
-                  refactor-nrepl.middleware/wrap-refactor])
-  (merge-env! :source-paths #{"src/clj-dev"})
-  (require ['user :as 'u])
-  (comp
-   (repl :server true)
-   (watch)
-   (refresh)
-   (cljs-repl-env)
-   (reload :asset-path "/public", :on-jsload 'quester.web/restart)
-   (cljs)))
+(replace-task!
+ [r repl] (fn [& xs]
+            (load-file "src/clj-dev/user.clj")
+            (apply r xs)))
+
+#_(deftask cider []
+    (require 'boot.repl)
+    (swap! @(resolve 'boot.repl/*default-dependencies*)
+           concat '[[cider/cider-nrepl "0.14.0"]
+                    [refactor-nrepl "2.2.0"]])
+    (swap! @(resolve 'boot.repl/*default-middleware*)
+           concat '[cider.nrepl/cider-middleware
+                    refactor-nrepl.middleware/wrap-refactor])
+    (merge-env! :source-paths #{"src/clj-dev"})
+    (require ['user :as 'u])
+    (comp
+     (repl :server true)
+     (watch)
+     (refresh)
+     (cljs-repl-env)
+     (reload :asset-path "/public", :on-jsload 'quester.web/restart)
+     (cljs)))
