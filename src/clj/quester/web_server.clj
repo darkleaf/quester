@@ -13,7 +13,7 @@
 (defn wrap-resolve [handler]
   (fn [req]
     (-> req
-        (assoc :resolve #(container/resolve deps/registry %))
+        (assoc :deps-registry deps/registry)
         (handler))))
 
 (def handler (-> (r/make-handler routes)

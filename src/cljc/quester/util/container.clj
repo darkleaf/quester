@@ -1,8 +1,7 @@
 (ns quester.util.container
   (:refer-clojure :exclude [resolve]))
 
-(defn build []
-  {})
+(defn build [] {})
 
 (defn register [registry & {:as factories}]
   (merge registry factories))
