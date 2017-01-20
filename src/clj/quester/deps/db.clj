@@ -1,9 +1,9 @@
 (ns quester.deps.db
-  (:require [clojure.spec :as s]
-            [clojure.spec.gen :as gen]
-            [quester.container :as c]
+  (:require [quester.util.container :as c]
 
             ;; for stubs
+            [clojure.spec :as s]
+            [clojure.spec.gen :as gen]
             [quester.entities.common :as common]
             [quester.entities.selection :as selection]
             [quester.entities.quest :as quest]

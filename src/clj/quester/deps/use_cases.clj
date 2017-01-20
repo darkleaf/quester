@@ -1,5 +1,5 @@
 (ns quester.deps.use-cases
-  (:require [quester.container :as c]
+  (:require [quester.util.container :as c]
             [quester.use-cases.welcome :as welcome]
             [quester.use-cases.quests.show :as quests-show]))
 
