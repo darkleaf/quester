@@ -7,7 +7,7 @@
             [ring.middleware.resource :refer [wrap-resource]]
             [ring.middleware.content-type :refer [wrap-content-type]]
             [ring.middleware.not-modified :refer [wrap-not-modified]]
-            [quester.container :as container]
+            [quester.util.container :as container]
             [quester.deps :as deps]))
 
 (defn wrap-resolve [handler]
