@@ -1,6 +1,5 @@
-(ns quester.containers.adapters.selection-card
-  (:require #_[quester.util.url :refer [url-for]]
-            [quester.ui :as ui]
+(ns quester.components.shared.selection-card
+  (:require [quester.ui :as ui]
             [quester.entities.common :as common]
             [quester.entities.selection :as selection]))
 

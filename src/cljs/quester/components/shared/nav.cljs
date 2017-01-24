@@ -1,4 +1,4 @@
-(ns quester.containers.shared.nav
+(ns quester.components.shared.nav
   (:require [quester.ui :as ui]))
 
 (defn container []

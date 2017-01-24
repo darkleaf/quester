@@ -1,4 +1,4 @@
-(ns quester.containers.adapters.company-card
+(ns quester.components.shared.company-card
   (:require [quester.ui :as ui]
             [quester.entities.company :as company]))
 

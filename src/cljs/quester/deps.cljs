@@ -1,23 +1,13 @@
 (ns quester.deps
   (:require [quester.util.container :as container]
-            [cljs-http.client :as http]))
+            [quester.deps.shared :as shared]
+            [quester.deps.pages.main :as main-page]
+            [quester.deps.pages.quest :as quest-page]
+            [quester.deps.other :as other]))
 
 (defn register [registry]
-  (container/register
-   registry
-
-   :http/request
-   (fn [_] http/request)
-
-   :components.pages.quest/core
-   (fn [resolve]
-     (fn []
-       [:a {:href "/"} "main"]))
-
-   :components.pages.main/core
-   (fn [resolve]
-     (fn []
-       (let [state (resolve :page/state)
-             dispatch (resolve :page/dispatch)]
-         [:div
-          [:a {:href "/quests/1"} "quest 1"]])))))
+  (-> registry
+      (shared/register)
+      (main-page/register)
+      (quest-page/register)
+      (other/register)))

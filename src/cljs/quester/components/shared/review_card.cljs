@@ -1,4 +1,4 @@
-(ns quester.containers.adapters.review-card
+(ns quester.components.shared.review-card
   (:require [quester.ui :as ui]
             [quester.entities.review :as review]))
 
