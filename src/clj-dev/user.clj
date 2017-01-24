@@ -22,8 +22,8 @@
   :start (future
            (boot
             (watch)
-            (reload :asset-path "/public", :on-jsload 'quester.web/restart)
             (cljs-repl-env)
+            (reload :asset-path "/public", :on-jsload 'quester.web/restart)
             (cljs)))
   :stop (future-cancel cljs-processor))
 
@@ -35,6 +35,7 @@
 
 (defn restart []
   (stop)
+
   (start))
 
 (start)
