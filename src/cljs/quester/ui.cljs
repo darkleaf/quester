@@ -3,6 +3,8 @@
 
 ;; это не будет перезагружаться нагорячую =(
 
+(def nprogress js/ui.NProgress)
+
 (def wrapper (r/adapt-react-class js/ui.Wrapper))
 
 (def main-page (r/adapt-react-class js/ui.MainPage))

@@ -34,14 +34,16 @@
         (fn [{:keys [component req]}]
           (when (not= req (:req @screen-identity))
             (let [http-request (c/resolve deps :http/request)
-                  api-req (assoc-in req [:headers "accept"] "application/transit+json")]
+                  api-req (-> req
+                              (assoc-in [:headers "accept"] "application/transit+json"))]
               (go
-                (let [api-response (<! (http-request api-req))
+                (let [_ (ui/nprogress.start)
+                      api-response (a/<! (http-request api-req))
+                      _ (ui/nprogress.done)
                       state (:body api-response)]
                   (reset! screen-identity (Screen. component
                                                    (r/atom state)
                                                    req)))))))
-
         dispatch
         (fn [router-resp]
           (if (empty? @screen-identity)
@@ -61,7 +63,7 @@
       #(pushy/stop! history)
 
       :reagent-render
-      (fn [& _] [:div "history"])})))
+      (fn [& _] [:div])})))
 
 (defn page [screen-identity deps]
   (let [{:keys [component db req]} @screen-identity
