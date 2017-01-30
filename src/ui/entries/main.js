@@ -1,3 +1,9 @@
+import 'nprogress/nprogress.css';
+import NProgress from 'nprogress';
+
+NProgress.configure({ showSpinner: false });
+
+export { NProgress };
 export { default as React } from 'react';
 export { default as ReactDOM } from 'react-dom';
 

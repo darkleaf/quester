@@ -3,9 +3,10 @@ import styles from './styles.css';
 
 export default class NavBrand extends Component {
   render() {
+    const { name, url } = this.props;
     return (
       <div className={styles.container}>
-        <div>{this.props.name}</div>
+        <a href={url}>{name}</a>
       </div>
     );
   }
@@ -13,4 +14,5 @@ export default class NavBrand extends Component {
 
 NavBrand.propTypes = {
   name: React.PropTypes.string.isRequired,
+  url: React.PropTypes.string.isRequired,
 };

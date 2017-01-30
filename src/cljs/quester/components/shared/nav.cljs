@@ -1,10 +1,11 @@
-(ns quester.containers.shared.nav
+(ns quester.components.shared.nav
   (:require [quester.ui :as ui]))
 
 (defn container []
   [ui/nav
    [ui/nav-section
-    [ui/nav-brand {:name "Quester"}]
+    [ui/nav-brand {:name "Quester"
+                   :url "/"}]
     [ui/nav-item {:name "Квесты"}]
     [ui/nav-item {:name "Подборки"}]
     [ui/nav-item {:name "Обзоры"}]

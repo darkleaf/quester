@@ -28,7 +28,7 @@
 (require '[samestep.boot-refresh :refer [refresh]])
 (require '[adzerk.boot-reload :refer [reload]])
 (require '[adzerk.boot-cljs :refer [cljs]])
-(require '[adzerk.boot-cljs-repl :refer [cljs-repl-env start-repl]])
+(require '[adzerk.boot-cljs-repl :refer [cljs-repl-env cljs-repl start-repl]])
 
 (replace-task!
  [r repl] (fn [& xs]

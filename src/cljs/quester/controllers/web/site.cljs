@@ -1,5 +1,4 @@
-(ns quester.controllers.web.site
-  (:require [quester.containers.main-page :as main-page]))
+(ns quester.controllers.web.site)
 
 (def controller
-  {:show (fn [_req] #'main-page/container)})
+  {:show (fn [_req] :components.pages/main)})

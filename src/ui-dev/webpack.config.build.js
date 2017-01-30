@@ -28,7 +28,16 @@ module.exports = {
       loaders: [
         'style-loader',
         'css?modules&camelCase',
-        'postcss'],
+        'postcss'
+      ],
+      include: path.join(rootPath, 'src', 'ui'),
+    }, {
+      test: /\.css$/,
+      loaders: [
+        'style-loader',
+        'css'
+      ],
+      exclude: path.join(rootPath, 'src', 'ui'),
     }],
   },
   postcss() {

@@ -2,8 +2,9 @@
   (:require [quester.patches]
             [reagent.core :as r]
             [cognitect.transit :as t]
-            [quester.containers.history :as history]))
-
+            [quester.util.container :as container]
+            [quester.screen :refer [screen]]
+            [quester.deps :as deps]))
 
 (enable-console-print!)
 
@@ -13,12 +14,16 @@
   (let [r (t/reader :json)]
     (t/read r text)))
 
-(defonce state (r/atom {}))
+(def initial-state (-> (.getElementById js/document "initial-data")
+                       (.-innerHTML)
+                       (read-transit)))
 
-(def initial-data (-> (.getElementById js/document "initial-data")
-                      (.-innerHTML)
-                      (read-transit)))
+(defonce screen-identity (r/atom nil))
 
 (defn restart []
-  (r/render-component [history/container :state state, :initial-data initial-data]
-                      mount-point))
+  (let [deps-container (-> (container/build)
+                           (deps/register))]
+
+    (r/render-component
+     [screen screen-identity deps-container initial-state]
+     mount-point)))
