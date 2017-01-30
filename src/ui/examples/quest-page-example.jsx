@@ -18,7 +18,7 @@ function NavContainer() {
   return (
     <Nav>
       <NavSection>
-        <NavBrand name="Quester" />
+        <NavBrand name="Quester" url="/" />
         <NavItem name="Квесты" />
         <NavItem name="Подборки" />
         <NavItem name="Обзоры" />

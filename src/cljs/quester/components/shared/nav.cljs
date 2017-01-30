@@ -4,7 +4,8 @@
 (defn container []
   [ui/nav
    [ui/nav-section
-    [ui/nav-brand {:name "Quester"}]
+    [ui/nav-brand {:name "Quester"
+                   :url "/"}]
     [ui/nav-item {:name "Квесты"}]
     [ui/nav-item {:name "Подборки"}]
     [ui/nav-item {:name "Обзоры"}]
