@@ -49,7 +49,12 @@ function GalleryContainer() {
 
 function DescriptionContainer() {
   return (
-    <QuestDescription />
+    <QuestDescription
+      name="Cool quest"
+      rating={7}
+      commentsCount={8}
+      description="Some text"
+    />
   );
 }
 
