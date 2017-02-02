@@ -1,11 +1,14 @@
 (ns quester.routes.web
   (:require [darkleaf.router :as r]
-            [quester.controllers.web.site :as site]
+            [mount.core :refer [defstate]]
+            [quester.controllers.web.main :as main]
             [quester.controllers.web.quests :as quests]
             [quester.middlewares.web :refer [middleware]]))
 
-(def routes
-  (r/wrapper middleware
-   (r/resource :site site/controller
+(defstate routes
+  :start
+  (r/wrapper
+   middleware
+   (r/resource :main main/controller
                :segment false)
    (r/resources :quests :quest quests/controller)))

@@ -10,18 +10,19 @@
             [quester.util.container :as container]
             [quester.deps :as deps]))
 
-(defn wrap-resolve [handler]
+(defn wrap-deps [handler]
   (fn [req]
     (-> req
-        (assoc :deps-registry deps/registry)
+        (assoc :deps-registry @deps/registry)
         (handler))))
 
-(def handler (-> (r/make-handler routes)
-                 (wrap-resource "public")
-                 (wrap-content-type)
-                 (wrap-not-modified)
-                 (wrap-resolve)))
+(defstate handler
+  :start (-> (r/make-handler @routes)
+             (wrap-resource "public")
+             (wrap-content-type)
+             (wrap-not-modified)
+             (wrap-deps)))
 
 (defstate web-server
-  :start (run-jetty handler {:port 3000, :join? false})
-  :stop (.stop web-server))
+  :start (run-jetty @handler {:port 3000, :join? false})
+  :stop (.stop @web-server))

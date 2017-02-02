@@ -32,7 +32,9 @@
 
 (replace-task!
  [r repl] (fn [& xs]
-            (load-file "src/clj-dev/user.clj")
+            (merge-env!
+             :source-paths #{"src/clj_dev" "test/clj_pure"})
+            (require 'dev)
             (apply r xs)))
 
 #_(deftask cider []

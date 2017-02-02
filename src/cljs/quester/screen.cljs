@@ -10,8 +10,8 @@
 
 (defrecord Screen [component db req])
 
-(def ^:private handler (router/make-handler web-routes/routes))
-(def ^:private request-for (router/make-request-for web-routes/routes))
+(def ^:private handler (router/make-handler @web-routes/routes))
+(def ^:private request-for (router/make-request-for @web-routes/routes))
 
 (defn matcher [uri]
   (let [req {:uri uri, :request-method :get}]
