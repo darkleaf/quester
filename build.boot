@@ -17,6 +17,7 @@
                                                cljsjs/react-dom
                                                cljsjs/react-dom-server]]
                  [org.clojure/test.check "0.9.0" :scope "test"]
+                 [adzerk/boot-test "1.2.0"]
                  [samestep/boot-refresh "0.1.0" :scope "test"]
                  [adzerk/boot-reload "0.4.13" :scope "test"]
                  [adzerk/boot-cljs "1.7.228-2" :scope "test"]
@@ -29,11 +30,14 @@
 (require '[adzerk.boot-reload :refer [reload]])
 (require '[adzerk.boot-cljs :refer [cljs]])
 (require '[adzerk.boot-cljs-repl :refer [cljs-repl-env cljs-repl start-repl]])
+(require '[adzerk.boot-test :refer [test run-tests]])
 
 (replace-task!
+ [t test] (fn [& xs]
+            (merge-env! :source-paths #{"test/clj_pure"})
+            (apply t xs))
  [r repl] (fn [& xs]
-            (merge-env!
-             :source-paths #{"src/clj_dev" "test/clj_pure"})
+            (merge-env! :source-paths #{"src/clj_dev" "test/clj_pure"})
             (require 'dev)
             (apply r xs)))
 

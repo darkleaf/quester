@@ -22,7 +22,7 @@
      (fn quest-card-container [card]
        [quest-card/container
         card
-        (resolve :screen/url-for)]))
+        (resolve :routing/url-for)]))
 
    :components.shared/company-card
    (fn [_] company-card/container)

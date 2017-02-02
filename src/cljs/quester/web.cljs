@@ -1,6 +1,5 @@
 (ns quester.web
   (:require [quester.patches]
-            [mount.core :as mount]
             [reagent.core :as r]
             [cognitect.transit :as t]
             [quester.util.container :as container]
@@ -22,11 +21,8 @@
 (defonce screen-identity (r/atom nil))
 
 (defn restart []
-  (mount/stop)
-  (mount/start)
   (let [deps-container (-> (container/build)
                            (deps/register))]
-
     (r/render-component
      [screen screen-identity deps-container initial-state]
      mount-point)))

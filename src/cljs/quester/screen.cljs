@@ -10,18 +10,6 @@
 
 (defrecord Screen [component db req])
 
-(def ^:private handler (router/make-handler @web-routes/routes))
-(def ^:private request-for (router/make-request-for @web-routes/routes))
-
-(defn matcher [uri]
-  (let [req {:uri uri, :request-method :get}]
-    (handler req)))
-
-(defn url-for [& args]
-  (let [req (apply request-for args)]
-    (assert (= :get (:request-method req)))
-    (assert (= #{:request-method :uri}  (-> req keys set)))
-    (:uri req)))
 
 (defn history [screen-identity deps initial-state]
   (let [initial-dispatch
@@ -50,8 +38,11 @@
             (initial-dispatch router-resp)
             (usual-dispatch router-resp)))
 
+        url-handler
+        (c/resolve deps :routing/url-handler)
+
         history
-        (pushy/pushy dispatch matcher)]
+        (pushy/pushy dispatch url-handler)]
     (r/create-class
      {:display-name
       "History"
@@ -69,7 +60,6 @@
   (let [{:keys [component db req]} @screen-identity
         deps (c/register deps
                          :screen/req (fn [_] req)
-                         :screen/url-for (fn [_] url-for)
                          :page/state (fn [_] @db)
                          :page/dispatch (fn [_] #(swap! db %)))
         component (c/resolve deps component)]

@@ -1,11 +1,9 @@
 (ns quester.routes.core
   (:require [darkleaf.router :as r]
-            [mount.core :refer [defstate]]
             [quester.routes.web :as web]
             [quester.middlewares.core :refer [middleware]]))
 
-(defstate routes
-  :start
+(defn build-routes []
   (r/wrapper
    middleware
-   @web/routes))
+   (web/build-routes)))

@@ -25,9 +25,7 @@
             (adzerk.boot-reload/reload :asset-path "/public"
                                        :on-jsload 'quester.web/restart)
             (adzerk.boot-cljs/cljs)))
-  :stop (future-cancel @cljs-processor))
-
-(mount/in-cljc-mode)
+  :stop (future-cancel cljs-processor))
 
 (defn start []
   (mount/start))
@@ -38,5 +36,3 @@
 (defn restart []
   (stop)
   (start))
-
-(start)
