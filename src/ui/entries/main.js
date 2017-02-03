@@ -1,29 +1,32 @@
-goog.provide('js.ui');
+const store = {};
 
 require('nprogress/nprogress.css');
 const NProgress = require('nprogress');
 NProgress.configure({ showSpinner: false });
-js.ui.Nprogress = Nprogress;
+store.NProgress = NProgress;
+store.React = require('react');
+store.ReactDOM = require('react-dom');
+store.Wrapper = require('../wrapper').default;
+store.MainPage = require('../components/pages/main').default;
+store.QuestPage = require('../components/pages/quest').default;
+store.Nav = require('../components/layout/nav').default;
+store.NavSection = require('../components/layout/nav-section').default;
+store.NavBrand = require('../components/layout/nav-brand').default;
+store.NavItem = require('../components/layout/nav-item').default;
+store.NavSearch = require('../components/layout/nav-search').default;
+store.MainCarousel = require('../components/layout/main-carousel').default;
+store.MainFilter = require('../components/layout/main-filter').default;
+store.Slider = require('../components/layout/slider').default;
+store.Gallery = require('../components/layout/gallery').default;
+store.SelectionCard = require('../components/entities/selection-card').default;
+store.QuestCard = require('../components/entities/quest-card').default;
+store.ReviewCard = require('../components/entities/review-card').default;
+store.CompanyCard = require('../components/entities/company-card').default;
+store.QuestSimilarQuests = require('../components/entities/quest/similar-quests').default;
+store.QuestDescription = require('../components/entities/quest/description').default;
+store.QuestSchedule = require('../components/entities/quest/schedule').default;
+store.QuestLocation = require('../components/entities/quest/location').default;
 
-js.ui.React = require('react');
-js.ui.ReactDOM = require('react-dom');
-js.ui.Wrapper = require('../wrapper');
-js.ui.MainPage = require('../components/pages/main');
-js.ui.QuestPage = require('../components/pages/quest');
-js.ui.Nav = require('../components/layout/nav');
-js.ui.NavSection = require('../components/layout/nav-section');
-js.ui.NavBrand = require('../components/layout/nav-brand');
-js.ui.NavItem = require('../components/layout/nav-item');
-js.ui.NavSearch = require('../components/layout/nav-search');
-js.ui.MainCarousel = require('../components/layout/main-carousel');
-js.ui.MainFilter = require('../components/layout/main-filter');
-js.ui.Slider = require('../components/layout/slider');
-js.ui.Gallery = require('../components/layout/gallery');
-js.ui.SelectionCard = require('../components/entities/selection-card');
-js.ui.QuestCard = require('../components/entities/quest-card');
-js.ui.ReviewCard = require('../components/entities/review-card');
-js.ui.CompanyCard = require('../components/entities/company-card');
-js.ui.QuestSimilarQuests = require('../components/entities/quest/similar-quests');
-js.ui.QuestDescription = require('../components/entities/quest/description');
-js.ui.QuestSchedule = require('../components/entities/quest/schedule');
-js.ui.QuestLocation = require('../components/entities/quest/location');
+// Свистопляски, чтобы Closure Compiler не минифицировал имена
+// Можно будет потом неймспейсы вводить =)
+module.exports = name => store[name];

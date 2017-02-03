@@ -1,3 +1,4 @@
-(ns cljsjs.react.dom)
+(ns cljsjs.react.dom
+  (:require [js.ui]))
 
-(aset js/window "ReactDOM" js/window.ui.ReactDOM)
+(aset js/window "ReactDOM" (js/ui "ReactDOM"))

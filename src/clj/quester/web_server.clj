@@ -25,4 +25,4 @@
 
 (defstate web-server
   :start (run-jetty (build-handler) {:port 3000, :join? false})
-  :stop (.stop @web-server))
+  :stop (.stop web-server))

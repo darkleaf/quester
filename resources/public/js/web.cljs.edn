@@ -1,3 +1,10 @@
 {:require [quester.web]
  :init-fns [quester.web/restart]
- :compiler-options {:asset-path "/js/web.out"}}
+ :compiler-options {:asset-path "/js/web.out"
+                    :output-wrapper true
+                    :language-in  :ecmascript5
+                    :language-out  :ecmascript5
+                    ;; :optimizations :advanced
+                    :foreign-libs [{:file "dist/ui.js"
+                                    :provides ["js.ui"]}]
+                    :externs ["resources/libs_exts/ui.js"]}}
