@@ -19,7 +19,6 @@
     [:div#root]
     [:script#initial-data {:type "application/transit+json"}
      (data->transit data)]
-    #_(h/include-js "/ui/bundle.js")
     (h/include-js "/js/web.js")]))
 
 (defn middleware [handler]
