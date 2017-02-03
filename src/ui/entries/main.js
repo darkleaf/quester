@@ -1,34 +1,29 @@
-import 'nprogress/nprogress.css';
-import NProgress from 'nprogress';
+goog.provide('js.ui');
 
+require('nprogress/nprogress.css');
+const NProgress = require('nprogress');
 NProgress.configure({ showSpinner: false });
+js.ui.Nprogress = Nprogress;
 
-export { NProgress };
-export { default as React } from 'react';
-export { default as ReactDOM } from 'react-dom';
-
-export { default as Wrapper } from '../wrapper';
-
-export { default as MainPage } from '../components/pages/main';
-export { default as QuestPage } from '../components/pages/quest';
-
-export { default as Nav } from '../components/layout/nav';
-export { default as NavSection } from '../components/layout/nav-section';
-export { default as NavBrand } from '../components/layout/nav-brand';
-export { default as NavItem } from '../components/layout/nav-item';
-export { default as NavSearch } from '../components/layout/nav-search';
-
-export { default as MainCarousel } from '../components/layout/main-carousel';
-export { default as MainFilter } from '../components/layout/main-filter';
-export { default as Slider } from '../components/layout/slider';
-export { default as Gallery } from '../components/layout/gallery';
-
-export { default as SelectionCard } from '../components/entities/selection-card';
-export { default as QuestCard } from '../components/entities/quest-card';
-export { default as ReviewCard } from '../components/entities/review-card';
-export { default as CompanyCard } from '../components/entities/company-card';
-
-export { default as QuestSimilarQuests } from '../components/entities/quest/similar-quests';
-export { default as QuestDescription } from '../components/entities/quest/description';
-export { default as QuestSchedule } from '../components/entities/quest/schedule';
-export { default as QuestLocation } from '../components/entities/quest/location';
+js.ui.React = require('react');
+js.ui.ReactDOM = require('react-dom');
+js.ui.Wrapper = require('../wrapper');
+js.ui.MainPage = require('../components/pages/main');
+js.ui.QuestPage = require('../components/pages/quest');
+js.ui.Nav = require('../components/layout/nav');
+js.ui.NavSection = require('../components/layout/nav-section');
+js.ui.NavBrand = require('../components/layout/nav-brand');
+js.ui.NavItem = require('../components/layout/nav-item');
+js.ui.NavSearch = require('../components/layout/nav-search');
+js.ui.MainCarousel = require('../components/layout/main-carousel');
+js.ui.MainFilter = require('../components/layout/main-filter');
+js.ui.Slider = require('../components/layout/slider');
+js.ui.Gallery = require('../components/layout/gallery');
+js.ui.SelectionCard = require('../components/entities/selection-card');
+js.ui.QuestCard = require('../components/entities/quest-card');
+js.ui.ReviewCard = require('../components/entities/review-card');
+js.ui.CompanyCard = require('../components/entities/company-card');
+js.ui.QuestSimilarQuests = require('../components/entities/quest/similar-quests');
+js.ui.QuestDescription = require('../components/entities/quest/description');
+js.ui.QuestSchedule = require('../components/entities/quest/schedule');
+js.ui.QuestLocation = require('../components/entities/quest/location');

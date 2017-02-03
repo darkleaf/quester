@@ -12,8 +12,6 @@ module.exports = {
   output: {
     path: path.join(rootPath, 'resources', 'public', 'ui'),
     filename: 'bundle.js',
-    library: 'ui',
-    libraryTarget: 'var',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
