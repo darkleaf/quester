@@ -1,6 +1,7 @@
 language: node_js
 node_js:
-  - stable
+  - "6.1"
+
 install:
   - npm install --global yarn
   - yarn install

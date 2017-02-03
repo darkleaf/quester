@@ -16,31 +16,50 @@ module.exports = {
     libraryTarget: 'var',
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.jsx?$/,
-      loaders: ['babel'],
-      include: path.join(rootPath, 'src', 'ui'),
-    }, {
-      test: /\.css$/,
-      loaders: [
-        'style-loader',
-        'css?modules&camelCase',
-        'postcss'
+      use: [
+        {
+          loader: 'babel-loader',
+          options: {
+            presets: ["es2015", "react"],
+          }
+        }
       ],
       include: path.join(rootPath, 'src', 'ui'),
     }, {
       test: /\.css$/,
-      loaders: [
-        'style-loader',
-        'css'
+      use: [
+        {
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            camelCase: true,
+          },
+        }, {
+          loader: 'postcss-loader',
+          options: {
+            importLoaders: 1,
+            plugins: () => [postcssImport, use({ modules: '*' }), autoprefixer],
+          }
+        },
+      ],
+      include: path.join(rootPath, 'src', 'ui'),
+    }, {
+      test: /\.css$/,
+      use: [
+        {
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader'
+        },
       ],
       exclude: path.join(rootPath, 'src', 'ui'),
     }],
-  },
-  postcss() {
-    return [postcssImport, use({ modules: '*' }), autoprefixer];
   },
 };

@@ -8,17 +8,29 @@ module.exports = {
     filename: 'tests.js',
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      loader: 'babel',
-      include: path.join(rootPath, 'src', 'ui'),
-    }, {
-      test: /\.css$/,
-      loader: 'null-loader',
-    }],
+    rules: [
+      {
+        test: /\.jsx?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ["es2015", "react"],
+              plugins: [
+                ["istanbul", {"exclude": ["**/*_test.jsx"]}]
+              ],
+            },
+          },
+        ],
+        include: path.join(rootPath, 'src', 'ui'),
+      }, {
+        test: /\.css$/,
+        loader: 'null-loader',
+      }
+    ],
   },
   target: 'node',
 };

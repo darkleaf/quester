@@ -10,7 +10,8 @@ const rootPath = path.join(__dirname, '..', '..');
 module.exports = {
   devtool: 'eval',
   entry: [
-    'webpack-dev-server/client?http://localhost:3001',
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     path.join(rootPath, 'src', 'ui', 'entries', 'example'),
   ],
@@ -19,35 +20,65 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/static/',
   },
+  devServer: {
+    hot: true,
+    contentBase: path.join(rootPath, 'src', 'ui-dev', 'public'),
+    publicPath: '/static/'
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      loaders: ['react-hot', 'babel'],
+    rules: [
+      {
+        test: /\.jsx?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ["es2015", "react"],
+              plugins: ["react-hot-loader/babel"],
+            }
+          }
+        ],
       include: path.join(rootPath, 'src', 'ui'),
-    }, {
-      test: /\.css$/,
-      loaders: [
-        'style-loader',
-        'css?modules&camelCase&localIdentName=[folder]---[local]---[hash:base64:3]',
-        'postcss'
-      ],
-      include: path.join(rootPath, 'src', 'ui'),
-    }, {
-      test: /\.css$/,
-      loaders: [
-        'style-loader',
-        'css',
-      ],
-      exclude: path.join(rootPath, 'src', 'ui'),
-    }],
-  },
-  postcss() {
-    return [postcssImport, use({ modules: '*' }), autoprefixer];
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              camelCase: true,
+              localIdentName: '[folder]---[local]---[hash:base64:3]',
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              importLoaders: 1,
+              plugins: () => [postcssImport, use({ modules: '*' }), autoprefixer],
+            },
+          },
+        ],
+        include: path.join(rootPath, 'src', 'ui'),
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+        exclude: path.join(rootPath, 'src', 'ui'),
+      }
+    ],
   },
 };

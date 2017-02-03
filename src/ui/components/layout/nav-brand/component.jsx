@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './styles.css';
 
-export default class NavBrand extends Component {
-  render() {
-    const { name, url } = this.props;
-    return (
-      <div className={styles.container}>
-        <a href={url}>{name}</a>
-      </div>
-    );
-  }
+export default function NavBrand({ name, url }) {
+  return (
+    <div className={styles.container}>
+      <a href={url}>{name}</a>
+    </div>
+  );
 }
 
 NavBrand.propTypes = {
