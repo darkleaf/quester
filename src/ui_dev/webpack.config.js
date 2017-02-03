@@ -22,7 +22,7 @@ module.exports = {
   },
   devServer: {
     hot: true,
-    contentBase: path.join(rootPath, 'src', 'ui-dev', 'public'),
+    contentBase: path.join(rootPath, 'src', 'ui_dev', 'public'),
     publicPath: '/static/'
   },
   plugins: [
