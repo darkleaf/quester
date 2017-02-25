@@ -1,31 +1,34 @@
-const store = {};
+/* eslint global-require: "off" */
 
 require('nprogress/nprogress.css');
-const NProgress = require('nprogress');
-NProgress.configure({ showSpinner: false });
-store.NProgress = NProgress;
-store.React = require('react');
-store.ReactDOM = require('react-dom');
-store.Wrapper = require('../wrapper').default;
-store.MainPage = require('../components/pages/main').default;
-store.QuestPage = require('../components/pages/quest').default;
-store.Nav = require('../components/layout/nav').default;
-store.NavSection = require('../components/layout/nav-section').default;
-store.NavBrand = require('../components/layout/nav-brand').default;
-store.NavItem = require('../components/layout/nav-item').default;
-store.NavSearch = require('../components/layout/nav-search').default;
-store.MainCarousel = require('../components/layout/main-carousel').default;
-store.MainFilter = require('../components/layout/main-filter').default;
-store.Slider = require('../components/layout/slider').default;
-store.Gallery = require('../components/layout/gallery').default;
-store.SelectionCard = require('../components/entities/selection-card').default;
-store.QuestCard = require('../components/entities/quest-card').default;
-store.ReviewCard = require('../components/entities/review-card').default;
-store.CompanyCard = require('../components/entities/company-card').default;
-store.QuestSimilarQuests = require('../components/entities/quest/similar-quests').default;
-store.QuestDescription = require('../components/entities/quest/description').default;
-store.QuestSchedule = require('../components/entities/quest/schedule').default;
-store.QuestLocation = require('../components/entities/quest/location').default;
+
+const store = {
+  NProgress: require('nprogress'),
+  React: require('react'),
+  ReactDOM: require('react-dom'),
+  Wrapper: require('../wrapper').default,
+  MainPage: require('../components/pages/main').default,
+  QuestPage: require('../components/pages/quest').default,
+  Nav: require('../components/layout/nav').default,
+  NavSection: require('../components/layout/nav-section').default,
+  NavBrand: require('../components/layout/nav-brand').default,
+  NavItem: require('../components/layout/nav-item').default,
+  NavSearch: require('../components/layout/nav-search').default,
+  MainCarousel: require('../components/layout/main-carousel').default,
+  MainFilter: require('../components/layout/main-filter').default,
+  Slider: require('../components/layout/slider').default,
+  Gallery: require('../components/layout/gallery').default,
+  SelectionCard: require('../components/entities/selection-card').default,
+  QuestCard: require('../components/entities/quest-card').default,
+  ReviewCard: require('../components/entities/review-card').default,
+  CompanyCard: require('../components/entities/company-card').default,
+  QuestSimilarQuests: require('../components/entities/quest/similar-quests').default,
+  QuestDescription: require('../components/entities/quest/description').default,
+  QuestSchedule: require('../components/entities/quest/schedule').default,
+  QuestLocation: require('../components/entities/quest/location').default,
+};
+
+store.NProgress.configure({ showSpinner: false });
 
 // Свистопляски, чтобы Closure Compiler не минифицировал имена
 // Можно будет потом неймспейсы вводить =)
