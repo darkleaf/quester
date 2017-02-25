@@ -1,17 +1,34 @@
-language: node_js
-node_js:
-  - "6.1"
+language: java
+jdk:
+  - oraclejdk8
 
 install:
+  # boot
+  - mkdir -p ~/bin
+  - export PATH=~/bin:$PATH
+  - curl -L https://github.com/boot-clj/boot-bin/releases/download/2.5.2/boot.sh -o ~/bin/boot
+  - chmod +x ~/bin/boot
+  # yarn
+  - . $HOME/.nvm/nvm.sh
+  - nvm install 6.1
+  - nvm use 6.1
   - npm install --global yarn
   - yarn install
+
 script:
+  - boot test
   - yarn run test
   - yarn run build #TODO: убрать, когда сделаем тестирование в DOM
   - yarn run lint
   - yarn run stylelint
+
 after_success:
   - yarn run push-coverage
+
 cache:
   directories:
-    - node_modules
+  - $HOME/.m2
+  - $HOME/.boot/cache/bin
+  - $HOME/.boot/cache/lib
+  - $HOME/bin
+  - node_modules
