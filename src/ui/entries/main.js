@@ -1,34 +1,35 @@
-import 'nprogress/nprogress.css';
-import NProgress from 'nprogress';
+/* eslint global-require: "off" */
 
-NProgress.configure({ showSpinner: false });
+require('nprogress/nprogress.css');
 
-export { NProgress };
-export { default as React } from 'react';
-export { default as ReactDOM } from 'react-dom';
+const store = {
+  NProgress: require('nprogress'),
+  React: require('react'),
+  ReactDOM: require('react-dom'),
+  Wrapper: require('../wrapper').default,
+  MainPage: require('../components/pages/main').default,
+  QuestPage: require('../components/pages/quest').default,
+  Nav: require('../components/layout/nav').default,
+  NavSection: require('../components/layout/nav-section').default,
+  NavBrand: require('../components/layout/nav-brand').default,
+  NavItem: require('../components/layout/nav-item').default,
+  NavSearch: require('../components/layout/nav-search').default,
+  MainCarousel: require('../components/layout/main-carousel').default,
+  MainFilter: require('../components/layout/main-filter').default,
+  Slider: require('../components/layout/slider').default,
+  Gallery: require('../components/layout/gallery').default,
+  SelectionCard: require('../components/entities/selection-card').default,
+  QuestCard: require('../components/entities/quest-card').default,
+  ReviewCard: require('../components/entities/review-card').default,
+  CompanyCard: require('../components/entities/company-card').default,
+  QuestSimilarQuests: require('../components/entities/quest/similar-quests').default,
+  QuestDescription: require('../components/entities/quest/description').default,
+  QuestSchedule: require('../components/entities/quest/schedule').default,
+  QuestLocation: require('../components/entities/quest/location').default,
+};
 
-export { default as Wrapper } from '../wrapper';
+store.NProgress.configure({ showSpinner: false });
 
-export { default as MainPage } from '../components/pages/main';
-export { default as QuestPage } from '../components/pages/quest';
-
-export { default as Nav } from '../components/layout/nav';
-export { default as NavSection } from '../components/layout/nav-section';
-export { default as NavBrand } from '../components/layout/nav-brand';
-export { default as NavItem } from '../components/layout/nav-item';
-export { default as NavSearch } from '../components/layout/nav-search';
-
-export { default as MainCarousel } from '../components/layout/main-carousel';
-export { default as MainFilter } from '../components/layout/main-filter';
-export { default as Slider } from '../components/layout/slider';
-export { default as Gallery } from '../components/layout/gallery';
-
-export { default as SelectionCard } from '../components/entities/selection-card';
-export { default as QuestCard } from '../components/entities/quest-card';
-export { default as ReviewCard } from '../components/entities/review-card';
-export { default as CompanyCard } from '../components/entities/company-card';
-
-export { default as QuestSimilarQuests } from '../components/entities/quest/similar-quests';
-export { default as QuestDescription } from '../components/entities/quest/description';
-export { default as QuestSchedule } from '../components/entities/quest/schedule';
-export { default as QuestLocation } from '../components/entities/quest/location';
+// Свистопляски, чтобы Closure Compiler не минифицировал имена
+// Можно будет потом неймспейсы вводить =)
+module.exports = name => store[name];

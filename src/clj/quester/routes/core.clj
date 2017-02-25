@@ -3,7 +3,7 @@
             [quester.routes.web :as web]
             [quester.middlewares.core :refer [middleware]]))
 
-(def routes
+(defn build-routes []
   (r/wrapper
    middleware
-   web/routes))
+   (web/build-routes)))

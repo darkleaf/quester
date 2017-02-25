@@ -23,7 +23,6 @@
 (defn restart []
   (let [deps-container (-> (container/build)
                            (deps/register))]
-
     (r/render-component
      [screen screen-identity deps-container initial-state]
      mount-point)))

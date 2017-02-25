@@ -1,3 +1,4 @@
-(ns cljsjs.react)
+(ns cljsjs.react
+  (:require [js.ui]))
 
-(aset js/window "React" js/window.ui.React)
+(aset js/window "React" (js/ui "React"))
