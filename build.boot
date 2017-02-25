@@ -34,27 +34,9 @@
 
 (replace-task!
  [t test] (fn [& xs]
-            (merge-env! :source-paths #{"test/clj_pure"})
+            (merge-env! :source-paths #{"test/clj"})
             (apply t xs))
  [r repl] (fn [& xs]
-            (merge-env! :source-paths #{"src/clj_dev" "test/clj_pure"})
+            (merge-env! :source-paths #{"src/clj_dev" "test/clj"})
             (require 'dev)
             (apply r xs)))
-
-#_(deftask cider []
-    (require 'boot.repl)
-    (swap! @(resolve 'boot.repl/*default-dependencies*)
-           concat '[[cider/cider-nrepl "0.14.0"]
-                    [refactor-nrepl "2.2.0"]])
-    (swap! @(resolve 'boot.repl/*default-middleware*)
-           concat '[cider.nrepl/cider-middleware
-                    refactor-nrepl.middleware/wrap-refactor])
-    (merge-env! :source-paths #{"src/clj-dev"})
-    (require ['user :as 'u])
-    (comp
-     (repl :server true)
-     (watch)
-     (refresh)
-     (cljs-repl-env)
-     (reload :asset-path "/public", :on-jsload 'quester.web/restart)
-     (cljs)))
