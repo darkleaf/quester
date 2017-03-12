@@ -1,10 +1,11 @@
 (ns quester.controllers.web.main
-  (:require [ring.util.response :as r]
+  (:require [ring.util.response :refer [response]]
+            [darkleaf.router :as r]
             [quester.util.container :as c]))
 
-(def controller
-  {:show (fn [req]
-           (let [deps (:deps-registry req)
-                 uc (c/resolve deps :use-cases/welcome)
-                 data (uc)]
-             (r/response data)))})
+(r/defcontroller controller
+  (show [req]
+    (let [deps (:deps-registry req)
+          uc (c/resolve deps :use-cases/welcome)
+          data (uc)]
+      (response data))))

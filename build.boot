@@ -5,7 +5,7 @@
                  [org.clojure/clojurescript "1.9.293"]
                  [ring/ring-core "1.5.0"]
                  [ring/ring-jetty-adapter "1.5.0"]
-                 [darkleaf/router "0.2.0-alpha2"]
+                 [darkleaf/router "0.3.2"]
                  [kibu/pushy "0.3.6"]
                  [cljs-http "0.1.42"]
                  [org.clojure/core.async "0.2.395"]

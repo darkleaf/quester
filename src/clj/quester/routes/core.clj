@@ -4,6 +4,5 @@
             [quester.middlewares.core :refer [middleware]]))
 
 (defn build-routes []
-  (r/wrapper
-   middleware
-   (web/build-routes)))
+  (r/group :middleware middleware
+    (web/build-routes)))

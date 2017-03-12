@@ -6,7 +6,7 @@
 
 (defn container [card url-for]
   [ui/quest-card {:name (::quest/name card)
-                  :url (url-for :show [:quest] {:quest-id (::common/uuid card)})
+                  :url (url-for :show [:quest] {:quest (::common/uuid card)})
                   :imageUrl (str "https://unsplash.it/300/210?image=" (rand-int 1000))
                   :priceMin (::quest-projection/price-min card)
                   :priceMax (::quest-projection/price-max card)

@@ -5,8 +5,6 @@
             [quester.middlewares.web :refer [middleware]]))
 
 (defn build-routes []
-  (r/wrapper
-   middleware
-   (r/resource :main main/controller
-               :segment false)
-   (r/resources :quests :quest quests/controller)))
+  (r/group :middleware middleware
+    (r/resource :main main/controller :segment false)
+    (r/resources :quests :quest quests/controller)))
