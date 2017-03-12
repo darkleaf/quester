@@ -5,6 +5,7 @@
                  [org.clojure/clojurescript "1.9.293"]
                  [ring/ring-core "1.5.0"]
                  [ring/ring-jetty-adapter "1.5.0"]
+                 [metosin/ring-http-response "0.8.2"]
                  [darkleaf/router "0.3.2"]
                  [kibu/pushy "0.3.6"]
                  [cljs-http "0.1.42"]
@@ -17,6 +18,7 @@
                                                cljsjs/react-dom
                                                cljsjs/react-dom-server]]
                  [org.clojure/test.check "0.9.0" :scope "test"]
+                 [ring/ring-mock "0.3.0"]
                  [adzerk/boot-test "1.2.0"]
                  [samestep/boot-refresh "0.1.0" :scope "test"]
                  [adzerk/boot-reload "0.4.13" :scope "test"]
