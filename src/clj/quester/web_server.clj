@@ -7,13 +7,12 @@
             [ring.middleware.resource :refer [wrap-resource]]
             [ring.middleware.content-type :refer [wrap-content-type]]
             [ring.middleware.not-modified :refer [wrap-not-modified]]
-            [quester.util.container :as container]
-            [quester.deps :as deps]))
+            [quester.ctx-stub :as ctx-stub]))
 
-(defn wrap-deps [handler]
+(defn wrap-ctx [handler]
   (fn [req]
     (-> req
-        (assoc :deps-registry deps/registry)
+        (assoc :quester/ctx (ctx-stub/->ContextStub))
         (handler))))
 
 (defn build-handler []
@@ -21,7 +20,7 @@
       (wrap-resource "public")
       (wrap-content-type)
       (wrap-not-modified)
-      (wrap-deps)))
+      (wrap-ctx)))
 
 (defstate web-server
   :start (run-jetty (build-handler) {:port 3000, :join? false})

@@ -1,12 +1,11 @@
 (ns quester.controllers.web.quests
   (:require [darkleaf.router :as r]
-            [ring.util.response :refer [response]]
-            [quester.util.container :as c]))
+            [ring.util.http-response :as response]
+            [quester.use-cases.quests.show :as quests.show]))
 
 (r/defcontroller controller
   (show [req]
-    (let [deps (:deps-registry req)
-          uc (c/resolve deps :use-cases.quests/show)
-          {:keys [quest-id]} (::r/params req)
-          data (uc quest-id)]
-      (response data))))
+    (let [{:keys [quest-id]} (::r/params req)
+          ctx (:quester/ctx req)
+          data (quests.show/use-case ctx quest-id)]
+      (response/ok data))))

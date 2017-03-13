@@ -1,7 +1,6 @@
 (ns quester.use-cases.quests.show
-  (:require [clojure.spec :as s]
-            [quester.projections.quest :as quest-projection]))
+  (:require [quester.use-cases.protocols.queries :as queries]))
 
-(defn use-case [{:keys [find-quest-page]} id]
-  (let [quest-page (s/assert ::quest-projection/page (find-quest-page id))]
+(defn use-case [ctx id]
+  (let [quest-page (queries/find-quest-page ctx id)]
     {:quest-page quest-page}))

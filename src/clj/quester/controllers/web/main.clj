@@ -1,5 +1,5 @@
 (ns quester.controllers.web.main
-  (:require [ring.util.response :refer [response]]
+  (:require [ring.util.http-response :as response]
             [darkleaf.router :as r]
             [quester.use-cases.welcome :as welcome]))
 
@@ -7,4 +7,4 @@
   (show [req]
     (let [ctx (:quester/ctx req)
           data (welcome/use-case ctx)]
-      (response data))))
+      (response/ok data))))
