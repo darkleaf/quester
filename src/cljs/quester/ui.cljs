@@ -1,6 +1,5 @@
 (ns quester.ui
-  (:require [reagent.core :as r]
-            [js.ui]))
+  (:require [reagent.core :as r]))
 
 ;; это не будет перезагружаться нагорячую =(
 
