@@ -1,9 +1,8 @@
 (ns quester.components.pages.main
   (:require
    [reagent.core :as reagent]
-   [quester.use-cases.main :as use-cases.main]
+   [quester.use-cases.main :as uc]
    [quester.ui :as ui]
-   [quester.components.context :as context]
    [quester.components.shared.nav :as nav]
    [quester.components.shared.selection-card :as selection-card]
    [quester.components.shared.review-card :as review-card]
@@ -25,7 +24,7 @@
               :totalCount 25
               :seeAllUrl "/selections"
               :windowLength 4}
-   (for [card (use-cases.main/get-selections-cards use-case)]
+   (for [card (uc/get-selections-cards use-case)]
      ^{:key (::common/uuid card)} [selection-card/container card])])
 
 (defn reviews-slider [use-case]
@@ -34,7 +33,7 @@
               :see-all-url "/reviews"
               :window-length 4
               :highlighted true}
-   (for [card (use-cases.main/get-reviews-cards use-case)]
+   (for [card (uc/get-reviews-cards use-case)]
      ^{:key (::common/uuid card)} [review-card/container card])])
 
 (defn best-quests-slider [use-case]
@@ -42,7 +41,7 @@
               :totalCount 10
               :seeAllUrl "/best"
               :windowLength 4}
-   (for [card (use-cases.main/get-best-quests-cards use-case)]
+   (for [card (uc/get-best-quests-cards use-case)]
      ^{:key (::common/uuid card)} [quest-card/container card])])
 
 (defn new-quests-slider [use-case]
@@ -50,7 +49,7 @@
               :totalCount 10
               :seeAllUrl "/quests"
               :windowLength 4}
-   (for [card (use-cases.main/get-new-quests-cards use-case)]
+   (for [card (uc/get-new-quests-cards use-case)]
     ^{:key (::common/uuid card)} [quest-card/container card])])
 
 (defn companies-slider [use-case]
@@ -58,7 +57,7 @@
                :totalCount 25
                :seeAllUrl "/companies"
                :windowLength 6}
-   (for [card (use-cases.main/get-companies-cards use-case)]
+   (for [card (uc/get-companies-cards use-case)]
      ^{:key (::common/uuid card)} [company-card/container card])])
 
 (defn component [use-case]

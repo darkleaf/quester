@@ -1,16 +1,19 @@
 (ns quester.components.pages.quest
-  (:require [reagent.core :as r]
-            [quester.ui :as ui]
-            [quester.entities.quest :as quest]
-            [quester.projections.quest :as quest-projection]))
+  (:require
+   [reagent.core :as reagent]
+   [quester.use-cases.quests.show :as uc]
+   [quester.ui :as ui]
+   [quester.components.shared.nav :as nav]
+   [quester.entities.quest :as quest]
+   [quester.projections.quest :as quest-projection]))
 
 (defn gallery []
   [ui/gallery {:imageUrls ["http://placehold.it/991x495/555"
                            "http://placehold.it/990x495/222"
                            "http://placehold.it/992x495"]}])
 
-(defn description [state]
-  (let [quest-page (:quest-page state)]
+(defn description [use-case]
+  (let [quest-page (uc/get-quest-page use-case)]
     [ui/quest-description {:name (::quest/name quest-page)
                            :description (::quest/description quest-page)
                            :rating (::quest-projection/total-rating quest-page)
@@ -33,19 +36,14 @@
                  :border "1px gray solid"}}
    "quest booking form"])
 
+(defn component [use-case]
+  (js/console.log use-case)
 
-(defn page [& {:as reagent-elements}]
-  (assert (= (-> reagent-elements keys set)
-             #{:nav
-               :gallery
-               :similar-quests
-               :description
-               :schedule
-               :location
-               :add-to-favorite
-               :booking}))
-  (let [react-elements (reduce-kv
-                        (fn [acc k v] (assoc acc k (r/as-element v)))
-                        {}
-                        reagent-elements)]
-    [ui/quest-page react-elements]))
+  [ui/quest-page {:nav (reagent/as-element [nav/container])
+                  :gallery (reagent/as-element [gallery])
+                  :similar-quests (reagent/as-element [similar-quests])
+                  :description (reagent/as-element [description use-case])
+                  :schedule (reagent/as-element [schedule])
+                  :location (reagent/as-element [location])
+                  :add-to-favorite (reagent/as-element [add-to-favorite])
+                  :booking (reagent/as-element [booking])}])

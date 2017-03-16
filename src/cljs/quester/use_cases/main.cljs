@@ -21,6 +21,3 @@
     (-> ctx context/get-state :new-quests-cards))
   (get-companies-cards [_]
     (-> ctx context/get-state :companies-cards)))
-
-(defn use-case [ctx]
-  (UseCase. ctx))
