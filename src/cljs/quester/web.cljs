@@ -62,9 +62,6 @@
 
 (defonce history (atom nil))
 
-#_(pushy/set-token! @history "/")
-#_(pushy/set-token! @history "/pages")
-
 (defn restart []
   (when (some? @history)
     (pushy/stop! @history))
