@@ -1,6 +1,9 @@
 (ns quester.controllers.web.quests
-  (:require [darkleaf.router :as r]))
+  (:require
+   [darkleaf.router :as r]))
 
 (r/defcontroller controller
-  (show [_req]
+  (show [req]
+    (let [ctx (:quester/ctx req)])
+
     :components.pages/quest))
