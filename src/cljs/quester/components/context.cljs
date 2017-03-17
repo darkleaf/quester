@@ -11,11 +11,11 @@
       :getChildContext
       (fn []
         (this-as this
-          (let [[_ value & _] (.. this -props -argv)]
+          (let [[_ value & _] (getValueByKeys this "props" "argv")]
             (js-obj key-name value))))
 
       :childContextTypes
-      (js-obj key-name js/React.PropTypes.any.isRequired)
+      (js-obj key-name (getValueByKeys js/React "PropTypes" "any" "isRequired"))
 
       :reagent-render
       (fn [_value & children]
@@ -29,7 +29,7 @@
       (str "ContextReceiver(" key-name ")")
 
       :contextTypes
-      (js-obj key-name js/React.PropTypes.any.isRequired)
+      (js-obj key-name (getValueByKeys js/React "PropTypes" "any" "isRequired"))
 
       :reagent-render
       (fn [& args]
