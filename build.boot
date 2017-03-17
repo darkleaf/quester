@@ -6,7 +6,7 @@
                  [ring/ring-core "1.5.0"]
                  [ring/ring-jetty-adapter "1.5.0"]
                  [metosin/ring-http-response "0.8.2"]
-                 [darkleaf/router "0.3.2"]
+                 [darkleaf/router "0.3.3"]
                  [kibu/pushy "0.3.6"]
                  [cljs-http "0.1.42"]
                  [org.clojure/core.async "0.2.395"]

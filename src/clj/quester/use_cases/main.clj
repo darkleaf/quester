@@ -1,4 +1,4 @@
-(ns quester.use-cases.welcome
+(ns quester.use-cases.main
   (:require [quester.use-cases.protocols.queries :as queries]))
 
 (defn use-case [ctx]
