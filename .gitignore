@@ -1,4 +1,5 @@
 /node_modules
+/boot_repository
 /dist/
 /out
 npm-debug.log
