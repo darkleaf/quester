@@ -1,0 +1,37 @@
+version: '3'
+services:
+  app:
+    image: clojure:boot-2.7.1-alpine
+    working_dir: /usr/src/app
+    command: >-
+      boot
+      -d cider/cider-nrepl:0.15.0-SNAPSHOT
+      -d refactor-nrepl:2.3.0-SNAPSHOT
+      -i "(require 'cider.tasks)"
+      cider.tasks/add-middleware -m cider.nrepl/cider-middleware
+      cider.tasks/add-middleware -m refactor-nrepl.middleware/wrap-refactor
+      wait
+      repl -s -p 40000 -b 0.0.0.0
+    environment:
+      - BOOT_LOCAL_REPO=/usr/src/repository
+    ports:
+      - "40000:40000"
+    volumes:
+      - .:/usr/src/app
+      - maven:/usr/src/repository
+  assets:
+    image: node:6.10.2-alpine
+    working_dir: /usr/src/app
+    command: >-
+      sh -c
+      "yarn --modules-folder /usr/src/node_modules
+      && export PATH=/usr/src/node_modules/.bin/:$PATH
+      && yarn run build-watch"
+    environment:
+      - NODE_PATH=/usr/src/node_modules
+    volumes:
+      - .:/usr/src/app
+      - yarn:/usr/src/node_modules
+volumes:
+  maven:
+  yarn:
